@@ -1,0 +1,90 @@
+0 HEAD
+1 SOUR PAF
+2 VERS 2.1
+1 DEST ANSTFILE
+1 SUBM @5@
+1 GEDC
+  2 VERS 5.2
+1 SCHEMA
+  2 INDI
+      3 BIRT
+        4 _HOSP
+ 5 LABL HOSPITAL
+ 5 DEFN The name of a hospital
+ 5 ISA  SITE       0 @1@ INDI
+1 NAME Robert Eugene/Williams/
+1 SEX M
+1 BIRT
+       2 DATE 02 OCT 1822
+  2 PLAC Weston, Madison, Connecticut
+  2 _HOSP St. Marks
+  2 SOUR @6@
+1 DEAT
+       2 DATE 14 APR 1905
+  2 PLAC Stamford, Fairfield, CT
+  2 QUAY 2
+1 BURI
+       2 PLAC Stamford, CT
+    3 CEME Spring Hill Cemetery
+ 1 OCCU Publisher
+1 FAMS @4@       0 @2@ INDI
+1 NAME Mary Ann/Wilson/
+1 SEX F
+1 BIRT
+  2 DATE BEF 1828
+  2 PLAC Connecticut
+1 FAMS @4@
+0 @3@ INDI
+1 NAME Joe/Williams/
+1 SEX M
+1 BIRT
+  2 DATE 11 JUN 1861
+  2 PLAC Idaho Falls, Bonneville, Idaho
+1 FAMC @4@       0 @4@ FAM
+1 HUSB @1@
+1 WIFE @2@
+1 CHIL @3@
+1 MARR
+  2 DATE DEC 1859       0 @5@ SUBM
+1 NAME Reldon /Poulson/
+1 ADDR 1900 43rd Street West
+  2 CONT Billings, MT 68051
+  2 PHON (406) 555-1232       0 @6@ SOUR
+1 TYPE VITAL
+1 EVEN BIRT
+1 TITL County Birth Records
+ 1 PERI FROM 1820 TO 1825
+1 PLAC ,Madison, Connecticut
+1 RECO CIVIL
+1 FIDE PHOTOCOPY
+1 REPO @7@
+  2 MEDI FILM
+  2 CALN 13B-1234.01       0 @7@ REPO
+1 NAME Family History Library
+1 ADDR 35 N West Temple Street
+  2 CONT Salt Lake City, UT 84150       0 TRLR
+
+
+0 @EV13@ EVEN
+ 1 TYPE CHR
+    2 DATE 17 NOV 1830
+    2 PLAC Littlehampton, West Sussex, England
+       3 ADDR 9 Chiltern Close
+4 CONT East Preston
+    2 @EV13!1@ CHIL
+       3 NAME Jason \Wilde\
+       3 AGE 4 yrs
+    2 @EV13!2@ MOTH
+       3 NAME Wilma \Wilson\
+       3 BIRT
+4 DATE 15 MAY 1810
+4 PLAC Nottingham, England
+    2  @EV13!3@ FATH
+       3 NAME William \Wilde\
+       3 BIRT
+4 DATE 15 OCT 1805
+4 PLAC Nottingham, England
+       3 ASSO @EV13!4@
+4 TYPE BROTHER
+    2 @EV13!4@ GODF
+       3 NAME David \Wilde\ 

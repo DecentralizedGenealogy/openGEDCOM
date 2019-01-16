@@ -1,0 +1,92 @@
+{
+	"Personal_Name": {
+		"Id":"1",
+		"NAM":"Rosa María Muñoz Izquierdo de Gómez, Ph.D.",
+		"Name_Parts": [
+			{
+				"SFC":"B",
+				"SFC_Short":"LN",
+				"Indicators": [
+					{
+						"Value":"Muñoz"
+					}
+				]
+			},
+			{
+				"SFC":"D",
+				"SFC_Short":"FN",
+				"Indicators": [
+					{
+			 			"Value":"Rosa",
+						"Sequence":1
+					},
+					{
+						"Value":"Maria",
+						"Sequence":2,
+						"Modifier":{
+							"SFC":"G_Date_237",
+							"Value":"Ind: 6|Date=DD:MM:YYY format 6|17:01:1962",
+							"Event":"E1",
+							"Type":"Birth"
+						}
+					}
+				]
+			},
+			{
+				"SFC":"H",
+				"SFC_Short":"SUF2",
+				"Indicators": [
+					{
+					"Value":"Ph.D.",
+					"Sequence":1
+					}
+				]
+			},
+			{
+				"SFC":"Q",
+				"SFC_Short":"CP-MN",
+				"Indicators": [
+					{
+						"Value":"Gómez",
+						"CompositeCurrent":"1",
+						"Sequence":1
+					}
+				]
+			},
+			{
+				"SFC":"R",
+				"SFC_Short":"MLN",
+				"Indicators": [
+					{
+						"Value":"Izquierdo"
+					}
+				]
+			},
+			{
+				"SFC":"S",
+				"SFC_Short":"PLN",
+				"Indicators": [
+					{
+						"Value":"Muñoz"
+					}
+				]
+			},
+			{
+				"SFC":"Z",
+				"SFC_Short":"D-NAM",
+				"Indicators": [
+					{
+						"Value":"Rosa María Muñoz Izquierdo de Gómez, Ph.D.",
+						"Sequence":1,
+						"SFC_Seq":"1|D1|D2|B|R|Q1|H1"
+					},
+					{
+						"Sequence":2,
+						"SFC_Seq":"2|D1|D2|B|Q1",
+						"Value":"Rosa María Muñoz Gómez"
+					}
+				]
+			}
+		]
+	}
+}

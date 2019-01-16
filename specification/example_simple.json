@@ -1,0 +1,87 @@
+{
+    "GEDCOM": {
+        "version": "7.0 draft",
+        "family": {
+            "id": "FM001",
+            "parents": [
+                { "ref": "IN001" },
+                { "ref": "IN002" }
+            ]
+            },
+            "children": [
+                { "ref": "IN003" }
+            ]
+        },
+        "individuals": [
+            { "id": "IN001" },
+            {
+                "id": "IN002",
+                "name": {
+                    "value": "Sarah Jane Williams",
+                    "parts": [
+                        {
+                            "FN": [ { "value": "Sarah" } ],
+                            "MN": [ { "value": "Jane" } ],
+                            "LN": [ { "value": "Williams" } ],
+                            "PLN": [ { "value": "Jones" } ]
+                        }
+                    ]
+                },
+                "sex": "female",
+                "living": "false"
+            },
+            { "id": "IN003" }
+        ],
+        "events": [
+            {
+                "id": "EV001",
+                "type": "marriage",
+                "participant": [
+                    {
+                        "ref": "IN001",
+                        "role": "husband"
+                    },
+                    {
+                        "Ref": "IN002",
+                        "role": "wife"
+                    }
+                ],
+                "date": { "text": "7 NOV 1834" },
+                "place": {
+                    "placeName": {
+                        "name": "Cove, Cache, Utah, USA",
+                        "placePart": [
+                            {
+                                "town": "Cove",
+                                "county": "Cache",
+                                "state": "Utah",
+                                "country": "USA"
+                            }
+                        ],
+                        "latitude": "40",
+                        "longitude": "-111"
+                    }
+                }
+            },
+            {
+                "id": "EV002",
+                "type": "birth",
+                "participant": [
+                    {
+                        "ref": "IN001",
+                        "role": "father"
+                    },
+                    {
+                        "ref": "IN002",
+                        "role": "mother"
+                    },
+                    {
+                        "ref": "IN003",
+                        "role": "child"
+                    }
+                ],
+                "date": { "text": "5 JUL 1856" }
+            }
+        ]
+    }
+}

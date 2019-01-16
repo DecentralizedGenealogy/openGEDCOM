@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE GEDCOM SYSTEM "…">
+<GEDCOM>
+    <!-- Header Record -->
+    <HeaderRec>
+        <FileCreation Date="2 OCT 2000" Time="15:20:2.3">
+            <Product>
+                <ProductId>DAS</ProductId>
+                <Version>6.3</Version>
+                <Name>Deluxe Ancestral System</Name>
+                <Supplier>
+                    <Link Target="ContactRec" Ref="CN001" />
+                </Supplier>
+            </Product>
+            <Copyright>Copyright 1999 So …</Copyright>
+        </FileCreation>
+        <Citation>
+            <!-- This citation is useful if the data in a file is from a single source. -->
+        </Citation>
+        <Submitter>
+            <Link Target="ContactRec" Ref="CN002" />
+        </Submitter>
+        <Note>…</Note>
+    </HeaderRec>
+    <!-- Family Records -->
+    <FamilyRec Id="FM001">
+        <HusbFath>
+            <Link Target="IndividualRec" Ref="IN001" />
+        </HusbFath>
+        <WifeMoth>
+            <Link Target="IndividualRec" Ref="IN002" />
+            <FamilyNbr>2</FamilyNbr>
+            <!-- Her second marriage or family. -->
+        </WifeMoth>
+        <Child>
+            <Link Target="IndividualRec" Ref="IN003" />
+            <ChildNbr>1</ChildNbr>
+            <!-- Child's order in family, if birth dates unknown. -->
+        </Child>
+        <Child>
+            <Link Target="IndividualRec" Ref="…" />
+            <ChildNbr>2</ChildNbr>
+            <RelToFath>adopted</RelToFath>
+        </Child>
+        <BasedOn>
+            <!-- Events justifying the creation of the family, and its members. -->
+            <Link Target="EventRec" Ref="EV001" />
+            <Link Target="EventRec" Ref="EV002" />
+            <Note>…</Note>
+        </BasedOn>
+        <ExternalID Type="AFN" Id="4S3469Q" />
+        <ExternalID Type="submitter" Id="F8945" />
+        <!-- This is the ID used by the system that produced this GEDCOM file. It can be used to communicate changes, differing opinions, and so on, to the file submitter. -->
+        <Submitter>…</Submitter>
+        <Note>…</Note>
+        <Evidence>
+            <Citation>
+                <!-- Normally a family is based on (see above) events, and the evidence citations are contained in the events. Evidence is allowed in family records for those cases where a family is documented, such as in a family history, but no specific events are known. -->
+            </Citation>
+        </Evidence>
+        <Enrichment>
+            <Citation>
+                <Link Target="SourceRec" Ref="SR002" />
+                <Caption>We Attend the Kunzle Family Reunion</Caption>
+                <WhereInSource>5 min, 15 sec into the video, to 10 min, 30 sec.</WhereInSource>
+                <Note>Our family is featured about 5 minutes into the video.</Note>
+            </Citation>
+        </Enrichment>
+        <Changed Date="23 APR 1976" Time="13:25:12">
+            <Note>Record created</Note>
+        </Changed>
+        <Changed Date="…" Time="…">
+            <!-- The Contact here is the person responsible for the change. -->
+            <Contact>
+                <Link Target="ContactRec" Ref="…" />
+            </Contact>
+            <Note>Adopted child added</Note>
+        </Changed>
+    </FamilyRec>
+    <!-- Individual Records -->
+    <IndividualRec Id="IN001">…</IndividualRec>
+    <IndividualRec Id="IN002">
+        <IndivName>
+            <NamePart Type="title">Duchess</NamePart>
+            <NamePart Type="given name" Level="3">Neta</NamePart>
+            <NamePart Type="maiden name" Level="2">Eskelson</NamePart>
+            von
+            <NamePart Type="surname" Level="1">Allen</NamePart>
+            <IndNameVariation Method="romanji">…</IndNameVariation>
+        </IndivName>
+        <IndivName Type="alias">…</IndivName>
+        <IndivName Type="nickname">…</IndivName>
+        <Gender>F</Gender>
+        <DeathStatus>dead</DeathStatus>
+        <PersInfo Type="occupation">
+            <Information>seamstress</Information>
+            <Date>FROM 1835 TO 1875</Date>
+        </PersInfo>
+        <PersInfo Type="residence">
+            <Date>FROM 10 JUL 1845 TO 25 MAY 1880</Date>
+            <Place>…</Place>
+        </PersInfo>
+        <PersInfo Type="attribute">
+            <Information>5 ft. 4 in. tall, blond hair, blue eyes, well mannered</Information>
+        </PersInfo>
+        <AssocIndiv>
+            <Link Target="IndividualRec" Ref="…" />
+            <Association>first ancestor</Association>
+            <!-- This shows how the associated person is related to this person. For example, the linked individual is my great uncle. The example shown is an oriental cultural requirement. -->
+            <Note>…</Note>
+            <Citation>…</Citation>
+        </AssocIndiv>
+        <DupIndiv>
+            <Link Target="IndividualRec" Ref="…" />
+            <Note>…</Note>
+            <Citation>…</Citation>
+        </DupIndiv>
+        <ExternalID Type="…" Id="…" />
+        <Submitter>…</Submitter>
+        <Note>…</Note>
+        <Evidence>…</Evidence>
+        <Enrichment>…</Enrichment>
+        <Changed>…</Changed>
+    </IndividualRec>
+    <IndividualRec Id="IN003">…</IndividualRec>
+    <!-- Event Records -->
+    <EventRec Id="EV001" Type="marriage" VitalType="marriage">
+        <Participant>
+            <Link Target="IndividualRec" Ref="IN001" />
+            <Role>husband</Role>
+            <Age>26</Age>
+        </Participant>
+        <Participant>
+            <Link Target="IndividualRec" Ref="IN002" />
+            <Role>wife</Role>
+            <Age>21</Age>
+        </Participant>
+        <Date Calendar="Julian">ABT 7 NOV 1834</Date>
+        <Place>
+            <PlaceName>
+                <PlacePart Type="town" Level="4">Cove</PlacePart>
+                ,
+                <PlacePart Type="county" Level="3">Cache</PlacePart>
+                ,
+                <PlacePart Type="state" Level="2">Utah</PlacePart>
+                ,
+                <PlacePart Type="country" Level="1">USA</PlacePart>
+                <!-- This would print as Cove, Cache, Utah, USA. In the data stream, each comma is followed by a blank, which can't be seen here. The line breaks that we have used for clarity are not in the actual data stream. -->
+            </PlaceName>
+            <Coordinates>18.153N 178.150E</Coordinates>
+            <PlaceNameVar Method="kana">…</PlaceNameVar>
+            <PlaceNameVar Method="romanji">…</PlaceNameVar>
+        </Place>
+        <Religion>Reformed Christian</Religion>
+        <ExternalID Type="…" Id="…" />
+        <Submitter>…</Submitter>
+        <Note>…</Note>
+        <Evidence>
+            <Citation>
+                <Link Target="SourceRec" Ref="SR001" />
+                <WhereInSource>File No. 7895-09, p. 23</WhereInSource>
+                <WhenRecorded>10 June 1903</WhenRecorded>
+                <Extract>Text extracted from the source.</Extract>
+                <Note>Certified copy in possession of Larry T. Smith, Sandy, Utah.</Note>
+            </Citation>
+        </Evidence>
+        <Enrichment>….</Enrichment>
+        <Changed>…</Changed>
+    </EventRec>
+    <EventRec Id="EV002" Type="christening" VitalType="birth">
+        <Participant>
+            <Link Target="IndividualRec" Ref="IN001" />
+            <Role>father</Role>
+        </Participant>
+        <Participant>
+            <Link Target="IndividualRec" Ref="IN002" />
+            <Role>mother</Role>
+        </Participant>
+        <Participant>
+            <Link Target="IndividualRec" Ref="IN003" />
+            <Role>child</Role>
+        </Participant>
+    </EventRec>
+    <!-- LDS Ordinance Records -->
+    <LDSOrdRec Id="OR001" Type="SP">
+        <Participant>
+            <Link Target=" IndividualRec " Ref="IN001" />
+            <Role>father</Role>
+            <Living>N</Living>
+        </Participant>
+        <Participant>
+            <Link Target=" IndividualRec " Ref="IN002" />
+            <Role>mother</Role>
+            <Living>N</Living>
+        </Participant>
+        <Participant>
+            <Link Target="IndividualRec" Ref="IN003" />
+            <Role>child</Role>
+            <Living>N</Living>
+        </Participant>
+        <OrdStat Code="submitted">
+            <Date>…</Date>
+        </OrdStat>
+        <OrdStat Code="cleared">
+            <Date>…</Date>
+        </OrdStat>
+        <OrdStat Code="completed">
+            <Date>7 APR 1982</Date>
+        </OrdStat>
+        <!-- Other examples: <OrdStat Code="dns"/> <OrdStat Code="bic"/> -->
+        <TempleCode>CHICA</TempleCode>
+        <Place>…</Place>
+        <BasedOn>
+            <Link Target="EventRec" Ref="…" />
+            <Note>…</Note>
+        </BasedOn>
+        <ExternalID Type="…" Id="…" />
+        <Submitter>…</Submitter>
+        <Note>…</Note>
+        <Evidence>…</Evidence>
+        <Enrichment>…</Enrichment>
+        <Changed>…</Changed>
+    </LDSOrdRec>
+    <!-- Contact Records -->
+    <ContactRec Id="CN001" Type="business">
+        <Name>Genealogical Technology Corp.</Name>
+        <MailAddress>
+            <AddrLine>GTC</AddrLine>
+            <AddrLine>Bldg 10, mail stop 2A</AddrLine>
+            <AddrLine>345 S. State Street</AddrLine>
+            <AddrLine>
+                <PlacePart Level="4" Type="city">Salt Lake City</PlacePart>
+                ,
+                <PlacePart Level="2" Type="state">UT</PlacePart>
+                ,
+                <PlacePart Level="1" Type="country">USA</PlacePart>
+            </AddrLine>
+            <AddrLine>
+                <PlacePart Level="5" Type="postal code">84050-3400</PlacePart>
+            </AddrLine>
+        </MailAddress>
+        <!-- This would print as:
+            GTC
+            Bldg 10, mail stop 2A
+            345 S. State Street
+            Salt Lake City, UT, USA
+            84050-3400
+        -->
+    </ContactRec>
+    <ContactRec Id="CN002" Type="person">
+        <Name>Joseph Tate</Name>
+        <MailAddress>
+            <AddrLine>
+                <Addressee>Mr. J. T. Tate</Addressee>
+            </AddrLine>
+            <AddrLine>1025 Pleasant Dr.</AddrLine>
+            <AddrLine>
+                <PlacePart Level="4" Type="town">Smithtown</PlacePart>
+                ,
+                <PlacePart Level="2" Type="state">CA</PlacePart>
+                ,
+                <PlacePart Level="1" Type="country">USA</PlacePart>
+            </AddrLine>
+            <AddrLine>
+                <PlacePart Level="5" Type="postal code">93502</PlacePart>
+            </AddrLine>
+        </MailAddress>
+        <Phone Type="home">940 345-6789</Phone>
+        <Email>joeqpublic@mycorp.com</Email>
+        <URI>http://www.mypage.org</URI>
+        <Public>Y</Public>
+        <Note>…</Note>
+        <Changed>…</Changed>
+        <SameIndiv>
+            <!-- This links a contact with his individual record, if there is one -->
+            <Link Target="IndividualRec" Ref="…" />
+        </SameIndiv>
+    </ContactRec>
+    <!-- Source Records -->
+    <SourceRec Id="SR001" Type="vital records">
+        <Repository>
+            <Link Target="RepositoryRec" Ref="RP001" />
+            <CallNbr>4568-09</CallNbr>
+        </Repository>
+        <Title>Marriage Registry</Title>
+        <Article>…</Article>
+        <!-- Used for titles of articles in magazines, periodicals, and so on. -->
+        <Author>California State Board of Health</Author>
+        <URI>…</URI>
+        <Publishing>…</Publishing>
+        <Note>…</Note>
+        <Changed>…</Changed>
+    </SourceRec>
+    <SourceRec Id="SR002" Type="video tape" xml:lang="de">
+        <Title>Kunzle Family Reunion</Title>
+        <Author>…</Author>
+        <URI>http://www.kunzlefam.org/famreun.mov</URI>
+        <Publishing>…</Publishing>
+        <Note>…</Note>
+        <Changed>…</Changed>
+    </SourceRec>
+    <SourceRec Id="SR003" Type="book">
+        <Title>Prominent Families of Early Boston</Title>
+        <Publishing>Lynn, Mass.: The Stuart Little Co., 1936</Publishing>
+    </SourceRec>
+    <!-- Repository Records -->
+    <RepositoryRec Id="RP001" Type="government">
+        <Name>California Department of Vital Records</Name>
+        <MailAddress>
+            <AddrLine>P. O. Box 2406</AddrLine>
+        </MailAddress>
+        <Phone>…</Phone>
+        <Email>…</Email>
+        <URI>…</URI>
+        <Note>…</Note>
+        <Changed>…</Changed>
+    </RepositoryRec>
+    <!-- Group Records -->
+    <GroupRec Id="GR001" Type="household">
+        <Name>Smith Home</Name>
+        <Contact>
+            <Link Target="ContactRec" Ref="…" />
+        </Contact>
+        <Member>
+            <Link Target="IndividualRec" Ref="IN001" />
+            <Role>head</Role>
+        </Member>
+        <Member>
+            <Link Target="IndividualRec" Ref="IN002" />
+            <Role>spouse</Role>
+        </Member>
+        <Member>
+            <Link Target="IndividualRec" Ref="IN003" />
+            <Role>son</Role>
+        </Member>
+        <Member>
+            <Link Target="IndividualRec" Ref="…" />
+            <Role>nanny</Role>
+        </Member>
+        <ParentGroup>
+            <Link Target="GroupRec" Ref="…" />
+            <!-- Neighborhood, for example. -->
+        </ParentGroup>
+        <MailAddress>…</MailAddress>
+        <Phone>…</Phone>
+        <Email>…</Email>
+        <URI>…</URI>
+        <ExternalID Type="…" Id="…" />
+        <Submitter>…</Submitter>
+        <Note>…</Note>
+        <Evidence>…</Evidence>
+        <Enrichment>…</Enrichment>
+        <Changed>…</Changed>
+        <!-- The Group record can be used for any type of group. It could be used for unconventional familial groups such as tribes, communes, and so on, which are not the basis for sealing ordinances. -->
+    </GroupRec>
+</GEDCOM>

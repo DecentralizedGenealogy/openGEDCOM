@@ -1,0 +1,811 @@
+{
+  "xsd:schema": {
+    "-xmlns:xsd": "http://www.w3.org/2001/XMLSchema",
+    "-xmlns": "http://www.nxlight.net/ConsolidatedCompositeDataDictionary/1.0",
+    "-xmlns:ds": "http://www.w3.org/2000/09/xmldsig#",
+    "-xmlns:iso639": "http://example.iso.org/schemas/LanguageCodesISO639.xsd",
+    "-targetNamespace": "http://www.innovatrend.com/CompositeClinicalDataDictionary/1.0",
+    "xsd:annotation": {
+      "xsd:documentation": [
+        {
+          "-xml:lang": "en",
+          "#text": "Consolidated Composite Data Dictionary or C2D2"
+        },
+        {
+          "-xml:lang": "en",
+          "#text": "Copyright 2010 Innovatrend Inc. All rights reserved."
+        }
+      ]
+    },
+    "xsd:import": {
+      "-namespace": "http://www.w3.org/2000/09/xmldsig#",
+      "-schemaLocation": "xmldsig-core-schema.xsd"
+    },
+    "xsd:element": [
+
+      {
+        "-name": "PersonalName",
+        "xsd:annotation": {
+          "xsd:documentation": {
+            "-xml:lang": "en",
+            "#text": "A Personal Name is broken into Atomic-level data elements"
+          }
+        },
+        "xsd:complexType": {
+          "xsd:sequence": {
+            "xsd:element": [
+              { "-ref": "NAM" },
+              {
+                "-ref": "LN",
+                "-minOccurs": "0"
+              },
+              {
+                "-ref": "H-LN",
+                "-minOccurs": "0"
+              },
+              { "-ref": "FN" },
+              {
+                "-ref": "LN-PX",
+                "-minOccurs": "0"
+              },
+              {
+                "-ref": "MN",
+                "-minOccurs": "0"
+              },
+              {
+                "-ref": "SUF",
+                "-minOccurs": "0"
+              },
+              {
+                "-ref": "SUF2",
+                "-minOccurs": "0"
+              },
+              {
+                "-ref": "SUF3",
+                "-minOccurs": "0"
+              },
+              {
+                "-ref": "NUM",
+                "-minOccurs": "0"
+              },
+              {
+                "-ref": "TITLE",
+                "-minOccurs": "0"
+              },
+              {
+                "-ref": "PREF",
+                "-minOccurs": "0"
+              },
+              {
+                "-ref": "P-PRF",
+                "-minOccurs": "0"
+              },
+              {
+                "-ref": "ALIAS",
+                "-minOccurs": "0"
+              },
+              {
+                "-ref": "P-AL",
+                "-minOccurs": "0"
+              },
+              {
+                "-ref": "MADN",
+                "-minOccurs": "0"
+              },
+              {
+                "-ref": "P-MN",
+                "-minOccurs": "0"
+              },
+              {
+                "-ref": "MLN",
+                "-minOccurs": "0"
+              },
+              {
+                "-ref": "PLN",
+                "-minOccurs": "0"
+              },
+              {
+                "-ref": "GEO",
+                "-minOccurs": "0"
+              },
+              {
+                "-ref": "AVO",
+                "-minOccurs": "0"
+              },
+              {
+                "-ref": "TRIB",
+                "-minOccurs": "0"
+              },
+              { "-ref": "D-NAM" },
+              {
+                "-ref": "ds:Signature",
+                "-minOccurs": "0"
+              }
+            ]
+          },
+          "xsd:attribute": {
+            "-name": "Id",
+            "-type": "xsd:ID",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "A globally unique identifier for the personal name."
+              }
+            }
+          }
+        }
+      },
+
+
+
+      {
+        "-name": "NAM",
+        "-type": "xsd:string",
+        "xsd:annotation": {
+          "xsd:documentation": {
+            "-xml:lang": "en",
+            "#text": "Name String, such as it exists. Example:\"Davis, Lance, Steven John\""
+          }
+        },
+        "xsd:attribute": {
+          "-name": "LangCode",
+          "-type": "iso639:CodeContentType",
+          "-use": "optional",
+          "xsd:annotation": {
+            "xsd:documentation": {
+              "-xml:lang": "en",
+              "#text": "The 3 character code for the language of the string"
+            }
+          }
+        }
+      },
+      {
+        "-name": "LN",
+        "-type": "xsd:string",
+        "xsd:annotation": {
+          "xsd:documentation": {
+            "-xml:lang": "en",
+            "#text": "Last Name or Family Name String. Example:\"Schlovinski\""
+          }
+        },
+        "xsd:attribute": {
+          "-name": "LangCode",
+          "-type": "iso639:CodeContentType",
+          "-use": "optional",
+          "xsd:annotation": {
+            "xsd:documentation": {
+              "-xml:lang": "en",
+              "#text": "The 3 character code for the language of the string"
+            }
+          }
+        }
+      },
+      {
+        "-name": "H-LN",
+        "-type": "xsd:string",
+        "xsd:annotation": {
+          "xsd:documentation": {
+            "-xml:lang": "en",
+            "#text": "Hyphenated Last Name String. Example:\"Bjon-Schlovinski\""
+          }
+        },
+        "xsd:attribute": {
+          "-name": "LangCode",
+          "-type": "iso639:CodeContentType",
+          "-use": "optional",
+          "xsd:annotation": {
+            "xsd:documentation": {
+              "-xml:lang": "en",
+              "#text": "The 3 character code for the language of the string"
+            }
+          }
+        }
+      },
+      {
+        "-name": "FN",
+        "-type": "xsd:string",
+        "xsd:annotation": {
+          "xsd:documentation": {
+            "-xml:lang": "en",
+            "#text": "First Name or Given Name String. Example:\"James\""
+          }
+        },
+        "xsd:attribute": {
+          "-name": "LangCode",
+          "-type": "iso639:CodeContentType",
+          "-use": "optional",
+          "xsd:annotation": {
+            "xsd:documentation": {
+              "-xml:lang": "en",
+              "#text": "The 3 character code for the language of the string"
+            }
+          }
+        }
+      },
+      {
+        "-name": "LN-PX",
+        "-type": "xsd:string",
+        "xsd:annotation": {
+          "xsd:documentation": {
+            "-xml:lang": "en",
+            "#text": "Last Name Prefix String. Example:\"Von as in Von Neuman\""
+          }
+        },
+        "xsd:attribute": [
+          {
+            "-name": "LangCode",
+            "-type": "iso639:CodeContentType",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The 3 character code for the language of the string"
+              }
+            }
+          },
+          {
+            "-name": "Sequence",
+            "-type": "xsd:nonNegativeInteger",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The sequence of the Last Name Prefix"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "-name": "MN",
+        "-type": "xsd:string",
+        "xsd:annotation": {
+          "xsd:documentation": {
+            "-xml:lang": "en",
+            "#text": "Middle Name String (Ind and Mod). Example:\"Lewis\""
+          }
+        },
+        "xsd:attribute": [
+          {
+            "-name": "LangCode",
+            "-type": "iso639:CodeContentType",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The 3 character code for the language of the string"
+              }
+            }
+          },
+          {
+            "-name": "Sequence",
+            "-type": "xsd:nonNegativeInteger",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The sequence of the Middle Name"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "-name": "SUF1",
+        "-type": "xsd:string",
+        "xsd:annotation": {
+          "xsd:documentation": {
+            "-xml:lang": "en",
+            "#text": "Last Name Suffix String. Example:\"Jr., Esq.\""
+          }
+        },
+        "xsd:attribute": [
+          {
+            "-name": "LangCode",
+            "-type": "iso639:CodeContentType",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The 3 character code for the language of the string"
+              }
+            }
+          },
+          {
+            "-name": "Sequence",
+            "-type": "xsd:nonNegativeInteger",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The sequence of the Last Name Suffix string"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "-name": "SUF2",
+        "-type": "xsd:string",
+        "xsd:annotation": {
+          "xsd:documentation": {
+            "-xml:lang": "en",
+            "#text": "Last Name Academic Suffixes String. Example:\"Ph.D., M.D., J.D.\""
+          }
+        },
+        "xsd:attribute": [
+          {
+            "-name": "LangCode",
+            "-type": "iso639:CodeContentType",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The 3 character code for the language of the string"
+              }
+            }
+          },
+          {
+            "-name": "Sequence",
+            "-type": "xsd:nonNegativeInteger",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The sequence of the Last Name Academic Suffixes"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "-name": "SUF3",
+        "-type": "xsd:string",
+        "xsd:annotation": {
+          "xsd:documentation": {
+            "-xml:lang": "en",
+            "#text": "Last Name Professional Organization Suffixes String. Example:\"PE, RHIA, RHIT\""
+          }
+        },
+        "xsd:attribute": [
+          {
+            "-name": "LangCode",
+            "-type": "iso639:CodeContentType",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The 3 character code for the language of the string"
+              }
+            }
+          },
+          {
+            "-name": "Sequence",
+            "-type": "xsd:nonNegativeInteger",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The sequence of the Last Name Professional Organization Suffixes"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "-name": "NUM",
+        "-type": "xsd:string",
+        "xsd:annotation": {
+          "xsd:documentation": {
+            "-xml:lang": "en",
+            "#text": "Numeration String. Example:\"IV, XIV\""
+          }
+        },
+        "xsd:attribute": [
+          {
+            "-name": "LangCode",
+            "-type": "iso639:CodeContentType",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The 3 character code for the language of the string"
+              }
+            }
+          },
+          {
+            "-name": "Sequence",
+            "-type": "xsd:nonNegativeInteger",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The sequence of the Numeration"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "-name": "TITLE",
+        "-type": "xsd:string",
+        "xsd:annotation": {
+          "xsd:documentation": {
+            "-xml:lang": "en",
+            "#text": "Titles String. Example:\"Lord\""
+          }
+        },
+        "xsd:attribute": [
+          {
+            "-name": "LangCode",
+            "-type": "iso639:CodeContentType",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The 3 character code for the language of the string"
+              }
+            }
+          },
+          {
+            "-name": "Sequence",
+            "-type": "xsd:nonNegativeInteger",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The sequence of the Titles String"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "-name": "PREF",
+        "-type": "xsd:string",
+        "xsd:annotation": {
+          "xsd:documentation": {
+            "-xml:lang": "en",
+            "#text": "Prefix/Salutation String. Example:\"My Lord, Honorable, Dr, Ms.\""
+          }
+        },
+        "xsd:attribute": [
+          {
+            "-name": "LangCode",
+            "-type": "iso639:CodeContentType",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The 3 character code for the language of the string"
+              }
+            }
+          },
+          {
+            "-name": "Sequence",
+            "-type": "xsd:nonNegativeInteger",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The sequence of the Prefix/Salutation String"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "-name": "P-PRF",
+        "-type": "xsd:string",
+        "xsd:annotation": {
+          "xsd:documentation": {
+            "-xml:lang": "en",
+            "#text": "Preferred Prefix String. Example:\"Lord, Dr\""
+          }
+        },
+        "xsd:attribute": [
+          {
+            "-name": "LangCode",
+            "-type": "iso639:CodeContentType",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The 3 character code for the language of the string"
+              }
+            }
+          },
+          {
+            "-name": "Sequence",
+            "-type": "xsd:nonNegativeInteger",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The sequence of the Preferred Prefix String"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "-name": "ALIAS",
+        "-type": "xsd:string",
+        "xsd:annotation": {
+          "xsd:documentation": {
+            "-xml:lang": "en",
+            "#text": "Any aliases used by the person. Example:\"Mailman, Duke\""
+          }
+        },
+        "xsd:attribute": [
+          {
+            "-name": "LangCode",
+            "-type": "iso639:CodeContentType",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The 3 character code for the language of the string"
+              }
+            }
+          },
+          {
+            "-name": "Sequence",
+            "-type": "xsd:nonNegativeInteger",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The sequence of the aliases"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "-name": "P-AL",
+        "-type": "xsd:string",
+        "xsd:annotation": {
+          "xsd:documentation": {
+            "-xml:lang": "en",
+            "#text": "Preferred Alias Name String. Example:\"Boss\""
+          }
+        },
+        "xsd:attribute": [
+          {
+            "-name": "LangCode",
+            "-type": "iso639:CodeContentType",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The 3 character code for the language of the string"
+              }
+            }
+          },
+          {
+            "-name": "Sequence",
+            "-type": "xsd:nonNegativeInteger",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The sequence of the Preferred Alias Name String."
+              }
+            }
+          }
+        ]
+      },
+      {
+        "-name": "MADN",
+        "-type": "xsd:string",
+        "xsd:annotation": {
+          "xsd:documentation": {
+            "-xml:lang": "en",
+            "#text": "Maiden Name String. Example:\"Pitt\""
+          }
+        }
+      },
+      {
+        "-name": "P-MN",
+        "-type": "xsd:string",
+        "xsd:annotation": {
+          "xsd:documentation": {
+            "-xml:lang": "en",
+            "#text": "Previous Maiden Name String. Example:\"Bates\""
+          }
+        },
+        "xsd:attribute": [
+          {
+            "-name": "LangCode",
+            "-type": "iso639:CodeContentType",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The 3 character code for the language of the string"
+              }
+            }
+          },
+          {
+            "-name": "Sequence",
+            "-type": "xsd:nonNegativeInteger",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The sequence of the Previous Maiden Name"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "-name": "MLN",
+        "-type": "xsd:string",
+        "xsd:annotation": {
+          "xsd:documentation": {
+            "-xml:lang": "en",
+            "#text": "Maternal Last Name String. Example:\"Bjon\""
+          }
+        },
+        "xsd:attribute": [
+          {
+            "-name": "LangCode",
+            "-type": "iso639:CodeContentType",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The 3 character code for the language of the string"
+              }
+            }
+          },
+          {
+            "-name": "Sequence",
+            "-type": "xsd:nonNegativeInteger",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The sequence of the Maternal Last Name String"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "-name": "PLN",
+        "-type": "xsd:string",
+        "xsd:annotation": {
+          "xsd:documentation": {
+            "-xml:lang": "en",
+            "#text": "Paternal Last Name String. Example:\"Schlovinski\""
+          }
+        },
+        "xsd:attribute": {
+          "-name": "LangCode",
+          "-type": "iso639:CodeContentType",
+          "-use": "optional",
+          "xsd:annotation": {
+            "xsd:documentation": {
+              "-xml:lang": "en",
+              "#text": "The 3 character code for the language of the string"
+            }
+          }
+        }
+      },
+      {
+        "-name": "GEO",
+        "-type": "xsd:string",
+        "xsd:annotation": {
+          "xsd:documentation": {
+            "-xml:lang": "en",
+            "#text": "Geographic Attribute String. Example:\"Tarsus (as in Saul of Tarsus)\""
+          }
+        },
+        "xsd:attribute": [
+          {
+            "-name": "LangCode",
+            "-type": "iso639:CodeContentType",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The 3 character code for the language of the string"
+              }
+            }
+          },
+          {
+            "-name": "Sequence",
+            "-type": "xsd:nonNegativeInteger",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The sequence of the Geographic Attribute String"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "-name": "AVO",
+        "-type": "xsd:string",
+        "xsd:annotation": {
+          "xsd:documentation": {
+            "-xml:lang": "en",
+            "#text": "Avocation Attribute String. Example:\"Tent-maker (S. Tent Maker)\""
+          }
+        },
+        "xsd:attribute": [
+          {
+            "-name": "LangCode",
+            "-type": "iso639:CodeContentType",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The 3 character code for the language of the string"
+              }
+            }
+          },
+          {
+            "-name": "Sequence",
+            "-type": "xsd:nonNegativeInteger",
+            "-use": "optional",
+            "xsd:annotation": {
+              "xsd:documentation": {
+                "-xml:lang": "en",
+                "#text": "The sequence of the Avocation Attribute String"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "-name": "TRIB",
+        "-type": "xsd:string",
+        "xsd:annotation": {
+          "xsd:documentation": {
+            "-xml:lang": "en",
+            "#text": "Tribal data associate with name String. Example:\"Navajo\""
+          }
+        },
+        "xsd:attribute": {
+          "-name": "LangCode",
+          "-type": "iso639:CodeContentType",
+          "-use": "optional",
+          "xsd:annotation": {
+            "xsd:documentation": {
+              "-xml:lang": "en",
+              "#text": "The 3 character code for the language of the string"
+            }
+          }
+        }
+      },
+      {
+        "-name": "D-NAM",
+        "-type": "xsd:string",
+        "xsd:annotation": {
+          "xsd:documentation": {
+            "-xml:lang": "en",
+            "#text": "Display/Print Name String. Example:\"John Davidson or Orm, Dan\""
+          }
+        },
+        "xsd:attribute": {
+          "-name": "LangCode",
+          "-type": "iso639:CodeContentType",
+          "-use": "optional",
+          "xsd:annotation": {
+            "xsd:documentation": {
+              "-xml:lang": "en",
+              "#text": "The 3 character code for the language of the string"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

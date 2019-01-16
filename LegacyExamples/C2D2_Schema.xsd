@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.nxlight.net/ConsolidatedCompositeDataDictionary/1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:iso639="http://example.iso.org/schemas/LanguageCodesISO639.xsd" targetNamespace="http://www.innovatrend.com/CompositeClinicalDataDictionary/1.0">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">Consolidated Composite Data Dictionary or C2D2</xsd:documentation>
+        <xsd:documentation xml:lang="en">Copyright 2010 Innovatrend Inc. All rights reserved.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd" />
+
+    <!--=========================================================================-->
+    <!-- Personal Name -->
+    <!--=========================================================================-->
+    <xsd:element name="PersonalName">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">A Personal Name is broken into Atomic-level data elements</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="NAM" />
+                <xsd:element ref="LN" minOccurs="0" />
+                <xsd:element ref="H-LN" minOccurs="0" />
+                <xsd:element ref="FN" />
+                <xsd:element ref="LN-PX" minOccurs="0" />
+                <xsd:element ref="MN" minOccurs="0" />
+                <xsd:element ref="SUF" minOccurs="0" />
+                <xsd:element ref="SUF2" minOccurs="0" />
+                <xsd:element ref="SUF3" minOccurs="0" />
+                <xsd:element ref="NUM" minOccurs="0" />
+                <xsd:element ref="TITLE" minOccurs="0" />
+                <xsd:element ref="PREF" minOccurs="0" />
+                <xsd:element ref="P-PRF" minOccurs="0" />
+                <xsd:element ref="ALIAS" minOccurs="0" />
+                <xsd:element ref="P-AL" minOccurs="0" />
+                <xsd:element ref="MADN" minOccurs="0" />
+                <xsd:element ref="P-MN" minOccurs="0" />
+                <xsd:element ref="MLN" minOccurs="0" />
+                <xsd:element ref="PLN" minOccurs="0" />
+                <xsd:element ref="GEO" minOccurs="0" />
+                <xsd:element ref="AVO" minOccurs="0" />
+                <xsd:element ref="TRIB" minOccurs="0" />
+                <xsd:element ref="D-NAM" />
+                <xsd:element ref="ds:Signature" minOccurs="0" />
+            </xsd:sequence>
+            <xsd:attribute name="Id" type="xsd:ID" use="optional">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">A globally unique identifier for the personal name.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!--=========================================================================-->
+    <!-- Properties -->
+    <!--=========================================================================-->
+    <xsd:element name="NAM" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Name String, such as it exists. Example:"Davis, Lance, Steven John"</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="LangCode" type="iso639:CodeContentType" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The 3 character code for the language of the string</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:element>
+    <xsd:element name="LN" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Last Name or Family Name String. Example:"Schlovinski"</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="LangCode" type="iso639:CodeContentType" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The 3 character code for the language of the string</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:element>
+    <xsd:element name="H-LN" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Hyphenated Last Name String. Example:"Bjon-Schlovinski"</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="LangCode" type="iso639:CodeContentType" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The 3 character code for the language of the string</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:element>
+    <xsd:element name="FN" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">First Name or Given Name String. Example:"James"</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="LangCode" type="iso639:CodeContentType" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The 3 character code for the language of the string</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:element>
+    <xsd:element name="LN-PX" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Last Name Prefix String. Example:"Von as in Von Neuman"</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="LangCode" type="iso639:CodeContentType" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The 3 character code for the language of the string</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Sequence" type="xsd:nonNegativeInteger" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The sequence of the Last Name Prefix</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:element>
+    <xsd:element name="MN" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Middle Name String (Ind and Mod). Example:"Lewis"</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="LangCode" type="iso639:CodeContentType" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The 3 character code for the language of the string</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Sequence" type="xsd:nonNegativeInteger" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The sequence of the Middle Name</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:element>
+    <xsd:element name="SUF1" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Last Name Suffix String. Example:"Jr., Esq."</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="LangCode" type="iso639:CodeContentType" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The 3 character code for the language of the string</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Sequence" type="xsd:nonNegativeInteger" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The sequence of the Last Name Suffix string</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:element>
+    <xsd:element name="SUF2" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Last Name Academic Suffixes String. Example:"Ph.D., M.D., J.D."</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="LangCode" type="iso639:CodeContentType" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The 3 character code for the language of the string</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Sequence" type="xsd:nonNegativeInteger" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The sequence of the Last Name Academic Suffixes</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:element>
+    <xsd:element name="SUF3" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Last Name Professional Organization Suffixes String. Example:"PE, RHIA, RHIT"</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="LangCode" type="iso639:CodeContentType" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The 3 character code for the language of the string</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Sequence" type="xsd:nonNegativeInteger" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The sequence of the Last Name Professional Organization Suffixes</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:element>
+    <xsd:element name="NUM" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Numeration String. Example:"IV, XIV"</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="LangCode" type="iso639:CodeContentType" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The 3 character code for the language of the string</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Sequence" type="xsd:nonNegativeInteger" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The sequence of the Numeration</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:element>
+    <xsd:element name="TITLE" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Titles String. Example:"Lord"</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="LangCode" type="iso639:CodeContentType" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The 3 character code for the language of the string</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Sequence" type="xsd:nonNegativeInteger" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The sequence of the Titles String</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:element>
+    <xsd:element name="PREF" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Prefix/Salutation String. Example:"My Lord, Honorable, Dr, Ms."</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="LangCode" type="iso639:CodeContentType" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The 3 character code for the language of the string</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Sequence" type="xsd:nonNegativeInteger" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The sequence of the Prefix/Salutation String</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:element>
+    <xsd:element name="P-PRF" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Preferred Prefix String. Example:"Lord, Dr"</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="LangCode" type="iso639:CodeContentType" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The 3 character code for the language of the string</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Sequence" type="xsd:nonNegativeInteger" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The sequence of the Preferred Prefix String</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:element>
+    <xsd:element name="ALIAS" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Any aliases used by the person. Example:"Mailman, Duke"</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="LangCode" type="iso639:CodeContentType" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The 3 character code for the language of the string</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Sequence" type="xsd:nonNegativeInteger" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The sequence of the aliases</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:element>
+    <xsd:element name="P-AL" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Preferred Alias Name String. Example:"Boss"</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="LangCode" type="iso639:CodeContentType" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The 3 character code for the language of the string</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Sequence" type="xsd:nonNegativeInteger" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The sequence of the Preferred Alias Name String.</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:element>
+    <xsd:element name="MADN" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Maiden Name String. Example:"Pitt"</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="P-MN" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Previous Maiden Name String. Example:"Bates"</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="LangCode" type="iso639:CodeContentType" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The 3 character code for the language of the string</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Sequence" type="xsd:nonNegativeInteger" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The sequence of the Previous Maiden Name</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:element>
+    <xsd:element name="MLN" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Maternal Last Name String. Example:"Bjon"</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="LangCode" type="iso639:CodeContentType" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The 3 character code for the language of the string</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Sequence" type="xsd:nonNegativeInteger" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The sequence of the Maternal Last Name String</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:element>
+    <xsd:element name="PLN" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Paternal Last Name String. Example:"Schlovinski"</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="LangCode" type="iso639:CodeContentType" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The 3 character code for the language of the string</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:element>
+    <xsd:element name="GEO" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Geographic Attribute String. Example:"Tarsus (as in Saul of Tarsus)"</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="LangCode" type="iso639:CodeContentType" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The 3 character code for the language of the string</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Sequence" type="xsd:nonNegativeInteger" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The sequence of the Geographic Attribute String</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:element>
+    <xsd:element name="AVO" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Avocation Attribute String. Example:"Tent-maker (S. Tent Maker)"</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="LangCode" type="iso639:CodeContentType" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The 3 character code for the language of the string</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Sequence" type="xsd:nonNegativeInteger" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The sequence of the Avocation Attribute String</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:element>
+    <xsd:element name="TRIB" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Tribal data associate with name String. Example:"Navajo"</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="LangCode" type="iso639:CodeContentType" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The 3 character code for the language of the string</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:element>
+    <xsd:element name="D-NAM" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Display/Print Name String. Example:"John Davidson or Orm, Dan"</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="LangCode" type="iso639:CodeContentType" use="optional">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">The 3 character code for the language of the string</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:element>
+</xsd:schema>

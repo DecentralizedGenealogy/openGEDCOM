@@ -1,0 +1,2881 @@
+
+
+
+
+
+
+                                 THE GEDCOM STANDARD
+
+
+
+
+
+
+
+
+
+
+                                  DRAFT Release 5.0
+
+                                  25 September 1991
+
+
+
+
+
+
+
+
+
+                                   Prepared by the
+                              Family History Department
+                   The Church of Jesus Christ of Latter-day Saints
+
+
+
+
+
+
+
+Suggestions and Correspondence:
+
+GEDCOM Coordinator - 3T
+Family History Department
+50 East North Temple
+Salt Lake City, UT 84150
+USA
+
+Telephone (USA) 801-240-5225.
+                                 TABLE OF CONTENTS
+
+Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+   Purpose and Content of Document . . . . . . . . . . . . . . . . . . 3
+      Changes in Version 5.0 . . . . . . . . . . . . . . . . . . . . . 4
+      GEDCOM Product Registration. . . . . . . . . . . . . . . . . . . 5
+      GEDCOM Software Library. . . . . . . . . . . . . . . . . . . . . 5
+
+Chapter 1
+   Data Representation Grammar . . . . . . . . . . . . . . . . . . . . 6
+      Concepts . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+      Grammar. . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+
+Chapter 2
+   Lineage-Linked Grammar. . . . . . . . . . . . . . . . . . . . . . .14
+      Introduction . . . . . . . . . . . . . . . . . . . . . . . . . .14
+      Lineage-Linked Grammar Organization. . . . . . . . . . . . . . .14
+      Record Structures of the Lineage-Linked Form . . . . . . . . . .15
+      Substructures of the Lineage-Linked Form . . . . . . . . . . . .19
+      Primitive Elements of the Lineage-Linked Form. . . . . . . . . .22
+      Compatibility with previous GEDCOM releases. . . . . . . . . . .33
+
+Chapter 3
+   GEDCOM Transmission File. . . . . . . . . . . . . . . . . . . . . .34
+      Introduction . . . . . . . . . . . . . . . . . . . . . . . . . .34
+      Headers and Trailers in the GEDCOM Transmission. . . . . . . . .34
+      Why Headers and Trailers are used. . . . . . . . . . . . . . . .35
+      How to use a Header. . . . . . . . . . . . . . . . . . . . . . .35
+      How to use a Trailer . . . . . . . . . . . . . . . . . . . . . .38
+      Naming your Transmission File. . . . . . . . . . . . . . . . . .38
+
+Chapter 4
+   GEDCOM Values . . . . . . . . . . . . . . . . . . . . . . . . . . .39
+      Introduction . . . . . . . . . . . . . . . . . . . . . . . . . .39
+      Why Values are used. . . . . . . . . . . . . . . . . . . . . . .40
+      Guidelines for using Values. . . . . . . . . . . . . . . . . . .41
+      How to record Names of Individuals . . . . . . . . . . . . . . .41
+      How to record Dates. . . . . . . . . . . . . . . . . . . . . . .42
+      How to record Places . . . . . . . . . . . . . . . . . . . . . .44
+      How to record Events . . . . . . . . . . . . . . . . . . . . . .45
+      How to designate Time. . . . . . . . . . . . . . . . . . . . . .45
+      How to use Pointers. . . . . . . . . . . . . . . . . . . . . . .46
+      How to use other Values. . . . . . . . . . . . . . . . . . . . .47
+
+Chapter 5
+   Using Character Sets in GEDCOM. . . . . . . . . . . . . . . . . . .48
+      Why various Character Sets are used. . . . . . . . . . . . . . .48
+      How to change Character Sets . . . . . . . . . . . . . . . . . .49
+
+Appendix A
+   Lineage-Linked GEDCOM Tag Definition. . . . . . . . . . . . . . . .52
+
+                                    INTRODUCTION
+
+
+GEDCOM was developed by the Family History Department of the Church of Jesus Christ
+of Latter-day Saints to meet the data communication requirements of the Family
+History Department and other institutions wishing to exchange computerized
+genealogical data.  GEDCOM is an acronym for GEnealogical Data Communication. 
+GEDCOM is provided to foster the exchange of genealogical information and the
+development of a wide range of inter-operable software products to assist
+genealogists, historians, and other researchers in the exchange of genealogical
+information.
+
+Purpose and Content of This Document
+
+This technical document is written for computer programmers, system developers, and
+user specialists.  It defines a flexible format for exchanging structured
+genealogical information between different computer systems. 
+
+The chapters in this document detail the following specifications: 
+
+      *     Data Representation Grammar   *     Values
+      *     Lineage-Linked GEDCOM Grammar *     Character Sets
+      *     GEDCOM Transmission File                  
+
+This document describes GEDCOM in two different levels.  The lower level defines a
+general-purpose data representation language for representing any kind of structured
+information in a sequential media.  This lower level is known as the GEDCOM data
+format.  It deals with the syntax and identification of structured information in
+general, but does not deal with the semantic content of any particular kind of data.
+
+The higher level defines specific content for a particular kind of data to be
+exchanged between a group of compatible systems.  GEDCOM has been used for many
+different kinds of data.  Each kind of data is referred to as a form of GEDCOM and
+has its own definition at this level.  GEDCOM forms have been defined for lineage-
+linked, bibliographic, census, religious, and other kinds of data, including several
+that are not related to genealogy. 
+
+The first two chapters are presented as language grammars and are technically
+oriented. Chapter 1 presents basic GEDCOM concepts and then defines the lower-level
+GEDCOM format.  This chapter will be useful to anyone using GEDCOM.  Chapter 2
+defines the higher-level, specific form of GEDCOM known as the lineage-linked form. 
+The lineage-linked form is the form used by commercial genealogical software systems
+for exchanging compiled, linked information about individuals.  The other forms of
+GEDCOM are not publicly exchanged at this time, and are not discussed in this
+document. 
+
+Chapters three and four discuss GEDCOM in a more tutorial fashion.  If
+inconsistencies are present, they should be resolved in favor of the grammars
+presented in the first two chapters.  The fifth chapter defines GEDCOM character
+sets.  Appendix A defines tags used in the lineage-linked form of GEDCOM.  Appendix
+B contains character tables that define the GEDCOM character set.
+
+Changes in Version 5.0
+
+Prior official versions of The GEDCOM Standard were released in October 1987 (3.0)
+and August 1989 (4.0).  Versions prior to these were preliminary and were not
+established as a standard.
+
+This GEDCOM release (5.0) includes the first standard definition of the lineage-
+linked form of GEDCOM, and also includes the first major expansion of the lineage-
+linked form since its initial use in GEDCOM 3.0. Products based on releases 3.0 and
+4.0 versions should be upward-compatible. These existing registered GEDCOM-
+compatible systems should still be able to exchange data with newer systems that use
+this version, and will still be considered GEDCOM-compatible. 
+
+There are several purposes for the 5.0 release of GEDCOM:
+
+      *     Re-define the GEDCOM data representation grammar in a shorter, more
+            rigorous, and more precise format, for ease of understanding (see
+            chapter 1).  The GEDCOM format remains the same, even though the
+            description of it is changed.
+
+      *     Define the precise combinations of tags, values, and pointers allowed in
+            the lineage-linked form (see chapter 2).  This is the form of GEDCOM
+            currently exchanged by commercial genealogical software systems, and it
+            remains unchanged, other than adding new tags and the upward-compatible 
+            structural extensions listed below.  (The lineage-linked form should not
+            be confused with other forms of GEDCOM, which apply the basic GEDCOM
+            data format with different tag, value, and pointer combinations for
+            other purposes.)
+
+      *     Define representations for supporting information such as source
+            citations, submitter identification, and notes.  (See chapter 2,
+            <<SUPPORT_INFO>> structure in the lineage-linked grammar.)
+
+      *     Define user-defined EVENts.
+
+      *     Define user-defined ASSOciations with INDIviduals other than direct
+            family relationships.
+
+      *     Allow descriptive text to further qualify MARRiage, DIVorce, and other
+            event structures.
+
+      *     Require SOURce VERSion (product version) and GEDCom VERSion information.
+
+      *     Define DATE modifier (ABT, BEF, AFT, etc.) and a more rigorous regular
+            date format.
+
+GEDCOM Product Registration
+
+Developers of GEDCOM-compatible products using the lineage-linked form of GEDCOM
+(see chapter 2) should register their product by submitting the following
+information to the GEDCOM coordinator:
+
+      *     A sharable, brief, representative sample of GEDCOM output from their
+            product, on diskette, for registration review and for compatibility
+            testing by other developers
+      *     A proposed unique SOURce name to identify the product (not the company),
+            up to 40 characters long, allowing mixed upper and lower case, with no
+            embedded spaces (use underscore "_" instead), for inclusion in the
+            product's GEDCOM output HEADer record
+      *     An optional text file containing relevant technical documentation about
+            the product's GEDCOM implementation.
+
+GEDCOM Software Library
+
+A library of public domain source code, in the C programming language, is available
+to help reduce the work required to achieve GEDCOM compatibility.
+                                     Chapter 1
+                             DATA REPRESENTATION GRAMMAR
+
+
+INTRODUCTION
+
+This chapter describes the core GEDCOM data representation language, which provides
+a general purpose way to represent items of related information using a sequential
+stream of characters.  At this generic level, GEDCOM may be used to represent any
+form of structured information, not just genealogical data.
+
+CONCEPTS
+
+A GEDCOM transmission represents a database in the form of a sequential stream of
+related records.  A record is represented as a sequence of tagged, variable-length
+lines, arranged in a hierarchy.  A line contains a hierarcical level number, a tag,
+and a value.  The GEDCOM line is terminated by a carriage return and/or line feed
+character.
+
+The tag identifies the value of a line in the same sense as a field name identifies
+a field in a database record.  The data is self-defining.  Tags allow a field to
+occur any number of times within a record, including zero, and allow the use of
+different or new fields without otherwise penalizing compatibility between different
+systems exchanging data.
+
+The hierarchical relationships are indicated by a hierarchical level number. 
+Subordinate lines have a higher level number.  The hierarchy allows a line to have
+sub-lines, which in turn may have their own sub-lines, etc.  A line and its sub-
+lines constitute a context or enclosure, that is, a cluster of information
+pertaining directly to the same thing.  This hierarchical arrangement corresponds
+with the natural hierarchy found in most structured information.
+
+The beginning of a record is indicated by a line whose level number is zero.
+
+A GEDCOM receiver system scans the input for expected information by looking for
+specific tags and processing the associated values.  Unrecognized tags (perhaps from
+a sending system whose database contains some different information) are handled by
+not processing the associated value nor its enclosed sub-lines, i.e, the entire
+context is ignored.  These are treated as exceptions by printing them in an
+exception report or saving them in some generic way.
+
+In addition to hierarchical relationships, GEDCOM defines inter-record references
+which allow a record to be logically related to other records, without introducing
+redundancy.  These are represented by two additional, but optional, parts of a line:
+a cross-reference pointer and a cross-reference identifier.  The cross-reference
+pointer "points at" a related record, identified by a required matching cross-
+reference identifier.
+
+GRAMMAR
+
+The GEDCOM data format, a data representation language, is defined in the grammar in
+this chapter.  The grammar is a set of rules that specify what sequences of
+characters constitute valid GEDCOM expressions.  The rules are expressed as a set of
+pattern definitions, where each pattern is defined in terms of more primitive
+patterns.  Pattern definitions consist of the pattern name, a separator ":=", and a
+list of sub-patterns from which one alternative is selected.  To read the grammar,
+components of the selected pattern are substituted recursively by other patterns or
+constants, continuing until all patterns are resolved into constants.  Pattern names
+are in bold print.  Constants are the actual symbols that appear in the complete
+expressions and are not bolded.
+
+A GEDCOM transmission consists of a sequence of physical records, each of which
+consists of a sequence of gedcom_lines, all contained in a sequential file or
+stream of characters.  The beginning of a new physical record is designated by a
+line whose level number is 0.  Physical records are intended to be small enough to
+fit within available memory, though absolute limits are not established.  A
+gedcom_line has the following syntax:
+
+gedcom_line:=
+      level delimtr xref_id delimtr tag delimtr line_content terminator
+
+      *     The gedcom_line represents one piece of information.  One
+            gedcom_line corresponds to one field in traditional database or file
+            terminology, or to a grouping of fields as in a record or subrecord. 
+            The concepts of fields, records, and subrecords merge together in
+            GEDCOM.
+
+      *     The total length of a GEDCOM line does not exceed 255 characters.
+
+      *     Leading white space (tabs, spaces) to a GEDCOM line should be ignored by
+            the reading system.  Systems outputing GEDCOM should not have any white
+            space in front of the GEDCOM line (at least for the near future).
+
+      *     The xref_id and line_content are optional.
+
+      The following are examples of valid (though unrelated) GEDCOM lines:
+
+            0 @1234@ INDI
+
+            1 AGE 13
+
+            1 CHIL @1234@
+
+      The first line has a level number 0, a xref_id of @1234@, an INDI tag, and
+      no line_content.
+
+      The second line has a level number 1, no xref_id, an AGE tag, and a
+      line_content value of 13.
+
+      The third line has a level number 1, no xref_id, a CHIL tag, and a
+      line_content of a pointer to a xref_id named @1234@.
+
+level:=
+      digit
+      digit level
+
+      The level number works the same way as the level of indentation in an
+      indented outline, where indented lines provide detail about the item under
+      which they are indented.  A line at any level L is enclosed by and pertains
+      directly to the nearest preceding line at level L-1.  The Level L may only
+      increase by at most 1.
+
+      The enclosed subordinate lines at level L are said to be in the context of the
+      enclosing superior line at level L-1.  The meaning of a tag (see tag below)
+      is interpreted in the context of the tags of the enclosing line(s).  Take the
+      following record about an individual's birth and death dates, for example:
+
+            0 INDI
+              1 BIRT
+                2 DATE 12 MAY 1920
+              1 DEAT
+                2 DATE 1960
+
+      In this example, the expression DATE 12 MAY 1920 is interpreted within the
+      INDI BIRTH context, representing the INDIvidual's BIRTh DATE.  The second DATE
+      is in the INDI DEAT (death) context.  The complete meaning of DATE depends on
+      the context.  (Note: the above example is indented according to the level
+      numbers to make the concept more obvious.  In the actual GEDCOM data there is
+      no indentation, just level numbers lined up vertically on the left margin.)
+
+
+xref_id:=
+      @xref_text@
+
+      The xref_id (cross reference identifier) is the target for pointers,
+      allowing physically separate records to reference each other logically.  The
+      at signs "@" delimit the xref_text.  The xref_text is unique within a
+      GEDCOM transmission, and is between 1 and 15 characters in length.
+
+      The purpose of the xref_text is to uniquely identify a record in the
+      transmission.  Receiving systems typically map xref_text into their own
+      internal record identifiers, maintaining the relationships between records but
+      not necessarily the xref_text values used in the transmission.  The
+      xref_text typically consists of some form of the internal record identifier
+      from the database of the sending system.
+
+      A record with a matching xref_id must exist for every pointer in the
+      transmission, unless the colon ":" character is present in the pointer,
+      indicating a network reference (future) to a permanent record that might not
+      be in the transmission.  The colon ":" character is therefore reserved within
+      xref_ids and pointers.  The colon ":" character restriction does not apply
+      to the other parts of a GEDCOM_line.
+
+delimtr:=
+      space
+
+      The delimtr (delimiter), (a single space character), terminates both the
+      variable-length level number and the tag.  Note that space characters may
+      also be present in a value.
+
+tag:=
+      letter
+      tag letter
+      tag digit
+
+      A tag consists of a variable length sequence of letters and digits,
+      beginning with a letter.  The tag represents the meaning of the
+      line_content within the context of the enclosing lines.  Specific tags are
+      defined in Appendix A.  
+
+      Although existing tags are only three or four characters long, systems should
+      prepare to handle tags from 1 to 15 characters in length, terminated by a
+      delimtr.
+
+      Valid combinations of specific tags, values, xref_ids and  pointers are
+      further constrained by the GEDCOM form defined for representing a given kind
+      of information (see Chapter 2 for the Lineage-Linked form grammar).
+
+line_content:=
+      value
+      pointer
+      value pointer
+      escape_sequence
+      escape_sequence value
+
+      The line_content identifies an object within the domain of possible values
+      allowed in the context of the tag.  The combination of the tag, the
+      line_content, and the line_content of the preceeding superior line (level
+      N - 1) is a 3-tuple that defines an association between the two objects.  A
+      pointer stands in the place of the context identified by the matching
+      xref_id.  Theoretically, a receiving system should be prepared to follow a
+      pointer to find any needed value in a manner that is transparent to the
+      logic of the subsystem that is looking for specific tags.  This highly-
+      flexible facility will probably be used more in the future.  For the time
+      being, however, the use of pointers is explicitly defined within the GEDCOM
+      form.  The value pointer  combination is used to indicate what kind of
+      association or relationship exists between the current record and the record
+      being pointed to. (See chapter 2).  The  escape_sequence grammar is used to
+      specify special processing, such as switching character sets or calendars for
+      date interpretation, and for indicating an inclusion of a non_gedcom data form
+      into the GEDCOM structure.
+
+terminator:=
+      carriage_return
+      line_feed
+      carriage_return line_feed
+      line_feed carriage_return
+
+      The terminator delimits the variable-length line_content and signals the
+      end of the line.
+
+      NOTE: Some existing systems provide an option to produce an indented GEDCOM
+      output for user readability, using space or tab characters between the
+      terminator and the level number of the next line to visibly show the
+      hierarchy.  Also, some have suggested allowing extra blank lines to visibly
+      separate physical records.  These features may be incorporated into the GEDCOM
+      standard at some future time, but for now, such a change would render some
+      existing systems incompatible.  Therefore, we recommend that new systems be
+      prepared to discard extra carriage returns, line feeds, spaces and tabs
+      immediately preceeding the level number during input, though output for now
+      should normally be constrained as specified above, without indentation or
+      blank lines.
+
+xref_text:=
+      letter
+      digit
+      punctuation
+      space
+      xref_text xref_text
+
+      The xref_text is any arbitrary combination of characters, except for the at-
+      sign "@" and the terminator.  The xref_text is not retained by the
+      receiving system, and may therefore be formed from any convenient combination
+      of identifiers from the sending system.  No meaning is attributed by the
+      receiver to any part of the xref_text, except for its unique association
+      with the corresponding record.  The use of the colon ":" character is
+      reserved. To avoid confusion with the escape sequence prefix "@#", a xref_text
+      must not begin with a pound sign "#". 
+
+value:=
+      letter
+      digit
+      punctuation
+      space
+      colon
+      value value
+
+      The value represents an object within the domain of the full context of the
+      accompanying tag.  This domain is defined by a specific grammar for
+      representing a given GEDCOM form (see Chapters 2 for Lineage-Linked grammar).
+
+      Values are not encoded in binary or other schemes for reducing space
+      requirements, and they are generally constrained to be understandable by a
+      typical user without decoding.  This is intended to reduce the decoding burden
+      on the receiving software.  A GEDCOM-optimized data compression standard will
+      be defined in the future to reduce space requirements.  Meanwhile, users may
+      agree to compress GEDCOM files using any compression system available to both
+      sender and receiver.
+
+pointer:=
+      xref_text
+
+      The pointer represents the association between two objects that reside in
+      different physical records.  Complex logical records are divided into smaller
+      physical records to accommodate memory constraints, many to many
+      relationships, and independent record creation.
+
+      The pointer must match a corresponding xref_id within the transmission,
+      unless the colon ":" character is present (future network reference to a
+      permanent record).  A pointer is given instead of duplicating the object
+      identified in the value of the line pointed at, though the logical result is
+      equivalent.  An expanded traversal of a record tree includes following the
+      pointers to related records to some depth, and splicing those records
+      (logically) into the resultant expanded tree. Pointers may refer to either
+      records which have not yet appeared in the transmission (forward reference) or
+      to records that have already appeared earlier in the transmission (backward
+      reference).  This arrancement usually requires a preliminary pass to construct
+      a lookup table to support random access by xref_id during subsequent passes.
+      
+
+      A few GEDCOM structures allow the sending system to use either a pointer or a
+      value within the same context (with the same tag and enclosing tags), and
+      sometimes the line will contain both a value and pointer.  In all cases, the
+      pointer will be at either the beginning or the ending of the line_content,
+      never in the middle.  GEDCOM receiving systems should be prepared in certain
+      cases to follow pointers recursively and "splice" either text or compound
+      GEDCOM structures into the position occupied by the pointer.  Assembling
+      pointer-based structures into large segments of text may require staging the
+      text in disk-based files to accommodate memory constraints.  Specific
+      requirements are defined in lower-level GEDCOM grammars for a particular form
+      of GEDCOM data (see Chapter 2 for Lineage-Linked grammar).
+            
+letter:=
+      One of the letters A-Z, a-z, plus all diacritic and special characters from
+      the GEDCOM character set.
+
+digit:=
+      One of the digits 0 1 2 3 4 5 6 7 8 9
+
+punctuation:=
+      One of the non-letter  and non-digit characters from the GEDCOM character
+      set, except the space and colon ":" characters.  The colon ":" character may
+      be used within a value.
+
+      The at sign "@" is used for an escape mechanism to identify pointers, 
+      xref_id, character set changes, calendar changes, or other shifts in
+      representation rules.  To include the at sign "@" as data in a value, two of
+      them should be sent together "@@", which represent a single at sign "@" as
+      data.
+
+escape_sequence:=
+      @#Dcalendar_type@
+      @#Ccharacter_set@
+      @#Lescape_codes_with_length@ inclusion_data
+      @#Ffile_reference_escape_codes@
+
+
+calendar_type :=
+      A reserved name indicating which calendar base should be used to interpret the
+      associated date value (see section in chapter 4 on "How to Record Dates").
+
+character_set :=
+      A reserved name indicating which character set should be used to interpret the
+      codes contained in the associated value.
+
+escape_codes_with_length :=
+      data_type_code delimtr data_length
+      This escape sequence indicates the inclusion of data of a non-gedcom structure
+      is to be enclosed within the context of the GEDCOM structure.  The
+      data_length defines the length of the data being included (note: this
+      length is not constrained by the 255 character line limit adopted for standard
+      GEDCOM form and may be arbitrarily long).  The data_type_code defines the
+      form of the inclusion data. The specific rules and type codes have not yet
+      been standardized.  Reading systems should skip over the length of data
+      indicated if they are not prepared to process the indicated data type.
+            
+data_type_code :=
+      A reserved one-letter code indicating what data form is contained in the
+      inclusion data.
+
+data_length :=
+      digit
+      digit digit
+      A decimal number in ASCII digits, indicating the count of characters contained
+      in the inclusion_data.
+
+inclusion_data :=
+      This data becomes the line content value whose type and size are defined by
+      the associated escape sequence. 
+
+file_reference_escape_codes :=
+      file_type_code file_path_name
+      This escape sequence allows both GEDCOM and NON-GEDCOM data to be transmitted
+      in a separate file for a logical inclusion within this GEDCOM context.  Note:
+      the data length of the file is not constrained by the 255 character line limit
+      adopted for standard GEDCOM form.  Systems not prepared to process the
+      indicated type of file should skip past the filename to continue processing.
+
+file_type_code :=
+      A reserved one letter code indicating what type of data is contained in the
+      inclusion file.  Specific types have not yet been standardized.
+
+file_path_name :=
+      This is the path name required for accessing the inclusion file from within
+      the current directory.  In PC-DOS terms, this means either that a path must be
+      fully specified, including the root directory and optional drive, or that a
+      partial path refers to a file within the same directory as the GEDCOM
+      transmission file or within a directory subordinate to the current directory.
+
+                                     Chapter 2
+                               LINEAGE-LINKED GRAMMAR
+
+INTRODUCTION
+
+This chapter describes specific tag, value, and pointer combinations for exchanging
+lineage-linked information in the GEDCOM format.  Lineage-linked data pertains to
+individuals linked in family relationships across multiple generations.
+
+This lineage-linked grammar is based on the general framework of the GEDCOM data
+representation grammar defined in the previous chapter.  These two layers define the
+GEDCOM format used by commercial genealogical software systems to exchange data. 
+Other specialized GEDCOM-based grammars have been created for different purposes. 
+Other uses of the general-purpose GEDCOM data representation should not be confused
+with this specific usage for lineage-linked genealogical data, as defined in this
+chapter, which is the only form of GEDCOM exchanged by commercial genealogical
+software systems at this time.
+
+LINEAGE-LINKED GRAMMAR ORGANIZATION
+
+This lineage-linked GEDCOM grammar is organized into three levels: structure
+components, substructure patterns, and primitive elements.  Structures and
+substructures are indicated by enclosing the structure name within double angle
+<<brackets>>.  Primitive element patterns are enclosed in single angle <brackets>. 
+The definition of each structure consists of the structure name, a ":=" separator,
+and the structure's component pattern. This pattern is an enclosure of GEDCOM lines
+composed of primitive elements and/or substructure enclosures.
+
+The record structures of the lineage-linked form are shown in the section 'RECORD
+STRUCTURES OF THE LINEAGE-LINKED FORM'. The supporting substructures contained that
+make up each of the record types are shown in alphabetic sequence in the section
+'SUBSTRUCTURES OF THE LINEAGE-LINKED FORM'.  The primitive elements are the lowest
+level (terminal) components that are not further divided and are shown in the
+section 'DEFINITION OF PRIMITIVE ELEMENTS' in alphabetic sequence.
+
+Some elements have optional sub-pattern choices.  These choices are shown by listing
+the alternative sub-patterns between opening and closing square brackets "[]" and
+separating each choice with a vertical bar "|", meaning that exactly one of the
+alternate substitutions must be selected.
+
+The number of occurences of a sub-pattern allowed within a pattern is defined in an
+occurence definition in braces "{}" on each line.  This number indicates the minimum
+and maximum number of occurrences allowed for a pattern component in the form
+{minimum:maximum}.  Note that minimum and maximum occurrence limits are defined
+relative to the enclosing superior line.  The enclosing line may prescribe zero,
+one, or many possible occurences, which, in effect, is multiplied by the occurences
+allowed for any of its subordinate lines.  This means that a required line (minimum
+= 1) is not required if an optional enclosing line is not given.  Similarly a line
+occurring only once (Maximum = 1) may occur multiple times as long as each occurs
+under its own multiple-occurring superior line.
+
+The level numbers for any sub-structure are represented as "n", "+1", "+2", etc. so
+that they may be used in more than one place at different starting level numbers. In
+these cases, "n" equals the same level number where the pattern first appears, and
+the "+1" means level n+1, "+2" means level n+2, etc.
+
+Unless stated otherwise, the only ordering imposed on GEDCOM lines within an
+enclosure arises when multiple opinions or other items are presented for which only
+one may be expected by a receiving system.  For example, a person may have been
+known by more than one name, or evidence may suggest either a birth in 1840 in New
+York or in 1837 in Pennsylvania.  In this case, the most credible or preferred
+information is listed first, followed by less credible or less preferred items of
+conflicting or alternate information.  Receiving systems that can only use one item
+of a given kind should use the first-listed value.  The same is true for output
+documents that can only display one value, such as family group records, pedigree
+charts, and others.
+
+Conflicting dates or places of an event should be represented in separate event
+structures to provide a place for the corresponding source citations, rather than
+place multiple dates or multiple places under the same enclosing event line.
+
+Even though no other ordering is defined beyond the one described above, some GEDCOM
+programming tools optimize performance based on the assumption that tags generally
+appear in a typical order.  Performance will be better in these circumstances when a
+common sequence is followed.  Therefore, sending systems are encouraged to present
+GEDCOM structures in the same general order as the one given in these patterns,
+unless there is a sufficient reason to use a different sequence.  
+
+RECORD STRUCTURES OF THE LINEAGE-LINKED FORM
+
+LINEAGE_LINKED_GEDCOM:=
+    This is a model of the Lineage-Linked Gedcom structure for submitting data to
+    other lineaged-linked GEDCOM processing systems.  A header and a trailer record
+    are required and they enclose any number of data records. A data record is
+    either a SUBMitter, INDIvidual, FAMily, NOTE, or SOURce record structure.
+    0  <<HEADER>>                                              {1:1}           
+    0  <<RECORD>>                                              {0:M}           
+    0 TRLR                                                     {1:1}           
+
+NOTE:
+    There are certain subordinate structures that may occur under any tag, at any
+    level. These structures are contained within a structure called SUPPORT_INFO.
+    The SUPPORT_INFO structure should be considered as subordinate to any GEDCOM
+    line, even though it is not shown (for readability).  The SUPPORT_INFO
+    structure may occur from zero to many times {0:M}.  Each occurance of the
+    SUPPORT_INFO structure contains exactly one logical choice of one of the
+    subordinate SUPPORT_INFO structure components. This means that from none to all
+    of the structures from SUPPORT_INFO could appear as subordinate to any GEDCOM
+    line, however, some may not be locigal, for instance one would not expect to
+    see a DATE tag as subordinate to another DATE tag.
+ 
+HEADER:=
+    The header structure provides information for identifying the submitted data. 
+    Specific system names are reserved to identify which system sent the data and
+    in some cases which system is intended to receive it.  The DESTination system
+    name "ANSTFILE" is required for submission to the Family History Department's
+    Ancestral File system.  For LDS temple ordinance submissions, the required
+    DESTination name is "TempleReady". (See chapter 3, "How To Use A Header" for
+    detail.)
+
+    n  HEAD                                                                     
+      +1 SOUR <SYSTEM_NAME>                                     {1:1}           
+        +2 VERS <VERSION_NUMBER>                                {1:1}           
+        +2 DATA <NAME_OF_SOURCE_DATA>                           {0:1}           
+          +3 DATE <PUBLICATION_DATE>                            {0:1}           
+      +1 DEST <SYSTEM_NAME>                                     {0:1}           
+      +1 DATE <TRANSMISSION_DATE>                               {0:1}
+          +2 TIME <TIME_VALUE>                                  {0:1}           
+      +1 SUBM @XREF:SUBM@                                       {1:1}           
+      +1 FILE <FILE_NAME>                                       {0:M}           
+      +1 COPR <COPYRIGHT_STATEMENT>                             {0:1}           
+        +2 CONT <TEXT>                                          {0:M}           
+      +1 GEDC                                                   {1:1}           
+        +2 VERS <VERSION_NUMBER>                                {1:1}           
+                 For this version of GEDCOM, the value should be "5.0"
+        +2 FORM <GEDCOM_FORM>                                   {1:1}
+      +1 CHAR <CHARACTER_SET>                                   {0:1}           
+      +1 LANG <LANGUAGE_OF_TEXT>                                {0:1}
+
+RECORD:=
+   [                                                                         
+    n   <<FAMILY_RECORD>>                                             
+      +1 <<SUPPORT_INFO>>                                       {0:M}
+   |                                                                         
+    n   <<INDIVIDUAL_RECORD>>                                   {0:1}    
+      +1 <<SUPPORT_INFO>>                                       {0:M}
+   |                                                                         
+    n   <<NOTE_RECORD>>                                         {0:1}    
+      +1 <<SUPPORT_INFO>>                                       {0:M}
+   |
+    n   <<REPOSITORY_RECORD>>                                   {0:1}
+      +1 <<SUPPORT_INFO>>                                       {0:M}
+   |
+    n   <<SOURCE_EVENT_RECORD>>                                 {0:1}    
+      +1 <<SUPPORT_INFO>>                                       {0:M}
+   |                                                                         
+    n   <<SOURCE_RECORD>>                                       {0:1}    
+      +1 <<SUPPORT_INFO>>                                       {0:M}
+   |                                                                         
+    n   <<SUBMITTER_RECORD>>                                    {0:1}    
+      +1 <<SUPPORT_INFO>>                                       {0:M}
+   ]                                                                         
+
+FAMILY_RECORD:=
+    n  @xref:FAM@ FAM                                                           
+      +1 HUSB @XREF:INDI@                                       {0:M}           
+      +1 WIFE @XREF:INDI@                                       {0:M}           
+      +1 CHIL @XREF:INDI@                                       {0:M}           
+      +1 <MARR_EVENT_TAG> <MARRIAGE_DESCRIPTOR>                 {0:M}           
+        +2 DATE <DATE_VALUE>                                    {0:1}           
+        +2 PLAC <PLACE_VALUE>                                   {0:1}           
+      +1 <DIVORCE_EVENT_TAG> <DIVORCE_DESCRIPTOR>               {0:M}           
+        +2 DATE <DATE_VALUE>                                    {0:1}           
+        +2 PLAC <PLACE_VALUE>                                   {0:1}           
+      +1 ASSO <ASSOCIATION_DESCRIPTOR> @XREF:INDI@              {0:M}    
+      +1  <<LDS_FAM_ORDINANCE_EVENT>>                           {0:M}           
+
+INDIVIDUAL_RECORD:=
+    n  @XREF:INDI@ INDI                                                         
+      +1 RFN <PERMANENT_RECORD_FILE_NUMBER>                     {0:1}    
+      +1  <<INDIVIDUAL>>                                        {1:1}    
+      +1  <<LDS_INDI_ORDINANCE_EVENT>>                          {0:M}
+      +1 ANCI @XREF:SUBM@                                       {0:M}    
+      +1 DECI @XREF:SUBM@                                       {0:M}    
+      +1 FAMC @XREF:FAM@                                        {0:M}    
+        +2  <<CHILD_FAMILY_EVENT>>                              {0:M}    
+      +1 ASSO <ASSOCIATION_DESCRIPTOR> @XREF:INDI@              {0:M}    
+      +1 ASSO <ASSOCIATION_DESCRIPTOR> @XREF:FAM@               {0:M}    
+      +1 ALIA @XREF:INDI@                                       {0:M}    
+      +1 FAMS @XREF:FAM@                                        {0:M}    
+      +1 NAMS @XREF:INDI@                                       {0:M}    
+        +2 REL <RELATIONSHIP_DESCRIPTOR>                        {0:M}
+      +1 REFN <USER_REFERENCE_NUMBER>                           {0:M}    
+      +1 AFN <ANCESTRAL_FILE_NUMBER>                            {0:1}    
+
+NOTE_RECORD:=
+    n  @XREF:NOTE@ NOTE [<TEXT> | <NULL> ]                                  
+      +1  <<NOTE_STRUCTURE>>                                    {0:1}               
+
+REPOSITORY_RECORD:=
+    n @XREF:REPO@ REPO   
+       +1  NAME <REPOSITORY_NAME>                               {0:1}
+       +1  ADDR <ADDRESS_LINE>                                  {0:1}           
+          +2 CONT <ADDRESS_LINE>                                {0:3}           
+
+SOURCE_EVENT_RECORD:=
+    This structure represents event-oriented information that may be used as
+    evidence for submitter' opinions or conclusions expressed in INDIVIDUAL and
+    FAMILY records.
+
+    n  @XREF:EVEN@ <EVENT_TAG> <EVENT_DESCRIPTOR>                             
+      +1 DATE <DATE_VALUE>                                      {0:1}    
+      +1 PLAC <PLACE_VALUE>                                     {0:1}    
+      +1 <ROLE_TAG> <ROLE_DESCRIPTOR>                           {0:M}    
+        +2  <<INDIVIDUAL>>                                      {0:1}    
+        +2 AGE <AGE_VALUE>                                      {0:1}    
+
+SOURCE_RECORD:=
+                                                                             
+    n  @XREF:SOUR@ SOUR [<TEXT> | <NULL> ]                                    
+      +1  <<SOURCE_STRUCTURE>>                                  {0:1}           
+
+
+SUBMITTER_RECORD:=
+   The submitter record identifies individuals or organizations that         
+   contributed the information contained within the GEDCOM transmission.     
+   All records are assumed to be submitted by the SUBMITTER referenced in    
+   the HEADer, unless a SUBMitter reference inside a specific record points  
+   at a different SUBMITTER.                                                 
+                                                                              
+    n  @XREF:SUBM@ SUBM                                                         
+      +1 NAME <NAME_VALUE>                                      {1:1}           
+      +1 ADDR <ADDRESS_LINE>                                    {1:1}           
+        +2 CONT <ADDRESS_LINE>                                  {0:3}           
+      +1 PHON <PHONE_NUMBER>                                    {0:1}           
+      +1 CHAN                                                   {0:1}           
+        +2 DATE <CHANGE_DATE>                                   {1:1}           
+
+SUBSTRUCTURES OF THE LINEAGE-LINKED FORM
+
+BURIAL_INFO:=
+   This structure is valid only if enclosed in the PLACe of a BURIal event.  
+                                                                             
+    n  CEME <CEMETARY_NAME>                                     {1:1}                
+      +1 ADDR <ADDRESS_LINE>                                    {0:1}           
+        +2 CONT <ADDRESS_LINE>                                  {0:3}           
+
+CHILD_FAMILY_EVENT:=
+   [                                                                         
+    n  ADOP <CHILD_FAMILY_EVENT_DESCRIPTOR>                     {1:1}
+      +1 DATE <DATE_VALUE>                                      {0:1}           
+      +1 PLAC <PLACE_VALUE>                                     {0:1}           
+   |                                                                         
+    n   <<LDS_CHILD_SEALING_EVENT>>                             {0:1}           
+   ]                                                                         
+
+INDIVIDUAL:=
+    n  NAME <NAME_VALUE>                                        {0:M} 
+    n  NAMR <NAME_VALUE>                                        {0:M}    
+    n  SEX <SEX_VALUE>                                          {0:1}    
+    n  <INDIV_EVENT_TAG> <EVENT_DESCRIPTOR>                     {0:M}    
+      +1 DATE <DATE_VALUE>                                      {0:1}    
+      +1 PLAC <PLACE_VALUE>                                     {0:1}    
+        +2  <<BURIAL_INFO>>                                     {0:1}    
+    n  TITL <TITLE>                                             {0:M}    
+      +1 DATE <DATE_VALUE>                                      {0:1}           
+      +1 PLAC <PLACE_VALUE>                                     {0:1}           
+    n  RELI <RELIGIOUS_AFFILIATION>                             {0:M}    
+    n  OCCU <OCCUPATION>                                        {0:M}    
+    n  PROP <POSSESSIONS>                                       {0:M}
+    n  DSCR <PHYSICAL_DESCRIPTION>                              {0:M}    
+      +1 CONT <PHYSICAL_DESCRIPTION>                            {0:M}    
+    n  SIGN <SIGNATURE_INFO>                                    {0:M}
+    n  NMR <COUNT_OF_MARRIAGES>                                 {0:1}    
+    n  NCHI <COUNT_OF_CHILDREN>                                 {0:1}    
+    n  NATI <NATIONALITY>                                       {0:M}    
+    n  CAST <CASTE_NAME>                                        {0:M}    
+    n  ADDR <ADDRESS_LINE>                                      {0:M}    
+      +1 CONT <ADDRESS_LINE>                                    {0:3}    
+      +1 DATE <DATE_VALUE>                                      {0:1}    
+      +1 PHON <PHONE_NUMBER>                                    {0:1}    
+
+LDS_CHILD_SEALING_EVENT:=
+    n  SLGC                                                     {1:1} 
+      +1 DATE <DATE_VALUE>                                      {0:1}           
+      +1 TEMP <TEMPLE_VALUE>                                    {0:1}           
+LDS_FAM_ORDINANCE_EVENT:=
+    n  SLGS                                                     {1:1}           
+      +1 DATE <DATE_VALUE>                                      {0:1}           
+      +1 TEMP <TEMPLE_VALUE>                                    {0:1}           
+
+LDS_INDI_ORDINANCE_EVENT:=
+    n  <LDS_INDI_ORD>                                           {1:1}           
+      +1 DATE <DATE_VALUE>                                      {0:1}           
+      +1 TEMP <TEMPLE_VALUE>                                    {0:1}           
+
+NOTE_STRUCTURE:=
+   This structure allows comments about the information originated by the    
+   submitter.                                                                
+    n  CONT <SUBMITTERS_TEXT>                                   {1:M}      
+    n  NOTE @XREF:NOTE@                                         {0:1}           
+
+REPOSITORY_STRUCTURE:=
+    n  NAME <REPOSITORY_NAME>                                   {0:1}
+    n  ADDR <ADDRESS_LINE>                                      {0:1}           
+      +1 CONT <ADDRESS_LINE>                                    {0:3} 
+    n  PHON <PHONE_NUMBER>                                      {0:1}
+    n  CNTC <CONTACT_PERSON>                                    {0:M}
+
+SOURCE_STRUCTURE:=
+    n  TYPE <SOURCE_CLASSIFICATION_CODE>                        {0:1}
+    n  EVEN <EVENT_CLASSIFICATION_CODE>                         {0:1}
+    n  NAME <DESCRIPTIVE_TITLE>                                 {0:1}    
+    n  PAGE <PAGE_DESCRIPTION>                                  {0:1}    
+    n  EDTR <EDITED_BY_NAME>                                    {0:1}    
+    n  CPLR <COMPILED_BY_NAME>                                  {0:1}    
+    n  XLTR <TRANSLATED_BY_NAME>                                {0:1}    
+    n  INFT <INFORMANTS_NAME>                                   {0:1}    
+    n  INTV <INTERVIEWERS_NAME>                                 {0:1}    
+  [
+    n  AUTH <AUTHOR_NAME>                                       {0:M}    
+  |
+    n  AUTH @XREF:SUBM@                                         {0:1}    
+  ]
+    n  PERI <SOURCE_TIME_PERIOD>                                {0:M}    
+    n  DATE <ENTRY_RECORDING_DATE>                              {0:1}    
+    n  PLAC <SOURCE_JURISDICTION_PLACE>                         {0:1}    
+    n  TEXT <SOURCE_TEXT>                                       {0:1}    
+      +1 CONT <SOURCE_TEXT>                                     {0:M}    
+    n  RECO <SOURCE_RECORDER_CODE>                              {0:1}    
+    n  FIDE <SOURCE_FIDELITY_CODE>                              {0:1}    
+    n  INDX <SOURCE_INDEXED_CODE>                               {0:1}    
+    n  PUBL                                                     {0:1} 
+      +1 NAME <PUBLICATION_NAME>                                {0:1}
+      +1 DATE <PUBLICATION_DATE>                                {0:1}
+      +1 PLAC <PUBLICATION_PLACE>                               {0:1}
+      +1 PUBR <PUBLISHER_NAME>                                  {0:1}
+    n  SERS <SERIES_VOLUME_DESCRIPTION>                         {0:1}    
+    n  LCCN <LIBRARY_CONGRESS_CALL_NUMBER>                      {0:1}    (Cont.)
+    n  QUAY <QUALITY_OF_DATA>                                   {0:1}    
+    n  REFS @XREF:SOUR@                                         {0:M}
+    n  SOUR @XREF:ANY@                                          {0:M}    
+    n  SUBM @XREF:SUBM@                                         {0:M}    
+  [
+    n  NOTE <SUBMITTERS_TEXT>                                   {1:1}
+      +1 <<NOTE_STRUCTURE>>                                     {0:1}
+  |
+    n  NOTE @XREF:NOTE@                                         {0:M}    
+  ]
+  [
+    n  REPO                                                     {0:1}
+      +1 <<REPOSITORY_STRUCTURE>>                               {1:1}
+  |
+    n  REPO @XREF:REPO@                                         {0:1}
+  ]
+      +1 MEDI <MEDIA_TYPE_CODE>                                 {0:M}           
+      +1 CALN <SOURCE_CALL_NUMBER>                              {0:1}           
+      +1 REFN <MANUAL_FILING_IDENTIFICATION>                    {0:1}           
+      +1 FILM <SOURCE_FILM_NUMBER>                              {0:1}           
+        +2 ITEM <FILM_ITEM_IDENTIFICATION>                      {0:1}           
+    [
+      +1 NOTE @XREF:NOTE@                                       {0:1}
+    |
+      +1 NOTE <SUBMITTERS_TEXT>                                 {1:1}
+        +2  <<NOTE_STRUCTURE>>                                  {0:1}
+    ]
+    n  STAT <SEARCH_STATUS>                                     {0:1}    
+      +1 DATE <SEARCH_STATUS_DATE>                              {1:1}    
+ 
+SUPPORT_INFO:=
+   This structure provides information pertaining to the enclosing item, i.e.,
+   information about the information. It may occur within any context.
+   [ 
+    n  DATE <DATE_VALUE>                                        {0:1}
+   |
+    n  PLAC <PLACE_VALUE>                                       {0:1}
+   |                                                                            
+    n  SOUR [<SOURCE_TEXT> | @XREF:SOUR@]                                       
+      +1  <<SOURCE_STRUCTURE>>                                  {0:1}           
+   |                                                                         
+    n  NOTE [ <SUBMITTERS_TEXT> | @XREF:SOUR@ ]           {0:1}           
+      +1  <<NOTE_STRUCTURE>>                                    {1:1}           
+   |                                                                         
+    n  SUBM @XREF:SUBM@                                         {0:1}           
+   |                                                                         
+    n  QUAY <QUALITY_OF_DATA>                                   {0:1}           
+   |                                                                         
+    n  CHAN                                                     {0:M}           
+      +1 DATE <CHANGE_DATE>                                     {1:1}           
+        +2 TIME <TIME_VALUE>                                    {0:1}
+   ] 
+PRIMITIVE ELEMENTS OF THE LINEAGE-LINKED FORM
+
+
+ADDRESS_LINE:=                              {Size=1:40, Type=CHARACTERS}
+     Address information which, when combined with a NAME and CONTinuation lines,
+     meets postal requirements for sending communications through the mail.
+
+AGE_VALUE:=                                 {Size=1:30, Type=CHARACTERS}
+     A number indicating the age in years, months, and/or days.  Any labels must
+     come after their corresponding number, i.e. 4 yr 8 mo 10 da.  The year is
+     required, listed first, even if 0 (zero).
+
+ANCESTRAL_FILE_NUMBER:=                     {Size=1:8, Type=CHARACTERS}
+     This is a record number of an individual record contained in the Ancestral
+     File maintained by the Family History Department.  This number simplifies the
+     matching process when submitting records that are intended to add additional
+     data or to change data for a specific record contained in the Ancestral File.
+
+ASSOCIATION_DESCRIPTOR:=                    {Size=1:90, Type=CHARACTERS}
+     This is a word or phrase that describes the association between this
+     individual and the other individual in the context pointed to. (e.g., n ASSOC
+     great grandfather @XREF:SUBM@ would be read, this person is a great
+     grandfather of the individual found in submitter record.)
+
+AUTHOR_NAME:=                               {Size=1:120, Type=CHARACTERS}
+     <NAME_VALUE>
+     This is the name of the person who authored or co-authored the referenced 
+     material.
+
+CASTE_NAME:=                                {Size=1:90, Type=CHARACTERS}
+     A name assigned to a particular group that this person was associated with,
+     such as a paticular racial group, religious group, or a group with an
+     inherited status.
+
+CEMETARY_NAME:=                             {Size=1:90, Type=CHARACTERS}
+     The name of the cemetary associated with a burial.
+
+CHANGE_DATE:=                               {Size=10:11, Type=CHARACTERS}
+     <EXACT_DATE>
+     The date that this data was last changed.
+
+CHARACTER_SET:=                             {Size=1:8, Type=CHARACTERS}
+     A code value representing the character set to be used in interpreting this
+     data.  The default character set is ANSEL.  Other options are not defined.
+
+CHILD_FAMILY_EVENT_DESCRIPTOR:=             {Size=1:90, Type=CHARACTERS} 
+     A word or phrase that describes or modifies the adoption event being reported. 
+     Systems that display data from the GEDCOM form should be able to display the
+     descriptor value in their output, possibly inside of parenthesis (). 
+
+CALENDAR_ESCAPE_SEQUENCE:=                  {Size=4:15, Type=CHARACTERS}   
+     [ @#DHEBREW@ | @#DROMAN@ | @#DFRENCH_R@ | @D#GREGORIAN@ | @D#JULIAN@ |
+       @D#UNKNOWN@ ]
+     An escape sequence which allows date from one of the indicated calendars to be
+     represented.  The default calendar is the Gregorian calendar.
+
+COMPILED_BY_NAME:=                          {Size=1:120, Type=CHARACTERS}    
+     The name of the person who compiled an information source.
+
+CONTACT_PERSON:=                            {Size=1:120, Type=CHARACTERS}  
+     <NAME_VALUE>
+     The name of the person to whom communications should be addressed.
+                                                                              
+COPYRIGHT_STATEMENT:=                       {Size=1:90, Type=CHARACTERS}
+     A copyright statement needed to protect the rights of the owner(s) of this
+     data.
+
+COUNT_OF_CHILDREN:=                         {Size=1:2, Type=NUMBER}
+     The number of children that this person (all marriages) or these parents were
+     known to have been the parent(s) of.
+                                                                              
+COUNT_OF_MARRIAGES:=                        {Size=1:2, Type=NUMBER}
+     The number of times that this person was known to have been married.
+
+DATE_MODIFIER :=
+     [ ABT | AFT | BEF | BET | EST | <CALENDAR_ESCAPE_SEQUENCE>]
+
+DATE_PHRASE:=                               {Size=1:90, Type=TEXT}
+     <text>
+     Any date statement which adds understanding to when an event occurred.  Does
+     not include a numerical year equivalent.
+
+DATE_RANGE:=
+     [ BET <REGULAR_DATE> AND <REGULAR_DATE> ]
+
+DATE_VALUE:=                                {Size=1:90, Type=TEXT}
+     [ <REGULAR_DATE> | <DATE_PHRASE> | <DATE_RANGE> | <DATE_WITH_BC> |
+       <DATE_MODIFIER> <REGULAR_DATE> ]
+     (See Chapter 4 on "How To Record Dates".)
+
+DATE_WITH_BC:=                              {Size=1:90, Type=TEXT}
+     [ <DATE_PHRASE> <YEAR> B.C. ]
+     This represents a B.C. date.
+
+DAY:=                                       {Size=1:2, Type=DIGIT}
+     dd
+     This field represents the day of the month where dd is a numeric digit whose
+     value is within the valid range of the days for the particular month in which
+     this day is for. A leading zero is optional.
+
+DESCRIPTIVE_TITLE:=                         {Size=1:247, Type=CHARACTERS}      
+   A descriptive title of the information source, such as a description of:   
+     * A title of an article published in a periodical.                       
+     * A letter, showing who sent the letter to whom, and when.               
+     * A transaction between a buyer and seller, naming them, and when.       
+     * A Family Bible containing genealogical information, who owned it,      
+       and some additional description of the book.                                
+     * A description of a personal interview.                                 
+
+DIVORCE_DESCRIPTOR:=                        {Size=1:90, Type=CHARACTERS}
+     A word or phrase that commonly describes the type of separation that took
+     place between husband and wife.  The separation descriptor should use the same
+     word or phrase and in the same language, whenever possible, that was used by
+     the recorder of the event.  Systems that display data from the GEDCOM form
+     should be able to display the descriptor value in their output, possibly
+     inside of parenthesis ().   
+
+DIVORCE_EVENT_TAG:=                         {Size=3:4, Type=CHARACTER}
+     [ ANUL | DIV | DIVF ] 
+     A family event tag. The preferred usage is to use the DIV tag with the
+     <DIVORCE_DESCRIPTOR> value which describes the separation event.  For example,
+     use DIV Annullment rather than ANUL.  The separation event tags shown above
+     were defined in The GEDCOM Standard 4.0 and are included here for the sake of
+     compatibility.
+
+ENTRY_RECORDING_DATE:=                      {Size=1:90, Type=CHARACTERS}
+     <DATE_VALUE>
+     The date that the entry was entered into the source record by the recorder.
+
+EVENT_CLASSIFICATION_CODE:=                 {Size=1:90, Type=CHARACTERS}
+     [<INDIV_EVENT_TAG> | <EVENT_DESCRIPTOR> ]
+     This code classifies the source as to the primary event that caused this
+     source record to be created.   
+
+EVENT_DESCRIPTOR:=                          {Size=1:90, Type=CHARACTERS}
+     This primitive must be used whenever the EVEN tag is used in order to define
+     the event being cited.  For example, if the event was a purchase of a primary
+     residence, one would show this by using the EVEN tag followed by the phrase
+     "Purchased Residence".   When the event descriptor primitive is used with any
+     of the defined event tags, it is to modify the basic definition of the
+     associated tag.  For example the BIRT tag could be used in connection with an
+     EVENT_DESCRIPTOR of 'Stillborn' to modify the birth event as a stillborn
+     birth.  The event descriptor should use the same word or phrase and in the
+     same language, when possible, that was used by the recorder of the event. 
+     Systems that display data from the GEDCOM form should be able to display the
+     descriptor value in their output, possibly inside of parenthesis ().
+
+EVENT_TAG:=                                 {Size=3:4, Type=CHARACTERS}
+     [ <INDIV_EVENT_TAG> | <MARRIAGE_EVENT_TAG> ]
+     An event tag that chosen from the tags which comprise those identifying
+     individual events or from those identifying marriage type events, including
+     EVEN and MARR with event descriptors.EXACT_DATE:=                                {Size=10:11, Type=CHARACTERS}
+     <DAY> <MONTH> <YEAR>
+     A formatted date with one space between the date parts.
+
+FILE_NAME:=                                 {Size=1:90, Type=CHARACTERS}
+     The source file name as specified on the source operating system.  It must
+     include the path, file name, and file extention.
+
+FILM_ITEM_IDENTIFICATION:=                  {Size=1:90, Type=CHARACTERS}
+     This identifies a particular book or unit of material which may have been  
+     filmed with other books or units on the same microform.  The convention used
+     in the Family History Department microfilms is to include a separator frame
+     with an item number to separate multiple books on a film.
+
+GEDCOM_FORM:=                               {Size=1:15, Type=CHARACTERS}
+     [ LINEAGE-LINKED | (others to be registered) ]
+     Identifies the GEDCOM form used to construct this transmission.
+
+INDIV_EVENT_TAG:=                           {Size=3:4, Type=CHARACTERS}
+     [ BIRT | BAPM | BARM | BASM | BLES | BURI | CENS | CHR  | CHRA |
+       CONF | DEAT | EVEN | GRAD | NATU | ORDN | RETI | PROB | WILL ]
+     The EVEN tag must be followed by an <EVENT_DESCRIPTOR> which describes the
+     event.  The <EVENT_DESCRIPTOR>  is optional for the other types of events.
+
+INTERVIEWERS_NAME:=                         {Size=1:90, Type=CHARACTERS}
+     The name of the person who conducted the interview for information.
+
+INFORMANTS_NAME:=
+     A persons name that contributed information during an interview.
+
+LANGUAGE_OF_TEXT:=                          {Size=1:25, Type=CHARACTERS}
+     [ <LANGUAGE_TABLE> ]
+     This indicates the language used in describing the data about an event or
+     person.  It is placed in the header indicating that the values contained in
+     the transmission are generally written in the indicated language.
+
+LANGUAGE_TABLE:=                            {Size=1:25, Type=CHARACTERS}
+     The valid values must be selected from the table of languages shown in the
+     Encylopaedia Britannica 1989 Britannica Book of the Year.
+
+LDS_INDI_ORD:=                              {Size=3:4, Type=CHARACTERS}
+     [ BAPL | CONL | WAC | ENDL ]
+     This field is a choice of religious events associated with The Church of Jesus
+     Christ of Latter-day Saints.   (See Appendix A for a definition of these
+     tags.)
+
+LIBRARY_CONGRESS_CALL_NUMBER:=              {Size=1:20, Type=CHARACTERS}       
+     Call number assigned to this item by the U.S. Library of Congress.  
+
+MANUAL_FILING_IDENTIFICATION:=              {Size=1:90, Type=CHARACTERS}
+     A description of where the source is manually filed at this repository. 
+     Personal genealogical archives should be organized and filed so that items can
+     be specifically identified and retrieved.  This field allows the entry of a
+     filing number or description of where the genealogical source material is
+     located within the private or public archives. i.e. "Probate file Drawer 83,
+     File D, Number 18".
+
+MARR_EVENT_TAG:=                            {Size=3:4, Type=CHARACTERS}
+     [ MARR | MARB | MARC | MARL | MARL | MARS | ENGA | EVEN ]
+     The preferred usage is to use the MARR tag with the <MARRIAGE_DESCRIPTOR>
+     value which describes the family event.  For example, use MARR License rather
+     than MARL.  These marriage event tags shown above were defined in The GEDCOM
+     Standard 4.0 and are included here for the sake of compatibility.
+
+MARRIAGE_DESCRIPTOR:=                       {Size=1:90, Type=CHARACTERS}
+     A word or phrase that best describes the event that created this family.  The
+     marriage descriptor should use the same word or phrase and in the same
+     language, when possible, that was used by the recorder of the event. Possible
+     descriptors include "Childbirth-unmarried", "Common Law", "Tribal Custom",
+     etc.  Systems that display data from the GEDCOM form should be able to display
+     the descriptor value in their output, possibly inside of parenthesis ().   
+
+MEDIA_TYPE_CODE:=                           {Size=1:15, Type=CHARACTERS}
+     [ AUDIO | BOOK | ELECTRONIC | FICHE | FILM | VIDEO | MANUSCRIPT ]
+     This code is selected from one of the media classifications above.  The code
+     selected is based on the type of media that the referenced source is stored
+     on.
+
+MONTH:=                                     {Size=3:3, Type=CHARACTERS}
+     [ JAN | FEB | MAR | APR | MAY | JUN |
+       JUL | AUG | SEP | OCT | NOV | DEC ]
+
+NAME_OF_SOURCE_DATA:=                       {Size=1:90, Type=CHARACTERS}
+     The name of the data source that was used to obtain the data in this
+     transmission.  For example, the data may have been obtained from a CD-ROM disc
+     that was named "CD-ROM U.S. 1880 CENSUS vol. 13".
+
+NAME_VALUE:=                                {Size=1:120, Type=CHARACTERS}
+     [
+      <TEXT> |
+      <TEXT>/<TEXT>/ |
+     /<TEXT>/<TEXT> |
+      <TEXT>/<TEXT>/<TEXT>
+     ]
+     The surname of an individual, if known, should be between two slash /
+     characters. The order of the pieces of the name should be the order which the
+     person would customarily have used the name when giving it to a recorder. 
+     (See Chapter 4, "How To Record Names Of Individuals" section)
+
+NATIONALITY:=                               {Size=1:90, Type=CHARACTERS}
+     Indicates the common national origin of this person and his or her
+     grandparents.
+
+OCCUPATION:=                                {Size=1:90, Type=CHARACTERS}
+     The kind of activity or vocation that one does to earn a living.
+
+PAGE_DESCRIPTION:=                          {Size=1:90, Type=CHARACTERS}
+     Identifies the page within the source.  This may be a page number range, a
+     specific page number, or another way of defining how to find the specified
+     information within the source.
+
+PERMANENT_RECORD_FILE_NUMBER:=              {Size=1:18, Type=CHARACTERS}    
+     <REGISTERED_RESOURCE_IDENTIFIER>:<RECORD_IDENTIFIER>
+     The record number that uniquely identifies this record within a registered
+     network resource (future).  The number will be usable as a cross reference
+     pointer. The use of the colon ":" is reserved to indicate the separation of
+     the 'registered resource identifier' which precedes the colon and the unique
+     'record identifier' within that resource which follows the colon.
+
+PHONE_NUMBER:=                              {Size=1:25, Type=CHARACTERS}
+     A phone number formatted to provide international phone access.
+
+PHYSICAL_DESCRIPTION:=                      {Size=1:247, Type=CHARACTERS}
+     An unstructured list of the attributes which describes the physical
+     characteristics of a person, place, or object.
+
+PLACE_VALUE:=                               {Size=1:120, Type=CHARACTERS}
+     [
+     <TEXT> |                                                                 
+     <TEXT>, <PLACE_VALUE>                                                    
+     ]                                                                          
+     The jurisdictional name of the place where the event took place. Jurisdictions
+     are separated by commas. ie. town, county, state or village, parish, country. 
+     Receiving systems cannot assume that the nth locality position is necessarily
+     a specific level of jurisdiction.  Missing intermediate jurisdictions, if
+     known to exist, should be represented by adjacent placeholder commas.
+
+POSSESSIONS:=                               {Size=1:247, Type=CHARACTERS}
+     A list of possessions (real estate or other property) belonging to this
+     individual, separated by commas.
+
+PUBLICATION_DATE:=                          {Size=10:11, Type=CHARACTERS}
+     <DATE_VALUE>
+     The date this source was published or compiled.
+
+PUBLICATION_NAME:=                          {Size=1:120, Type=CHARACTERS}
+     The name of a publication such as a book, pamphlet, periodical, newspaper, or
+     other monographic publication.
+
+PUBLICATION_PLACE:=                         {Size=1:120, Type=CHARACTERS}
+     The name of the place (City, State) where an item was published or the
+     location of the main office of the publisher.
+
+PUBLISHER_NAME:=                            {Size=1:120, Type=CHARACTERS}
+     The name of the publisher of the referenced publication.
+
+QUALITY_OF_DATA:=                           {Size=1:1, Type=DIGIT}
+     [ 0 | 1 | 2 | 3 ]
+   Submitter's assessment of of the reliability of the information:       
+      0 = Unreliable evidence or data was estimated.                          
+      1 = Direct or primary evidence with some question of reliability        
+          or potential for bias (e.g., an autobiography).                     
+      2 = Secondary evidence.                                                 
+      3 = Direct and primary evidence used, or a preponderance of evidence.   
+
+REGULAR_DATE:=                              {Size=1:90, Type=TEXT}
+     [ <DATE_MODIFIER> ] [ <EXACT_DATE> | <MONTH> <YEAR> | <YEAR ]
+
+RELATIONSHIP_DESCRIPTOR:                    {Size=1:90, Type=CHARACTERS}
+     An English word or phrase that describes the relationship between this
+     individual and the individual pointed to.  Systems that display data from the
+     GEDCOM form should be able to display the descriptor value in their output,
+     possibly inside of parenthesis (). 
+
+RELIGIOUS_AFFILIATION:=                     {Size=1:90, Type=CHARACTERS}
+     A name of the religion that this person or record was affiliated with.
+
+REPOSITORY_NAME:=                           {Size=1:90, Type=CHARACTERS}
+     The official name of the archive in which the stated source material is
+     stored.
+
+ROLE_DESCRIPTOR:=                           {Size=1:90, Type=CHARACTERS}       
+     Used in connection with the ROLE tag, this descriptor is a word or phrase that
+     identifies the role of each peron in the event being described. This should be
+     the same word or phrase, and in the same language, that the recorder used to
+     define the role in the actual record. Systems that display data from the
+     GEDCOM form should be able to display the descriptor value in their output,
+     possibly inside of parenthesis ().
+ 
+ROLE_TAG:=                                  {Size=1:90, Type=CHARACTERS}       
+   [ BUYR | CHIL | FATH | HDOH | HEIR | HUSB | INFT | MOTH |                  
+     OFFI | RECO | REL  | ROLE | SELR | TXPY | WIFE | WITN ]                  
+     These tags indicate the various roles of individuals mentioned in a source
+     event record.  If the role being cited is different than one of the above
+     defined roles then use the ROLE tag followed by a <ROLE_DESCRIPTOR> to define
+     the role.
+
+SEARCH_STATUS:=                             {Size=1:90, Type=CHARACTERS}
+     [ ACTIVE | INFO_FOUND | INFO_NOT_FOUND | ON_ORDER | PLANNED | RECONCILLED ]
+     This status field shows the status of using the specified source for the
+     enclosing information where:
+       ACTIVE         =      This source is currently being searched.         
+       INFO_FOUND     =      Part or all of the expected information was found.
+       INFO_NOT_FOUND =      Indicates that this source is no longer in use because
+                             this information could not be found.          
+       ON_ORDER       =      Request for source has been sent to the Repository.   
+       PLANNED        =      Source recommended for examination.                   
+       RECONCILLED    =      The data in this record has been reconcilled with the
+                             indicated resource data record.
+                                                                              
+SEARCH_STATUS_DATE:=                        {Size=1:90, Type=CHARACTERS}
+     <EXACT_DATE>
+     The date on which a SEARCH_STATUS was set.
+
+SERIES_VOLUME_DESCRIPTION:=                 {Size=1:247, Type=CHARACTERS}
+     A description of a successive publication.  The description should include an
+     identification of timing of the publication such as Spring, Summer, Fall,
+     Winter, etc.  Volume numbers of periodicals or of multivolume books are also
+     stated.
+
+SEX_VALUE:=                                 {Size=1:7, Type=CHARACTERS}
+     The following code indicates the sex of the individual:
+      M = Male                                                               
+      F = Female
+
+SIGNATURE_INFO:= 
+     [ YES | NO | SYMBOL_NAME ]
+     Identifies the type of signature used by this person.
+     YES         =     This person knew how to sign his or her name.
+     NO          =     This person did not use a signature or know how to sign.
+     SYMBOL_NAME =     The descriptive name of the sybol used as a signature by
+                       this person.
+
+SOURCE_CALL_NUMBER:=                        {Size=1:90, Type=CHARACTERS}
+     An identification number used to file and retrieve items from the holdings of
+     a repository.
+
+SOURCE_CLASSIFICATION_CODE:=                {Size=7:90, Type=CHARACTERS}
+     [ <INDIV_EVENT_TAG> | <MARR_EVENT_TAG> | <DIV_EVENT_TAG> | GENEALOGY |
+       ORAL_GENEALOGY | NEWSPAPER | PERIODICAL | CORRESPONDENCE | INTERVIEW |
+       CIVIL_REC | CENSUS | MILITARY | BIOGRAPHY | HISTORY |  FAMILY_REC |
+       TRADITION | PERSONAL_KNOWLEDGE | JOURNAL | <SOURCE_CLASS_DESCRIPTOR>]
+
+     This classifies the source citation as to whether it is citing a document of a
+     primary event or citing events from:
+     <INDIV_EVENT_TAG> =     A source documenting an individual type event.
+     <MARR_EVENT_TAG>  =     A source documenting a marriage type event.
+     <DIV_EVENT_TAG>   =     A source documenting a divorce type event. 
+     GENEALOGY         =     A compiled genealogical work.   ORAL_GENEALOGY=A recited genealogy, such as a tribal or clan
+                             genealogy.             
+     NEWSPAPER         =     A newspaper account.
+     PERIODICAL        =     An account published in a periodical.
+     CORRESPONDENCE    =     A letter or other written communication.
+     INTERVIEW         =     An interview with another person.
+     CIVIL_REC         =     A record from a court or other government
+                             organization.
+     CENSUS            =     A official census. 
+     MILITARY          =     A military record.
+     BIOGRAPHY         =     A published biographical compilation.           
+     HISTORY           =     A published historical account.                 
+     TRADITION         =     A source that was compiled from accounts handed down
+                             by word of mouth from one generation to another.
+     KNOWLEDGE         =     An accounting by a person having personal memory of an
+                             event.  
+     JOURNAL           =     A personal record or diary.
+
+     Systems that display data from the GEDCOM form should be able to display the
+     descriptor value in their output, possibly inside of parenthesis ().
+
+SOURCE_CLASS_DESCRIPTOR:=                   {Size=1:25, Type=CHARACTERS}       
+     A descriptive word or phrase that helps to classify the type of source that is
+     being cited.  This descriptor is used only after examining the controlled
+     descriptors as defined under <SOURCE_CLASSIFICATION_CODE> and finding that
+     none of the classifications fit this source type. Systems that display data
+     from the GEDCOM form should be able to display the descriptor value in their
+     output, possibly inside of parenthesis ().     
+                                                                              
+SOURCE_FIDELITY_CODE:=                      {Size=7:17, Type=CHARACTERS}
+     [ ORIGINAL | PHOTOCOPY | TRANSCRIPT | EXTRACT ]
+     This code is a selection of one of the above choices designed to provide an
+     assessment of the fidelity (the exactness) of this source material.
+     ORIGINAL    =     This source is the original record being cited.            
+     PHOTOCOPY   =     This source is a photocopy of the cited record.            
+     TRANSCRIPT  =     This source is a transcribed record of the original record.
+     EXTRACT     =     This source is an abridgement and/or interpretation of the
+                       original record.
+
+SOURCE_FILM_NUMBER:=                        {Size=1:15, Type=CHARACTERS}
+     A unique number assigned to by the repository to identify the specific
+     microfilm containing information about the event of interest recognized by the
+     repository.
+
+SOURCE_INDEXED_CODE:=                       {Size=1:1, Type=CHARACTERS}
+     [ Y | N ]
+     An indication of whether this source has been indexed by names.
+       Y = This source contains an index.
+       N = This source does not contain an index.
+
+SOURCE_JURISDICTION_PLACE:=
+     <PLACE_VALUE>
+     The highest level place name that covers all of the event places contained as
+     in this information source.   For example, "United States of America" would be
+     used when referencing the U.S. 1880 Census.
+
+SOURCE_RECORDER_CODE:=                      {Size=1:25, Type=CHARACTERS}
+     [ PERSONAL | CIVIL | CHURCH | COMMERCIAL | INSTITUTIONAL ]
+     A classification of the type of authority the person or institution
+     responsible for making the record possessed.
+     PERSONAL    =     Recorder of record was acting as an individual or family
+                       record keeper.         
+     CIVIL       =     Recorder of record was acting as a civil officer or clerk.  
+     CHURCH      =     Recorder of record was acting as a church officer or clerk.  
+   
+     COMMERCIAL  =     This record was produced by a business enterprise.      
+     INSTITUTIONAL=    This record was produced by an institution such as a    
+                       genealogical society, school, prison, or other institution.
+
+SOURCE_TEXT:=                               {Size=1:247, Type=CHARACTERS}     
+     <TEXT>
+     A verbatim copy of any description or verbage contained within the source. 
+     This indicates notes that are actually contained in the source document, not
+     someones opinion notes about the source. 
+
+SOURCE_TIME_PERIOD:=                        {Size=1:25, Type=CHARACTERS}
+     <DATE_VALUE> - <DATE_VALUE>
+     The time period covered by this source.  Either end of the date range may be
+     missing, indicating an indefinite past or future.
+
+SUBMITTERS_TEXT:=                           {Size=1:247, Type=CHARACTERS}
+     Comments or opinions originated by the submitter.
+
+SYSTEM_NAME:=                               {Size=1:40, Type=CHARACTERS}
+     Identififies the product that sent or will receive the GEDCOM output.  The
+     system name was obtained when the product was registered as a
+     GEDCOM-compatible product.  All GEDCOM transmissions must be so identified.
+
+TEMPLE_VALUE:=                              {Size=5:5, Type=CHARACTERS}
+     A 5 character abbreviation of the temple in which LDS temple ordinances are
+     performed.  (See LDS Church publication, 'Come unto Christ through Temple
+     Ordinances and Covenants' for a table of valid abbreviations.)
+
+TEXT:=                                      {Size=1:247, Type=CHARACTERS}
+     A string composed of any valid character or string of characters in the GEDCOM
+     character set.
+
+TIME_VALUE:=                                {Size=1:10, Type=CHARACTERS}
+     [ hh:mm:ss.fs ]
+     The time of a specific event, usually a computer timed event where:
+     hh = hours on a 24 hour clock
+     mm = minutes
+     ss = seconds
+     fs = decimal fraction of a second, 2 digits.
+
+
+TIME_PERIOD:=
+     [ FROM <REGULAR_DATE> TO <REGULAR_DATE> | FROM <REGULAR_DATE> |
+       TO <REGULAR_DATE> ]
+
+     The choice "FROM <REGULAR_DATE>" indicates a range from a beginning date to an
+     indifinite future date.  The choice "TO <REGULAR_DATE>" indicates from an
+     indefinite beginning to a specified date.
+
+TITLE:=                                     {Size=1:90, Type=CHARACTERS}
+     A descriptive, general name or formal designation used by an individual.
+
+TRANSLATED_BY_NAME:=                        {Size=1:120, Type=CHARACTERS}
+     The name of the person that translated someone else's words into the language
+     as it appears in the source being cited.
+
+TRANSMISSION_DATE:=                         {Size=10:11, Type=CHARACTERS}
+     <EXACT_DATE>
+     The date that this transmission was created.
+
+USER_REFERENCE_NUMBER:=                     {Size=1:20, Type=CHARACTERS}
+     A user-defined number or text that the submitter uses to identify this record. 
+     For instance it may be a record number within the submitter's automated or
+     manual system, or a page and position number on a pedigree chart.
+
+VERSION_NUMBER:=                            {Size=1:15, Type=CHARACTERS}
+     An identifier which represents the version level assigned to the associated
+     product.  It is defined and changed by the creators of the product.
+
+XREF:=                                      {Size=1:15, Type=CHARACTERS}
+     A XREF is either of type pointer or of type cross reference identifier.  If
+     the enclosed value appears before the tag in a GEDCOM-line, then it is a cross
+     reference identifier type.  If it appears after the tag in a GEDCOM-line, then
+     it is a pointer type.  The method of delimiting a pointer or cross reference
+     identifiers in a GEDCOM-line is to enclose  the pointer or cross reference
+     identifier within at-signs "@", i.e. @I123@.  A XREF may not begin with a
+     pound sign "#".  This is to avoid confusion with an escape sequence prefix
+     "@#".  The colon ":" is reserved for future network reference.                 
+                                                            
+XREF:ANY:=                                  {Size=1:15, Type=CHARACTERS}       
+   <XREF>                                                                     
+   This pointer is a universal pointer meaning that it may point to any       
+   other cross reference identifier type.                                     
+                                                                              
+XREF:EVEN:=                                 {Size=1:15, Type=CHARACTERS}       
+   <XREF>                                                                     
+   A pointer to, or a cross reference identifier of, a source event   
+   record.                                                                    
+                                                                              
+XREF:FAM:=                                  {Size=1:15, Type=CHARACTERS}
+     <XREF>
+     A pointer to, or a cross reference identifier of, a family record.
+
+XREF:INDI:=                                 {Size=1:15, Type=CHARACTERS}
+     <XREF>
+     A pointer to, or a cross reference identifier of, an individual record.
+
+XREF:NOTE:=                                 {Size=1:15, Type=CHARACTERS}
+     <XREF>
+     A pointer to, or a cross reference identifier of, a note record.
+
+XREF:REPO:=                                 {Size=1:15, Type=CHARACTERS}
+     <XREF>
+     A pointer to a REPOsitory, a SUBMitter, or an INDIvidual record, or a cross
+     reference identifier of a repository record.
+
+XREF:SOUR:=                                 {Size=1:15, Type=CHARACTERS}
+     <XREF>
+     A pointer to a SOURce, a SUBMitter, or an INDIvidual record, or a cross
+     reference identifier of a source record.
+
+XREF:SUBM:=                                 {Size=1:15, Type=CHARACTERS}
+     <XREF>
+     A pointer to a SUBMitter, or an INDIvidual record, or a cross reference
+     identifier of a submitter record.
+
+YEAR:=                                      {Size=3:4, Type=NUMBER}
+     A numeric representation of the calendar year in which an event occurred. 
+     Years less than 3 digits long will be treated as a number in a phrase.
+
+COMPATIBILITY WITH PREVIOUS GEDCOM VERSIONS
+
+Roots III and GRIOT Alternative products implemented a source citation structure
+prior to GEDCOM release 5.0 which is slightly incompatible.  Compatibility with
+these products may be maintained by doing the following:
+
+1.   Treat a TITL tag as if it were a SOUR tag.
+2.   Treat the text value of a TITL tag at level 0 as if it were the value of the
+     NAME tag within the SOURce enclosure.Chapter 3
+                              GEDCOM TRANSMISSION FILE
+
+INTRODUCTION
+
+This chapter contains information you need to implement GEDCOM transmissions.  This
+includes examples for creating header and trailer records, and for the conventions
+in naming your transmission file.
+
+HEADERS AND TRAILERS IN THE GEDCOM TRANSMISSION
+
+An example of how the header and trailer records appear in GEDCOM lineage-linked
+format is shown below:
+                  Cross-Ref.
+            Level ldentifier Tag    Value
+            0                HEAD
+            1                SOUR   PAF
+            2                VERS   2.1
+            1                GEDC
+            2                VERS   5.0
+            2                FORM   LINEAGE-LINKED
+            1                DEST   ANSTFILE
+            1                SUBM   @R1@
+            0     @1@        INDI
+            1                NAME   John Ouentin/Doe/
+            1                SEX    Male
+            1                BIRT
+            2                DATE   1836
+            2                PLAC   Illinois
+            1                DEAT
+            2                DATE   24 Oct 1905
+            2                PLAC   Idaho Falls, Bonneville, Idaho
+            1                FAMS   @4@
+            0     @2@        INDI
+            1                NAME   Mary Ann/Wilson/
+            1                SEX    Female
+            1                BIRT
+            2                DATE   1838
+            1                FAMS   @4@
+            0     @3@        INDI
+            1                NAME   Joe /Doe/
+            1                SEX    Male
+            1                BIRT
+            2                DATE11 June 1861
+            2                PLAC   Idaho Falls, Bonneville, Idaho
+            1                FAMC   @4@
+            0     @4@        FAM
+            1                HUSB   @1@
+            1                WIFE   @2@
+            1                MARR   License
+            2                DATE   Dec 1881
+            1                CHIL   @3@
+            0                TRLR
+The example on the preceding page is a sample transmission of genealogical
+information about three individuals who are members of the same family (lineage)--
+husband, wife, and child. The lines making up the information appear between the
+header (HEAD) and trailer (TRLR) records.
+
+
+WHY HEADERS AND TRAILERS ARE USED
+
+GEDCOM data format is used to transfer a wide variety of data to a wide variety of
+computer systems. The Family History Department's Receiving and Routing System uses
+header and trailer records to route the information in each GEDCOM transmission to
+the right place. In the sample at the beginning of this chapter, PAF (SOUR) 2.1
+(VERS)--the sending system name and version--is routing the information to ANSTFILE
+(Ancestral File)--the destination (DEST). To enable processing of GEDCOM
+transmission at any family history centers, the SOUR system name must be registered
+with the Family History Department GEDCOM coordinator.  Destination system names
+will depend on the purpose for the transmission and can also be obtained from the
+GEDCOM coordinator. (See GEDCOM Coordinator's address on the title page.)
+
+Header and trailer records also include other information to help an application
+software system process the data in the transmission.  For example, a character set
+default for the entire transmission is set in the header using the appropriate
+escape sequence for selecting the desired character set (see chapter 5). The header
+and trailer are separate from any other protocols attached to the transmission by an
+electronic communications network.
+
+HOW TO USE A HEADER
+
+Use a header to begin every GEDCOM transmission. A header has both required and
+optional GEDCOM lines. Each line begins with a level number and a tag (in capital
+letters) and may be followed by a value.
+
+
+Required Lines
+
+The following are the lines required in all GEDCOM transmission headers.
+
+      Example:
+      Level Tag   Value
+      0     HEAD
+      1     SOUR  PAF
+      2     VERS  2.1
+      1     DEST  ANSTFILE
+      1     SUBM  @R1@        note: @R1@ is a pointer to a submitter record.
+      1     GEDC
+      2     VERS  5.0
+
+*     HEAD 
+      The first line of a transmission always has the level number 0 and contains
+      the tag HEAD. No value is specified. All other lines in the header are at
+      subordinate levels--level 1 in the example above.
+
+*     SOUR
+      At level 1 a transmission always contains the tag SOUR. The value for the
+      SOURce line is the resource identifier (the name of the system or file that
+      sends the transmission)  A source resource identifier can be in upper and
+      lower case with a length of from 1 to 40 characters.  At level 2 below SOUR is
+      a VERS tag to specify the version level of the source system. (A resource
+      identifier is a single string of alphanumeric characters that identify any
+      system, file, etc. that may participate in a GEDCOM transmission as either a
+      sender or a receiver.)  The value (name of the sending file) for the sample
+      SOURce line above is PAF 2.1 (Personal Ancestral File, release 2.1).
+
+      The receiving and routing function of the Family History Department associates
+      the resource identifier with the actual locations of sender and receiver. This
+      permits relocation of systems and files without modification of the systems
+      that initiate transmissions, or of data containing pointers to records in
+      other systems. The resource identifier is assigned by the Data Administration
+      section of the Family History Department.
+      *     VERS
+            Under SOURce, VERSion is a short phrase identifying which release of
+            the product generated the transmission.  The phrase is defined by the
+            creator of the product. i.e., VERS 2.1.
+
+*     DEST
+      The value for the DESTination line is required when sending data to the Family
+      History Department for adding records to the ancestral file or for submitting
+      records to TempleReady processing.  This tag value is the resource identifier
+      (the name of the system or file to which the transmission is being sent).   A
+      source resource identifier can be in upper and lower case with a length of
+      from 1 to 40 characters.For example, the value (name of the receiving file)
+      for the sample DESTination line in the preceding examples is ANSTFLE,
+      indicating that this transmission is destined for the Ancestral File.  The
+      value for submitting data to the TempleReady system is "TempleReady".
+
+*     SUBM
+      This tag is required and points to a submitter record that is included in the
+      transmission.  The submitter record should be in the form as prescribed by the
+      Submitter structure in chapter 2.
+
+*     GEDC
+      *     VERS
+            VERSion under the GEDC tag is a short phrase identifying which release
+            of the GEDCOM Standard document was used for the specification for the
+            product's GEDCOM implementation.  For this release the VERS line  is
+            "VERS 5.0".
+
+Optional Header Lines
+
+You may include optional lines in GEDCOM transmission headers, depending on your
+need or preference for additional information. One or more optional lines would
+immediately follow the DEST line. The four optional lines shown below are possible
+optional lines for the sample transmission on page 3-1. They can occur in any order.
+
+      Example:
+      Level Tag   Value
+      1     DATE  3 APR 1989
+      1     TIME  13:01
+      1     CHAR  @#ANSEL@
+      1     FILE  YOUNG.GED
+
+*     DATE
+      This line contains the date the sender generated the GEDCOM transmission. (For
+      more information about the date value, see chapter 4, "How To Record Dates".
+
+*     TIME
+      This line contains the time the sender generated the GEDCOM transmission.  The
+      value is the time (military time) the file was created. (For more information
+      about the time value, see chapter 4 "How To Designate Time" section.)
+
+*     CHAR
+      This line is used to change the default character set of an entire
+      transmission to another character set. 
+
+      Example:
+            Lvl   Tag   Value
+            0     HEAD
+            1     SOUR  PAF 2.1
+            1     DEST  ANSTFILE
+            1     CHAR  ANSEL
+
+
+      The value is the name of the character set. The designation ANSEL is the name
+      (value) for the GEDCOM default character set "8-Bit ANSEL". (See chapter 5 for
+      more information about character sets.)
+
+      If you use the default character set, the required lines of your GEDCOM
+      transmission (the header and trailer) will be coded in 8-Bit ANSEL characters
+      restricted to decimal codes 10 (line feed), 13 (carriage return), and 32
+      through 126 (printable characters). The characters specified will be identical
+      to those in the 7-Bit ASCII (USA version) character set.
+
+      If the computer you are using to send the transmission cannot accommodate the
+      default character set, you must convert all required header lines to it (8-Bit
+      ANSEL) before sending the transmission to a computer that can accommodate the
+      default character set.
+
+      A change of character sets, whether in the header or in the body of the data,
+      is effective only for a single transmission. All subsequent transmissions will
+      be in the default character set unless it is changed.
+
+*     FILE
+      This line contains the name of the GEDCOM transmission file generated by the
+      sender.  The value is the name of the file.
+
+HOW TO USE A TRAILER
+
+Use a trailer to end your transmission. A GEDCOM transmission must always be
+terminated by one line containing the tag TRLR (trailer) with the level 0. No value
+is specified for this line.
+
+
+NAMING YOUR TRANSMISSION FILE
+
+The GEDCOM transmission data are normally created on DOS compatible diskettes.  By
+convention the filename extention (the 3 characters after the period ".") is "GED". 
+Macintosh filenames does not use any file extention in their naming.
+
+MULTIPLE DISKETTE FILE NAMES
+
+When the GEDCOM file is too large to fit on a single diskette, the file is divided
+after any whole-line (last character is the terminator), and the filename
+extension is changed from "GED" to "G##" where "##" is "00" for the second disk,
+"01" for the third, etc. (See example below.)  This allows the receiving software to
+ensure that disks are read in the correct sequence.
+
+By convention, Macintosh filenames use parens "()" to set apart each diskette with a
+different consecutive filename.  Therefore, Macintosh filenames consist of just the
+user-supplied name for the first disk, then the user-supplied name concatenated with
+"(##)" for subsequent disks where "##" is "00" for the second disk, "01" for the
+third disk, etc. (See example below.)
+
+Given that the user- supplied portion of the file name is "SMITH", complete
+filenames for a three-disk transmission would be:
+
+      Disk  DOS Filename            Macintosh Filename
+      1     SMITH.GED               SMITH
+      2     SMITH.G00               SMITH(00)
+      3     SMITH.G01               SMITH(01)
+
+The GEDCOM TRLR (trailer) record appears only on the final disk (see Chapter 2).
+                                     Chapter 4
+                                    GEDCOM VALUES
+
+INTRODUCTION
+
+This chapter contains information you need to implement GEDCOM values. You will find
+an explanation about the purpose of these values and how to use them when creating a
+transmission. An example of how they appear in GEDCOM lineage-linked format is shown
+here.
+
+      Example:
+            Cross-Ref.
+      Level Identifier  Tag    Value*
+
+      0                 HEAD
+      1                 SOUR   PAF
+      2                 VERS   2.1
+      1                 DEST   ANSTFILE
+      0     @1@         INDI
+      1                 NAME   John Quentin/Doe/
+      1                 SEX    Male
+      1                 BIRT
+      2                 DATE   1836
+      2                 PLAC   Illinois
+      1                 DEAT
+      2                 DATE   24 Oct 1905
+      2                 PLAC   Idaho Falls, Bonneville, Idaho
+      1                 FAMS   @4@
+      0     @2@         lNDI
+      1                 NAME   Mary Ann/Wilson/
+      1                 SEX    Female
+      1                 BIRT
+      2                 DATE   1838
+      2                 PLAC   Iowa
+      1                 FAMS   @4@
+      0     @3@         INDI
+      1                 NAME   Joe/Doe/
+      1                 SEX    Male
+      1                 BlRT
+      2                 DATE   11 June 1861
+      2                 PLAC   Idaho Falls, Bonneville, Idaho
+      1                 FAMC   @4@
+      0     @4@         FAM
+      1                 HUSB   @1@
+      1                 WIFE   @2@
+      1                 MARR
+      2                 DATE   Dec 1881
+      1                 CHIL   @3@
+      0                 TRLR
+
+The preceding example is a sample transmission of genealogical information about
+three individuals who are members of the same family (lineage)--husband, wife, and
+child.
+WHY VALUES ARE USED
+
+Values provide the actual raw data that is put in context by the proper use of the
+GEDCOM-tags so that the data can be properly represented.  In the example on the
+preceding page, "Joe/Doe/" is the value specified by the tag NAME under the INDI tag
+which is identified as "@3@".  Other values in other lines, such as the birth date
+and place, provide additional information about Joe Doe. The values "@4@" specified
+by the FAMC tag is a pointer to the FAMily record identified by "@4@" of which Joe
+Doe is a child.
+
+The following value types have been defined so as to represent information about
+individuals, families, events, and relationships in a standard way: (Other value
+types will be defined as the need develops.)
+
+      *     Names Values
+                  Enclosed by the NAME tag.
+      *     Dates Values
+                  Enclosed by the DATE tag.
+      *     Places Values
+                  Enclosed by the PLAC tag.
+      *     Events Values
+                  Enclosed by the DEAT, BURI, BIRT, CHR, MARR, EVEN, and other
+                  event tags.
+      *     Descriptor
+                  Event Values
+                        Used to further define the kind of event.
+                  Relationship Values
+                        Used to define a relationship.
+                  Association Values
+                        Used to define an association.
+                  Systems designed to display data from a GEDCOM format should
+                  display the descriptor values as well as the subordinate context
+                  values.
+
+      *     Information Values
+                        Text values enclosed by SOURce and NOTE enclosures to
+                        provide supporting facts about the enclosing information or
+                        values enclosed by tags that were defined to provide
+                        additional facts pertaining to an individual, i.e. RELIgion
+                        and OCCUpation tag values.
+      *     Pointers Values
+                        A marker within a value field which points to other
+                        enclosures (structures) of the same value time.
+      *     Miscellaneous Values
+                        Used to support routing, processing, and routing.
+      *     Resource Identifier Values
+                        Uniquely identifies SOURce or DESTination systems or
+                        products.  Resource identifiers are recommended by the
+                        systems creator and registered by the GEDCOM coordinator.
+
+This chapter explains how to record these different value types in a lineage-linked
+format, to preserve the relationship of the individuals and to properly format the
+support information included in the GEDCOM transmission.
+GUIDELINES FOR USING VALUES
+
+Values are optional and of variable length upto a maximum GEDCOM-line length of 255
+(this includes the length of the non-value components of a line).  Place each value
+in the line with its tag. The value must appear after the space following the tag.
+End each value by using a terminator as described later in this chapter. 
+
+The value component may consist of any alpha, numeric, or other characters, except
+the escape-sequence prefix symbol "@#" or the escape-delimiter "@".  These symbols
+have reserved meanings to the GEDCOM processor defined in the "ESCAPE SEQUENCES"
+section below.  The at sign "@" is used for an escape mechanism to identify
+pointers, character set changes, calendar changes, or other shifts in representation
+rules.  To include the at sign "@" as data, two of them should be sent together
+"@@", which represent a single at sign "@" as data.
+
+Corresponding structures or lines (same tag structure) are used to record
+information that contains different opinions about the same item.  The preferred
+data is listed first so that systems or reports that only accomodate a single value
+will show the preferred occurance.  The existence of other possible values may be
+indicated in system output with a leading plus "+" sign, if desired.  
+
+ESCAPE SEQUENCES
+The escape-sequence symbol "@#" allows for special processing including the
+inclusion of non-GEDCOM data.  Currently four classes of escape sequences have been
+defined (see chapter 1 for exact grammar):
+
+      *     "@#C....."  for character-set changes.
+
+      *     "@#D....."  for calendar date changes.
+
+      *     "@#L..XXX"  for indicating a non-GEDCOM inclusion of XXX bytes.
+
+      *     "@#F..file name" for indicating a inclusion of data from a file.
+
+HOW TO RECORD NAMES OF INDIVIDUALS
+
+Use the name value with the NAME tag to provide the actual name of an individual.
+The following example shows how name values provide the information indicated by the
+tag. These values can appear with varying level numbers.
+
+      Example:
+      Lvl   Tag   Value
+      1     NAME  John Quentin/Doe/
+
+A name consists of a string of one or more name parts, separated by spaces, or by a
+slash "/" in the case of the surname. Capitalize the name of a person or place in
+the conventional manner--capitalize the first letter of each part and lowercase the
+other letters, unless conventional usage is otherwise. For example: McMurray.
+
+Record the name pieces in the order they are spoken; the surname follows the given
+name(s), unless the name is traditionally spoken in some other order. The surname is
+Immediately preceded and followed by a slash "/".  In cultures where there is no
+distiction between surnames and given names, slashes "/" should not be used.
+
+      Examples:
+
+      William Lee/Parry/     (Parry is surname)
+      William/Parry/Lee      (Surname Parry spoken in middle)
+      /Parry/                (No given names)
+      William                (No surname)
+      William/Lee Parry/     (Lee Parry is surname)
+
+If diacritics or special characters are present in a name, preserve them in the
+manner referred to in chapter 5, "GEDCOM Character Sets."
+
+Use ellipses--three periods "..."--to indicate missing or illegible name pieces.
+      
+      Examples:
+      William Lee/Pa.../            (Part of surname is illegible)
+      William .../Parry/            (Second given name is illegible)
+
+Names of individuals who were known by different names should be recorded in the
+manner shown below:
+
+      Example:
+      Lvl   Tag   Value
+      0     INDI
+      1     NAME  George/Lowther/
+      1     NAME  Geoff/Louder/
+
+
+HOW TO RECORD DATES
+
+
+Calendar
+
+You specify a calendar for a date by following these three steps:
+
+      1.    Start with the escape sequence indicator "@#" and a "D".
+      2.    Type the name of the calendar.
+      3.    End the designation with the terminator "@".
+
+      Example:
+      @#DARABIC@        Arabic calendar
+      @#DHEBREW@        Hebrew calendar
+      @#DFRENCH R@      French Republic calendar
+      @#DGREGORIAN@     Gregorian calendar
+      @#DJULIAN@        Julian calendar
+      @#DROMAN@         Roman calendar
+      @#DUNKNOWN@       date from unknown calendar
+
+For further information about approved calendars, contact the GEDCOM coordinator,
+see GEDCOM Coordinator's address on the title page.
+
+DATES
+Place the date in the same line as the DATE tag, immediately after the space
+following the tag. Dates are of two kinds: regular and irregular. 
+
+Regular dates are bonafide dates in a controlled format from the conventional
+Gregorian calendar. Follow this procedure to record these dates:
+
+            29 FEB 1960      10 JAN 1802
+            1 JUN 1802       1802
+
+Type the day (one or two characters) first, then the month (capitalize the first
+three letters of the English name of the month; do not use a period at the end), and
+then the year (four-character numeric year). The day and month may be omitted if
+unknown.
+
+Irregular dates or dates that cannot fit the controlled date format. Irregular dates
+are typically treated as unformatted strings of characters. Record them exactly as
+they appear in the source. The following are some of the irregular date types and
+examples:
+      *     A date from a calendar other than the conventional Gregorian calendar.
+            Identify this date with "@#D" and the name of the calendar.
+                  Examples:
+                  @#DRoman@MDCCCXV
+                  @#DHebrew@26TAM5742
+
+      *     Pre-1752 English calendar
+                  Examples:
+                  4/5 January 1751/52
+                  24 7ber 1725
+
+      *     Partial date (except where only the year is known; a year alone
+            constitutes a regular date) 
+                  Example:
+                  5 June (year missing)
+
+      *     Illegible date.
+                  Example:
+                  5 June... (year present but illegible)
+
+      *     Ambiguous date
+                  Example:
+                  7-12-84 (July 12th or December 7th?; 1984 or 1884?)
+
+      *     Approximate date
+                  Examples:
+                  ABT 1850
+                  BEF 3 MAR 1913
+                  BET 1904 AND 1905
+
+      *     Date range
+                  Example:
+                  FROM 1904 TO 1905
+                  FROM 1904 (indefinite future)
+                  TO 1905 (indefinite beginning)
+
+      *     Feast date
+                  Example:
+                  2 days after Easter, 1690
+
+      *     Dates for eras B.C. (before Christ) are recorded with the indicator
+            B.C. appended after the date.  A.D. (anno domini) dates are assumed if
+            the B.C. indicator is missing.
+
+                  Example:
+                  600 B.C.
+
+HOW TO RECORD PLACES (Localities)
+
+A place name consists of one or more jurisdiction names (indicating one or more
+units In a political, ecclesiastical, or geographical hierarchy). Each jurisdiction
+name may consist of one or more name pieces (separated by spaces, such as Idaho
+Falls). Each name making up the full name is separated from the other by a comma (a
+space following each comma is optional).
+
+The following examples show how place names appear in a GEDCOM transmission.
+
+      Examples:
+      Lvl   Tag   Value
+      2     PLAC  Illinois
+      2     PLAC  Idaho Falls,Bonneville,Idaho
+      2     PLAC  Chicago, Illinois
+      2     PLAC  Iowa
+
+Follow these three steps to record the names of places:
+
+1.    Place the actual name of the place or locality in the same line as the PLAC
+      tag, after the space that Immediately follows the tag.
+
+2.    List the jurisdictions in order of increasing size, smallest first. The number
+      of jurisdictions varies, depending on the source.
+
+      *     If an intermediate jurisdiction is known to exist, but its name cannot
+            be determined, indicate its absence by using adjacent commas. For
+            example, a city and state may be given, but not a county.
+
+            Example:
+            Green,, New York
+
+      *     If the country referred to in the data, and the countries in which the
+            data is prepared or used, are different, be sure the place name
+            includes the country jurisdiction or an internationally recognized
+            abbreviation, without periods.
+
+            Example:
+            Salt Lake City, Salt Lake, Utah, USA
+
+3.    Spell the name Pieces exactly as they appear in the source.
+
+      *     Use the capitalization that appears in the source.
+      *     If a name listed on the original record appears to be misspelled, be
+            sure to preserve this spelling. Do not change it.
+
+            Example:
+            Green, Chenango County, Now York
+            (Do not change Now to New; leave it Now.)
+      *     If part or all of a place name is illegible, use ellipses--three
+            periods "..."--to indicate exactly what part of the name is illegible.
+
+            Example:
+            Green, ...ango County, New York
+
+HOW TO RECORD EVENTS
+
+Use the tag that is the name of the event you want to record, if the tag for that
+event is in the appendix. For example, use BIRT for birth. If the tag is not in the
+appendix, use the event tag--EVEN. Then specify the name of the event as the value.
+Dates and places of events are usually recorded as related GEDCOM lines. Here is an
+example of an event and related Information:
+      Example:
+      Lvl   Tag   Value
+      1     BIRT
+      2     DATE  1836
+      2     PLAC  Illinois
+      1     EVEN  Service in World War II
+      2     DATE  12 Oct 1942 to 5 Aug 1945
+
+HOW TO DESIGNATE TIME
+
+Use the time value to identify when a request was sent or when the event occurred.
+Use this value with the TIME tag. Time information is part of the header record (see
+chapter 3 for more information about the header). Follow these steps to designate
+time:
+
+1.    Place the time value--the time local to the event--in the same line as the
+      TIME tag, after the space immediately following the tag.
+
+2.    Be sure to use 24-hour clock (military time) notation. Put the hour of the day
+      first, then the number of minutes into the hour, and optionally the number of
+      seconds into the minute.  Separate each level with a colon ":" character.
+
+      Examples:
+      Lvl   Tag   Value
+      0     HEAD
+      1     SOUR  PAF
+      1     TIME  13:25:10
+      0     INDI
+      1     BIRT
+      2     DATE  12 June 1950
+      3     TIME  14:53
+HOW TO USE POINTERS
+
+Use pointers to show how information in one or more lines of a GEDCOM transmission
+is related to information in another line of the same transmission.  Each pointer
+must contain exactly the same characters as its corresponding cross-reference
+identifier (which occurs only once in the cross-reference identifier component in
+order to "point" to the desired relationship. Multiple (identical) pointers can
+appear in any record to point to the same cross-reference identifier.
+
+      *     Use each pointer with the tag and level number that corresponds to the
+            appropriate line of information.
+
+      *     Be sure that the pointer follows the tag in the same line and that it
+            appears after the space Immediately following the tag.
+
+      *     Begin and end each pointer with the delimiter symbol "@".
+
+      Examples:
+            @121@       @DE@
+            @X-x@       @F1-1@
+
+In the example below the pointer "@1@" in the HUSBAND tag in the second line of the
+family record refers to the individual whose name is John Quentin Doe in the first
+individual record. The pointer "@1@" points to the cross-reference identifier "@1@"
+to show this relationship. The characters for the pointer and the corresponding
+cross-reference identifier are identical.
+
+      Example:
+      Lvl   Identifer   Tag  Value
+      0     @1@   INDI
+      1           NAME  John Quentin/Doe/
+      0     @4@   FAM
+      1           HUSB  @1@
+
+You can use most alpha, numeric, or other characters to create pointers--including
+your computer's own native keys, or record numbers from its internal data base
+structure. You cannot, however, use the following three characters:
+
+*     "@" (the delimiter symbol)
+*     "#" (the number sign, also known as the U.S. pound sign, which is ASCII code
+      35)
+*     The terminator symbol (see the Terminator section later in this chapter.)
+*     The colon character ":" usage within pointers is reserved (See the syntax for
+      xref_id and pointer in chapter 1 ).
+
+HOW TO USE OTHER VALUES
+
+Character Set
+
+Two standard character sets are used most often for GEDCOM transmissions': 8-Bit
+ANSEL and ASClI.  The default character set is 8-Bit ANSEL--Extended Latin Alphabet
+Coded Character Set for Bibliographic Use (American National Standards [ANSI]
+Z39.47-1985)--because it handles a wider variety of diacritics and special
+characters than any other character set.
+
+If your transmission does not require diacritics, you may wish to use ASCII (USA
+version--ANSI 8 Bit), if your computer already supports it. In the future, you will
+be able to use the binary character set to facilitate transmission of photographs
+and other bit-mapped graphics. Other character sets can also be used for the
+transmissions. You will find more information about character sets in chapter 5,
+"Using Character Sets in GEDCOM".
+
+You can change the character set any time in any system associated with any data. To
+change the character set, follow the procedure outlined in chapter 5.
+
+A GEDCOM line must contain a terminator which cannot occur as data in a value.
+
+Terminator
+
+The terminator marks the end of a GEDCOM line--it separates one line from another. A
+terminator (not visible on the screen) produces a line feed. In ANSEL, the
+terminator symbol is the line feed (decimal code 10 or hex code 0A) or carriage
+return (decimal code 13 or hex code 0D), or a combination of the two.  The
+terminator is an invisible carriage-return character in the examples used in this
+document.
+                                      Chapter 5
+                           USING CHARACTER SETS IN GEDCOM
+
+INTRODUCTION
+
+This chapter lists and explains the character sets that can be used with GEDCOM. It
+also provides the escape sequences and conventions required to change from one
+character set to another during a transmission.
+
+This specification does not include implementation methods for multilingual
+processing, such as keyboard arrangements, sorting sequences, or character and
+graphic representations (font styles, proportional spacing, etc.) on the CRT or
+Printers.
+
+
+WHY VARIOUS CHARACTER SETS ARE USED
+
+GEDCOM accommodates several standard character sets to facilitate the sharing of
+diverse genealogical data in many different languages, and to meet different user
+needs. These character sets are listed and explained below.
+
+
+8-Bit ANSEL--The Default Character Set
+
+The 8-Bit ANSEL (American National Standard for Extended Latin Alphabet Coded
+Character Set for Bibliographic Use, Z39.47, 1985 copyright) is the default
+character set for GEDCOM. It is used for all transmissions of information, unless
+another character set is specified.
+
+The 8-Bit ANSEL is a standard of the American National Standards Institute (ANSI).
+It is the only character set that will handle a wide variety of diacritics and
+special characters for Romanized languages. (A diacritic is a graphic mark, Point,
+or sign used with alphabetic graphic characters to distinguish them by form or
+sound.) GEDCOM accommodates all diacritics that are included in Family History
+Department computer systems text and bibliographic information. Use the 8-Bit ANSEL
+character set when your transmission must preserve the full integrity of original
+Roman-alphabetic
+languages, including diacritics and special characters.
+
+The 8-Bit ANSEL is also known by two other names: (1) the American National Standard
+for Extended Latin Alphabet Coded Character Set for Bibliographic Use (American
+National Standards [ANSI] Z39.47-1985) and (2) the American Library Association
+character set, widely used in library systems, including the MARC (Machine-Readable
+Catalog) format.
+
+You will find the standard for 8-Bit ANSEL on the last five pages of this chapter.
+It is reproduced with permission from the American National Standards Institute.
+Copies of this character set may be purchased from the American National Standards
+Institute at 1430 Broadway, New York, N.Y. 10018.
+
+The standard 8-Bit ANSEL includes the following which is shown in table form in
+Appendix B of this document:
+
+      *     An 8-Bit Code Table consisting of ANSEL and ASCII codes, page B-1
+      *     An explanation of the codes, page B-2
+      *     ANSEL Nonspacing Graphic Characters, page B-3
+      *     ASCII Control Characters, page B-4
+      *     ASCII Graphic Characters, page B-5
+
+Character-set codes 0 through 127 are the same for 8-Bit ANSEL and 8-Bit ASCII (USA
+version--ANSI 8 Bit). Character-set codes 128 through 255 are unique to the ANSEL
+character set.
+
+ASCII (USA version) (ANSI 8 Bit)
+
+If you have no need for diacritics or special characters, and if you are not
+transmitting binary data, you will find it convenient to use ASCII (USA version--
+ANSI 8 Bit) if your computer already supports it. This is a standard of the American
+National Standards Institute (ANSI). Most of the normal printable characters of
+ANSEL and ASClI (USA version--ANSI 8 Bit) are identical.
+
+Binary and Other Character Sets
+
+When requested, binary formats for transmission of photographs and other bit-mapped
+graphics will be defined or adopted.
+
+How to Change Character Sets
+
+The procedure for changing character sets depends on whether you wish to change the
+character set for an entire transmission, or for just part of a transmission.
+
+For an Entire Transmission
+
+To change the character set for an entire transmission, do two things:
+
+      1.    Specify the new character set in the character set line of the header
+            record. (For more information about the header record, see chapter 3.)
+
+      2.    Use the one-word name of the character set you want, following the CHAR
+            tag in the same line.
+
+      The example below shows the specification in the header record.
+
+      Example:
+
+      Lvl   Tag   Value
+      0     HEAD
+      1     SOUR  PAF
+      2     VERS  2.1
+      1     DEST  ANSTFILE
+      1     CHAR  ASCII
+
+For Part of a Transmission
+
+To change the character set for part of a transmission, follow this procedure:
+
+      1.    Select the registered one-word name approved for the character set you
+            want for your transmission. GEDCOM transmissions are automatically sent
+            in 8-Bit ANSEL, unless you specify another character set. Following are
+            the one-word names already registered for this designation the
+            character set being used:
+
+            *     ANSEL.  8-Bit ANSEL character set (default)
+            *     ASCII.  ASCII (USA version--ANSI 8 Bit)
+            *     BINARY. Binary data (future use)
+
+      2.    Make sure the character set appears on the same line as the rest of the
+            data for the character set.
+
+            Example:
+            @#CASCII@.  This is the designation for the character set for ASCIl
+                        (USA version--ANSI 8 Bit) with the symbols that begin and
+                        end it.
+
+      3.    Designate the character set. Begin with the escape-sequence symbol
+            followed by "C" (C for character set).  The escape-sequence symbol is a
+            combination of a "C", an "@" and a "#" to form "@#C". Then type the
+            name of the character set. End the designation with a "@" (the
+            terminator for the escape-sequence), as shown in the examples below:
+
+            Examples:
+            @#CANSEL@   8-Bit ANSEL character set (default)
+            @#CASCII@   ASCII (USA version) (ANSI 8 Bit)
+            @#CBINARY@  Binary data (future use)
+
+      The first three characters "@#C" alert the computer that information will be
+      sent or received in a new character set. The actual change in character set
+      starts with the first character that follows the closing "@". This change is
+      in effect until the length indicated has been reached, the end-of-transmission
+      symbol (TRLR) has been encountered, or another change in character set is
+      specified. 
+
+      If you are using the default character set (8-Bit ANSEL), make sure that all
+      diacritic and special characters immediately precede the character they are to
+      be associated with. If you are using a character set other than ANSEL, or if
+      the data must change from one character set to another, indicate the change by
+      using a character-set change escape sequence.
+
+            Example:
+            (space)@#CASCII@
+
+      The escape sequence is context insensitive and may appear anywhere, as many
+      times as needed.
+For more information about character sets, see the following:
+
+*     Genealogical Department Internal Memorandum, from GIS Administrative Council
+      to GIS User's Committee Regarding Diacritics and the Genealogical Information
+      System. 13 January 1986.
+
+*     Extended Latin Alphabet Coded Character Set for Bibliographic Use. American
+      National Standards (ANSI) Z39.47, 1985.
+
+*     8-Bit ASCII--Structure and Rules." American National Standards (ANSI)X3.134.1-
+      198x.
+
+*     "7-Bit and 8-Bit ASCII Supplemental Multilingual Graphic Character Set (ASCII
+      Multilingual Set)" (manuscript). American National Standards (ANSI), X3.134.2-
+      198x.
+
+                                    Appendix A
+                        LINEAGE-LINKED GEDCOM TAG DEFINITION
+
+Introduction
+
+Appendix A is a glossary of the tags approved for use with Lineage-Linked GEDCOM.
+(See chapter 2 for an example of the tags in context that describes the Lineage-
+Linked structure.)  Every tag must be used within the context shown to ensure
+uniformity in the identification of all information transmitted by means of GEDCOM.
+
+The tags are of various types, depending on their role or use in a transmission.
+They are used to identify individuals, families, names, dates, places, events,
+roles, sex, sources, relationships, control codes and other kinds of data for
+computers, computer programs, and computer systems.
+
+The definition for each tag is generally broad enough to cover all uses of the tag.
+Other tags have been defined for structures other than those used in the Lineage-
+Linked Grammar.  These tags were not included in Appendix A. For a list of these,
+contact the GEDCOM Coordinator.
+
+Any new tag needed to enhance the Lineage_Linked form for system specific purposes
+may be used and will not violate the Lineage-Linked GEDCOM standard as long as the
+approved standard Lineage-Linked GEDCOM grammar context is not violated.  System
+builders should register these tags and their definitions with the GEDCOM
+Coordinator at the address listed on the title page of this document.  The
+Coordinator will evaluate the feasibility of including them as a part of the next
+release of the standard.  Suggestions and proposed additions are welcome.  Use the
+form "GEDCOM New Tag Proposal" (PFGS3709) provided at the end of the appendix. Be
+sure to check the appendix carefully first--the tag in question may already be
+defined.
+
+
+Lineage-Linked GEDCOM Tag Definitions
+
+In this section the standardized GEDCOM tag and its longer name appear prior to the
+delimiter ":=".  The long name of the tag is shown inside of the braces "{}".  The
+definition of the GEDCOM tag is shown on a new line following the delimiter ":=".
+
+ADDR {ADDRESS} :=
+      The contemporary place, usually for postal purposes, of an individual, a
+      submitter of information, a repository, a business, a school, or a company.
+
+ADOP {ADOPTION} :=
+      The event of a legal creation of the child-parent relationship that does not
+      biologiclly exist.
+
+AFN {AFN} :=
+      A unique permanent record file number of an individual record stored in the
+      Ancestral File.                            
+
+AGE  {AGE} :=
+      The age of the individual at the time an event occured, or the age listed in
+      the document.
+
+ALIA {ALIAS} :=
+      Indicates, by a cross reference pointer, that another record is suspected of
+      being the same person.  When the suspicions are confirmed drop the alias line,
+      combine all data into one record, and delete the other record.
+
+ANCI {ANCES_INTEREST} :=
+      Indicates the submitter that has interest in research to identify additional
+      ancestors of this individual. (See also DECI.)
+
+ANUL {ANNULMENT} :=
+      An event declaring a marriage void from the beginning (never existed).
+
+ASSO {ASSOCIATES} :=
+      Identifies friends, neighbors, or associates of an individual.
+
+AUTH {AUTHOR} :=
+      The name of the individual who created or compiled information.
+                                                                             
+BAPL {BAPTISM-LDS} :=
+      The event of baptism performed at age eight or later by priesthood authority
+      of The Church of Jesus Christ of Latter-day Saints. (See also BAPM.)
+
+BAPM {BAPTISM} :=
+      The event of baptism (not LDS), performed in infancy or later. (See also BAPL
+      and CHR.
+
+BARM {BAR_MITZVAH} :=
+      The ceremonial event held when a Jewish boy reaches age 13.
+
+BASM {BAS_MITZVAH} :=
+      The ceremonial event held when a Jewish girl reaches age 13, also known as
+      "Bat Mitzvah".
+
+BIRT {BIRTH} :=
+      The event of entering into life.
+
+BLES {BLESSING} :=
+      A religious event of bestowing divine care, intercession, etc.
+
+BURI {BURIAL} :=
+      The event of the proper disposing of the mortal remains of a deceased person.
+
+BUYR {BUYER} :=
+      A person who purchased or purchases from another.
+                                                                                     
+CALN {CALL_NUMBER} :=
+      The number used by a repository to identify the specific items in its
+      collections.CAST {CASTE} :=                                                                
+   The name of an individual's rank or status in society, based    
+   on racial or religious differences, or differences in wealth, inherited    
+   rank, profession, occupation, etc.
+
+CEME {CEMETARY} :=
+      The name of the cemetery or other resting place where an individual is buried.
+
+CENS {CENSUS} :=
+      The event of the periodic count of the population for a designated locality,
+      such as national or state Census.
+
+CHAN {CHANGE} :=
+      Indicates a change, correction, or modification. Typically used in connection
+      with a DATE to specify when a change occured.
+
+CHAR {CHARACTER} :=
+      An indicator of the character set used in writing this automated information.
+
+CHIL {CHILD} :=
+      The natural, adopted, or sealed offspring of a father and a mother.
+
+CHR  {CHRISTENING} :=
+      The religious event (not LDS) of baptising and/or naming a child. 
+
+CHRA {ADULT_CHRISTNG} :=
+      The religious event (not LDS) of baptizing and/or naming an adult person.
+
+CNTC {CONTACT_PERSON} :=
+      The name of a person that is listed as the contact person at an institution
+      such as a repository, college, business, etc.
+
+CONF {CONFIRMATION} :=
+      The religious event (not LDS) of conferring the gift of the Holy Ghost and,
+      among protestants, full church membership.
+CONL {CONFIRMATION_L} :=
+      The religious event by which a person receives the gift of the Holy Ghost and
+      becomes a member of The Church of Jesus Christ of Latter-day Saints.
+
+CONT {CONTINUED} :=
+      An indicator that additional value information follows and is to be
+      concatenated with the value of the superior tag.
+
+COPR {COPYRIGHT} :=
+      A statement that accompanies data to protect it from unlawful duplication and
+      distribution.
+
+CPLR {COMPILER} :=
+      The name of the person that compiled writings of others.
+
+DATA {DATA} :=
+      Stored automated information.
+
+DATE {DATE} :=
+      The time of an event.
+
+DEAT {DEATH} :=
+      The event when mortal life terminated.
+
+DECI {DESC_INTEREST} :=
+      Indicates the submitter that has interest in research to identify additional
+      decendants of this individual. (See also ANCI.)
+
+DESR {PHY_DESCRIPTION} :=
+      The physical characteristics of a person, place, or thing.
+
+DEST {DESTINATION} :=
+      A place or system receiving data, material, or a person.
+
+DIV  {DIVORCE} :=
+      An event of dissolving a marriage through civil action.
+
+DIVF {DIVORCE_FILED} :=
+      An event of filing for a divorce by a spouse.
+
+EDTR {EDITOR} :=
+      The name of a person who edited information.
+
+ENDL {ENDOWMENT} :=
+      A religious event where an ordinance for an individual was performed by
+      priesthood authority in a LDS Temple.
+
+ENGA {ENGAGEMENT} :=
+      An event of recording or announcing an agreement between two people to become
+      married.
+
+EVEN {EVENT} :=
+      A noteworthy happening related to an individual, a group, or an organization.
+
+FAM {FAMILY} :=
+      Identifies a relationship of husband and wife and their children, if any.
+
+FAMC {FAMILY_CHILD} :=
+      Identifies the family in which an individual appears as a child.
+
+FAMS {FAMILY_SPOUSE} :=
+      Identifies the family in which an individual appears as a spouse.
+
+FATH {FATHER} :=
+      Identifies the male parent in a family.
+
+FIDE {FIDELITY} :=
+      An assessment of the exactness or trustworthiness of information. (An oppion
+      of how close this information is to the original.)
+
+FILE {FILE} :=
+      A storage place that is ordered and arranged for preservation and reference.
+
+FILM {FILM_NUMBER} :=
+      An assigned, unique number used to identify film.
+
+FORM {FORMAT} :=
+      An assigned name given to a consistent format in which information can be
+      understood.  
+
+GEDC {GEDCOM} :=
+      A collection of records and fields tagged with standardized labels that
+      provides the context and meaning of the enclosed data.
+
+GRAD {GRADUATION} :=
+      An event of awarding an educational diplomas or degrees to individuals.
+
+HDOH {HEAD_HOUSEHOLD} :=
+      Identifies a person whose role was recorded as "head of household" for an
+      event such as a census.
+
+HEAD {HEADER} :=
+      Identifies beginning information for the recognition and processing of data
+      within a transmission.
+
+HEIR {HEIR} :=
+      An individual who inherited or is entitled to inherit an estate.
+
+HUSB {HUSBAND} :=
+      An individual in the family role of a married man.
+
+INDI {INDIVIDUAL} :=
+      A person.
+
+INDX {INDEXED} :=
+      Specifies information about an index.
+
+INFT {INFORMANT} :=
+      An individual who reported facts concerning an event.
+
+INTV {INTERVIEWER} :=
+      The person who facilitated, recorded, and obtained information during an
+      interview.
+
+ITEM {ITEM} :=
+      Refers to a unit within a set of things that belong together.  The unit itself
+      may be made up of other objects but collectively they are referred to as an
+      unit (item) of the set. Such as a group of papers filmed together under one
+      header page is referred to as an item on a film.
+
+LANG {LANGUAGE} :=
+      The name of the language used in a communication or transmission of
+      information.
+
+LCCN {LIB_CONGRS_CALL} :=
+      The number assigned by the U.S. Library of Congress to a holding.
+
+MARB {MARRIAGE_BANN} :=
+      An event of an official public notice given that two people intend to marry.
+
+MARC {MARR_CONTRACT} :=
+      An event of recording a formal agreement of marriage, including the prenuptial
+      agreement in which marriage partners reach agreement about the property rights
+      of one or both, securing property to their children.
+
+MARL {MARR_LICENSE} :=
+      An event of obtaining a legal license to marry.
+
+MARR {MARRIAGE} :=
+      An event of creating a family unit of a man and a woman as husband and wife.
+
+MEDI {MEDIA} :=
+      The medium used to store or transmit information.
+
+MOTH {MOTHER} :=
+      Identifies the female parent in a family.
+
+NAME {NAME} :=
+      A word or combination of words used to help identify an individual, title, or
+      other item.
+
+NAMR {NAME_RELIGIOUS } :=
+      A name given to an individual to be used in association with one's religious
+      obligations.
+
+NAMS {NAME SAKE} :=
+      Identifies the person that an individual is named after to perpetuate the
+      person's name.
+
+NATI {NATIONALITY} :=
+      The national heritage of an individual.
+
+NATU {NATURALIZATION } :=
+      The event of obtaining citizenship.
+
+NCHI {CHILDREN_COUNT } :=
+      The number of children that this person is known to be the parent of.
+
+NMR {MARRIAGE_COUNT } :=
+      The number of times this person has been married.
+
+NOTE {NOTE} :=
+      Additional information provided for understanding the enclosing data.  This
+      information is either submitter opinion or other information foreign to the
+      context of the enclosing data.
+OCCU {OCCUPATION} :=
+      The type of work or profession of an individual.
+
+OFFI {OFFICIATOR} :=
+      A person acting in an authorized capacity as voice in performing an ordinance
+      or ceremony.
+
+ORDN {ORDINATION} :=
+      A religious event of receiving authority to act in religious matters.
+
+PAGE {PAGE} :=
+      A number or description to show the relationship of a specific data view
+      (page) has in relationship to the beginning of a document.
+
+PERI {PERIOD} :=
+      Indicates the range of time within which events that happened over time took
+      place.
+
+PHON {PHONE} :=
+      A unique set of numbers assigned to a given telephone.
+
+PLAC {PLACE} :=
+      A jurisdictional name to identify the place or location of an event.
+
+PROB {PROBATE} :=
+      An event of judicial determination of the validity of a will.
+
+PROP {PROPERTY} :=
+      The name of land and/or other properties possessed by this individual.
+
+PUBL {PUBLICATION} :=
+      A published work.
+
+PUBR {PUBLISHER} :=
+      The name of the company or individual who published a work.
+
+QUAY {QUALITY_OF_DATA} :=
+      An assessment of the reliability of information.
+
+RECO {RECORDER} :=
+      A person responsible for recording identifying data about an event, place, or
+      person.
+
+REFN {REFERENCE} :=
+      A description or number used to identify an item for filing, storage, or other
+      reference purposes.
+
+REFS {REFERENCED_SOUR} :=
+      A source that was referenced by the cited source but was not examined by the
+      submitter.  Examined sources are listed using a SOUR tag.
+
+REL  {RELATION} :=
+      A name of a relationship indicating the kinship.RELI {RELIGION} :=
+      A religious denomination to which a person is affiliated or for which a record
+      applies.
+
+REPO {REPOSITORY} :=
+      An institution that has the specified item as part of its collection(s).
+
+RETI {RETIREMENT} :=
+      An event of exiting an occupational relationship with an employer after a
+      qualifying time period.
+
+RFN  {REC_FILE_NUMBER} :=
+      A permanent number assigned to a record that uniquely identifies it within a
+      known file.
+
+ROLE {ROLE} :=
+      A name given to a role played by an individual in connection with an event.
+
+SELR {SELLER} :=
+      A person who sold or sells to another.
+
+SERS {SERIES} :=
+      Designates the volume within a series in which a given work is a part.
+
+SEX {SEX} :=
+      Indicates the sex of an individual--male or female.
+
+SIGN {SIGNATURE} :=
+      [ YES | N0 | SYMBOL_NAME ]
+      Used to identify information about an individual: the type of signature this
+      person used.
+      YES         =     This person knew how to sign his or her name.
+      NO          =     This person did not sign name or use a symbol.
+      SYMBOL_NAME =     The name of the symbol this person used as a signature.
+
+SLGC {SEALING_CHILD} :=
+      A religious event pertaining to the sealing of a child to his or her parents
+      in an LDS temple ceremony.
+
+SLGS {SEALING_SPOUSE } :=
+      A religious event pertaining to the sealing of a husband and wife in an LDS
+      temple ceremony.
+
+SOUR {SOURCE} :=
+      The initial or original material from which data originated or was obtained.
+
+STAT {STATUS} :=
+      An assesment of the state of affairs.
+                                                                              
+STIL {STILLBORN} :=
+      An event of birth delivery of a child who was dead.
+SUBM {SUBMITTER} :=
+      An individual or organization who contributes genealogical data to a file or
+      transfers it from one file to another.
+
+SUBN {SUBMISSION} :=
+      Refers to processing information pertaining to the data that was submitted
+      within a transmission.
+
+TEMP {TEMPLE} :=
+      The name or code that represents the name of a temple of The Church of Jesus
+      Christ of Latter-day Saints.
+
+TEXT {TEXT} :=
+      The exact wording of comments found in an original source document.
+
+TIME {TIME} :=   
+      A time value in a 24-hour clock format, including hours, minutes, and optional
+      seconds, separated by a colon ":", fractions of seconds are shown in decimal
+      notation.
+
+TITL {TITLE} :=
+      A descriptive, general name or formal designation used for an individual, in
+      addition to the individual's given and surnames.
+
+TRLR {TRAILER} :=
+      At level 0, specifies the end of a GEDCOM transmission.
+
+TXPY {TAX_PAYER} :=
+      A person who has been assessed a tax.
+
+TYPE {TYPE} :=
+      A classification name given to identify a group of people or objects because
+      they posses a set of similar attributes or characteristics.
+
+VERS {VERSION} :=
+      Indicates which variation of an item, publication, or product is being used or
+      referenced.
+
+WIFE {WIFE} :=
+      An individual in the family role of a married woman.
+
+WILL {WILL} :=
+      A legal document by which a person disposes of his or her estate, to take
+      effect after death.
+
+WITN {WITNESS} :=
+      An individual who attested that he or she saw an event take place.
+
+XLTR {TRANSLATOR} :=
+      The name of a person who translated words from one language to another.
