@@ -1,7 +1,7 @@
 {
     "GEDCOM":{
         "version":"7.0",
-		"HeaderRec":{
+		"header":{
             "FileCreation":{
                 "Date":"2 OCT 2000",
                 "Time":"15:20:2.3",

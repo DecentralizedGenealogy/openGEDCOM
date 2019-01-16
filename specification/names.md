@@ -5,12 +5,13 @@ In addition it's emparative that each name be represented with uniqness, having 
 
 This specification currently allows all current names to be uniqely defined, and allows the specification to infinatly grow as new situations are encountered.
 
-The C2D2 specificaiton was created by [http://www.cavanaughconsulting.org/richard-dick-ph-d/](Richard Dick, Ph.D.)
+The C2D2 specificaiton was created by [Richard Dick, Ph.D.](http://www.cavanaughconsulting.org/richard-dick-ph-d/)
 
 Complex Name Example
 Atomic Name Part Defintions
 
 ## Complex Name Example
+```
 "name": {
 	"value": "Rosa María Muñoz Gómez",
 	"D-NAM": [
@@ -54,29 +55,34 @@ Atomic Name Part Defintions
 		}
 	]
 }
+```
 
 ## Atomic Name Part Defintions
-NAM - Name String, such as it exists. Example:"Davis, Lance, Steven John
-LN - Last Name or Family Name String. Example:"Schlovinski"
-H-LN - Hyphenated Last Name String. Example:"Bjon-Schlovinski"
-FN - First Name or Given Name String. Example:"James"
-LN-PX - Last Name Prefix String. Example:"Von as in Von Neuman"
-MN - Middle Name String (Ind and Mod). Example:"Lewis"
-SUF1 - Last Name Suffix String. Example:"Jr., Esq."
-SUF2 - Last Name Academic Suffixes String. Example:"Ph.D., M.D., J.D."
-SUF3 - Last Name Professional Organization Suffixes String. Example:"PE, RHIA, RHIT"
-NUM - Numeration String. Example:"IV, XIV"
-TITLE - Titles String. Example:"Lord"
-PREF - Prefix/Salutation String. Example:"My Lord, Honorable, Dr, Ms."
-P-PRF - Preferred Prefix String. Example:"Lord, Dr"
-ALIAS - Any aliases used by the person. Example:"Mailman, Duke"
-P-AL - Preferred Alias Name String. Example:"Boss"
-MADN - Maiden Name String. Example:"Pitt"
-P-MN - Previous Maiden Name String. Example:"Bates"
-CP-MN - Current-Previous Married Name
-MLN - Maternal Last Name String. Example:"Bjon"
-PLN - Paternal Last Name String. Example:"Schlovinski"
-GEO - Geographic Attribute String. Example:"Tarsus (as in Saul of Tarsus)"
-AVO - Avocation Attribute String. Example:"Tent-maker (S. Tent Maker)"
-TRIB - Tribal data associate with name String. Example:"Navajo"
-D-NAM - Display/Print Name String. Example:"John Davidson or Orm, Dan"
+The following is a list of the atomic name parts that combined will make up a person's full name.
+
+Atomic Code | Description | Example
+--- | --- | ---
+NAM | Name String, such as it exists | "Davis, Lance, Steven John
+LN | Last Name or Family Name String | "Schlovinski"
+H-LN | Hyphenated Last Name String | "Bjon-Schlovinski"
+FN | First Name or Given Name String | "James"
+LN-PX | Last Name Prefix String | "Von as in Von Neuman"
+MN | Middle Name String (Ind and Mod) | "Lewis"
+SUF1 | Last Name Suffix String | "Jr., Esq."
+SUF2 | Last Name Academic Suffixes String | "Ph.D., M.D., J.D."
+SUF3 | Last Name Professional Organization Suffixes String | "PE, RHIA, RHIT"
+NUM | Numeration String | "IV, XIV"
+TITLE | Titles String | "Lord"
+PREF | Prefix/Salutation String | "My Lord, Honorable, Dr, Ms."
+P-PRF | Preferred Prefix String | "Lord, Dr"
+ALIAS | Any aliases used by the person | "Mailman, Duke"
+P-AL | Preferred Alias Name String | "Boss"
+MADN | Maiden Name String | "Pitt"
+P-MN | Previous Maiden Name String | "Bates"
+CP-MN | Current-Previous Married Name
+MLN | Maternal Last Name String | "Bjon"
+PLN | Paternal Last Name String | "Schlovinski"
+GEO | Geographic Attribute String | "Tarsus (as in Saul of Tarsus)"
+AVO | Avocation Attribute String | "Tent-maker (S. Tent Maker)"
+TRIB | Tribal data associate with name String | "Navajo"
+D-NAM | Display/Print Name String | "John Davidson or Orm, Dan"
