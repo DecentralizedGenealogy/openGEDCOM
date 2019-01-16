@@ -9,11 +9,12 @@ The C2D2 specificaiton was created by [Richard Dick, Ph.D.](http://www.cavanaugh
 
 [Atomic Name Part Defintions](#Atomic-Name-Part-Defintions)
 
-## Simple Name Example
+### Simple Name Example
 An overly simplified (but not recommended) way of representing a person's name
+
 `"name": { "value": "Sarah Jane Williams" }`
 
-## Complex Name Example
+### Complex Name Example
 A more complicated example of representing a Hispanic name with the complexities of the multiple surnames along with an academic title.
 ```
 "name": {

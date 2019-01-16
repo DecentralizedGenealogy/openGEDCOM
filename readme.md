@@ -7,7 +7,7 @@ GEDCOM 5.5.1 has become the de facto industry standard. All genelaogical softwar
 
 The GEDCOM 5.5.1 specificaiton has not changed since Oct 2 1999. The past 20 years have brought many new advances in technology that the GEDCOM standard is lacking. This project aims to bring the standard up to date, and make the standard open to the community so it will continue to be maintained.
 
-### [Table of contents for the full openGEDCOM specification](specification/index.md)
+### [Full openGEDCOM specification](specification/index.md)
 
 ### What changes are in openGEDCOM?
 - A naming standard developed by [Richard Dick, Ph.D.](http://www.cavanaughconsulting.org/richard-dick-ph-d/)called [C2D2](specification/names.md) that allows all names across all languages and cultures to be represented without ambiguity
