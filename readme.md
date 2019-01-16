@@ -10,7 +10,7 @@ The GEDCOM 5.5.1 specification has not changed since Oct 2 1999. The past 20 yea
 ### [Full openGEDCOM specification](specification/index.md)
 
 ### What changes are in openGEDCOM?
-- A naming standard developed by [Richard Dick, Ph.D.](http://www.cavanaughconsulting.org/richard-dick-ph-d/)called [C2D2](specification/names.md) that allows all names across all languages and cultures to be represented without ambiguity
+- A naming standard developed by [Richard Dick, Ph.D.](http://www.cavanaughconsulting.org/richard-dick-ph-d/) called [C2D2](specification/names.md) that allows all names across all languages and cultures to be represented without ambiguity
 - Support for digital media (audio, images, video, etc)
 - Use of the JSON industry standard instead of a proprietary file format
 - Native support for hyper-linking (ie sources, documents, media, etc.)
