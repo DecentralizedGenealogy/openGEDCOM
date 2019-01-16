@@ -11,6 +11,7 @@ The openGEDCOM file specification is a set of standards that allow the community
 * [Events](#events)
 
 ## Examples
+The following are examples of a full openGEDCOM. The Full example is more comprehensive, while the simplified one contains less meta data to provide a higher level view of the structure of the document.
 * [Full Example](specification/example_full.json)
 * [Simpified Example](specification/example_simple.json)
 
@@ -244,7 +245,7 @@ Family records compose relationships of the parents and children that makeup a f
 }
  ```
 ### Sources
-Sources contain an array of source information that provides evidence of the genealogicaly conclusions you make about the people in your openGEDCOM file.
+Sources contain an array of source information that provides evidence of the genealogical conclusions you make about the people in your openGEDCOM file.
 ```
 "sources":[
     {
