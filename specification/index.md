@@ -19,4 +19,4 @@ This specification is intentionally simple. There may be some ambiguity or assum
 The following are examples of a full openGEDCOM. The Full example is more comprehensive, while the simplified one contains less meta data to provide a higher level view of the structure of the document. The intent is that these files become a type of ["acid"](https://en.wikipedia.org/wiki/Acid3) test for software products to use as a guide in their implementation.
 
 * [Full Example](example_full.json)
-* [Simpified Example](example_simple.json)
+* [Simplified Example](example_simple.json)
