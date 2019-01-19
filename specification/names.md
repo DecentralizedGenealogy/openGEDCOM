@@ -10,12 +10,13 @@ The C2D2 specification was created by [Richard Dick, Ph.D.](http://www.cavanaugh
 [Atomic Name Part Definitions](#Atomic-Name-Part-Definitions)
 
 ### Simple Name Example
-An overly simplified (but not recommended) way of representing a person's name
+An overly simplified (not recommended) way of representing a person's name
 
 `"name": { "value": "Sarah Jane Williams" }`
 
 ### Complex Name Example
 A more complicated example of representing a Hispanic name with the complexities of the multiple surnames along with an academic title.
+
 ```
 "name": {
 	"value": "Rosa María Muñoz Gómez",
@@ -46,7 +47,7 @@ A more complicated example of representing a Hispanic name with the complexities
 				}
 			],
 			"SUF": [
-				{ "value": "Ph.D.",	"type": "Academic" }
+				{ "value": "Ph.D.", "type": "Academic" }
 			],
 			"CP-MN": [
 				{ "value": "Gómez" }
@@ -73,9 +74,7 @@ H-LN | Hyphenated Last Name String | "Bjon-Schlovinski"
 FN | First Name or Given Name String | "James"
 LN-PX | Last Name Prefix String | "Von as in Von Neuman"
 MN | Middle Name String (Ind and Mod) | "Lewis"
-SUF1 | Last Name Suffix String | "Jr., Esq."
-SUF2 | Last Name Academic Suffixes String | "Ph.D., M.D., J.D."
-SUF3 | Last Name Professional Organization Suffixes String | "PE, RHIA, RHIT"
+SUF1 | Last Name Suffix String | "Jr., Esq.", "Ph.D., M.D., J.D.", "PE, RHIA, RHIT"
 NUM | Numeration String | "IV, XIV"
 TITLE | Titles String | "Lord"
 PREF | Prefix/Salutation String | "My Lord, Honorable, Dr, Ms."

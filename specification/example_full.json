@@ -308,68 +308,6 @@
                 ]
             }
         ],
-        "LDSOrdRec":{
-            "Id":"OR001",
-            "Type":"SP",
-            "Participant":[
-                {
-                    "Link":{
-                        "Target":" IndividualRec ",
-                        "Ref":"IN001"
-                    },
-                    "Role":"father",
-                    "Living":"N"
-                },
-                {
-                    "Link":{
-                        "Target":" IndividualRec ",
-                        "Ref":"IN002"
-                    },
-                    "Role":"mother",
-                    "Living":"N"
-                },
-                {
-                    "Link":{
-                        "Target":"IndividualRec",
-                        "Ref":"IN003"
-                    },
-                    "Role":"child",
-                    "Living":"N"
-                }
-            ],
-            "OrdStat":[
-                {
-                    "Code":"submitted",
-                    "Date":"…"
-                },
-                {
-                    "Code":"cleared",
-                    "Date":"…"
-                },
-                {
-                    "Code":"completed",
-                    "Date":"7 APR 1982"
-                }
-            ],
-            "TempleCode":"CHICA",
-            "Place":"…",
-            "BasedOn":{
-                "Link":{
-                    "Target":"EventRec",
-                    "Ref":"…"
-                },
-                "Note":"…"
-            },
-            "ExternalID":{
-                "Type":"…",
-                "Id":"…"
-            },
-            "Submitter":"…",
-            "Note":"…",
-            "Evidence":"…",
-            "Enrichment":"…",
-            "Changed":"…"
-        },
         "ContactRec":[
             {
                 "Id":"CN001",

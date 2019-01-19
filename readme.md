@@ -5,15 +5,16 @@ GEDCOM 5.5 has become the de facto industry standard. All genealogical software 
 
 The GEDCOM 5.5 specification has not changed since Oct 2 1999. The past 20 years have brought many new advances in technology that the GEDCOM standard is lacking. This project aims to bring the standard up to date, and make the standard open to the community so it will continue to be maintained.
 
-### [Full openGEDCOM specification](specification/index.md)
+### [Full openGEDCOM specification](Specification/index.md)
 
 ### What changes are in openGEDCOM?
 - A naming standard developed by [Richard Dick, Ph.D.](http://www.cavanaughconsulting.org/richard-dick-ph-d/) called [C2D2](specification/names.md) that allows all names across all languages and cultures to be represented without ambiguity
-- Support for digital media (audio, images, video, etc)
-- Use of the JSON industry standard instead of a proprietary file format
+- Support for [digital media](Specification/sources.md#photo) (audio, images, video, etc)
+- Use of the JSON industry standard file format
 - Native support for hyper-linking (ie sources, documents, media, etc.)
-- Improved sourcing
-- Future extensibility
+- Improved [sourcing](Specification/sources.md)
+- Future [extensibility](Specification/extensions.md)
+- Support for [DNA](Specification/sources.md#dna)
 
 ### Can I start using openGEDCOM now?
 Yes and no. Please start to experiment with openGEDCOM. It needs to mature a little bit more and get community feedback and support. That's why it's still in a "draft" state. We hope to release version 7.0 soon.
@@ -24,7 +25,7 @@ Yes and no. Please start to experiment with openGEDCOM. It needs to mature a lit
 - Fork the repo, and begin to make suggestions and improvements through pull requests
 
 ### Example openGEDCOM file
-Here is a simplified example of an openGEDCOM file and should not be used as a reference for generating an openGEDCOM file ([see full specification](specification/index.md)).
+Here is a simplified example of an openGEDCOM file and should not be used as a reference for generating an openGEDCOM file ([see full specification](Specification/index.md)).
 ```
 {
     "GEDCOM": {
@@ -71,7 +72,7 @@ Here is a simplified example of an openGEDCOM file and should not be used as a r
 ### What about [GEDCOM X](http://www.gedcomx.org/)?
 FamilySearch released an open source project called GEDCOM X in 2011. GEDCOM X was designed to be a ["clean break from legacy GEDCOM and clearly communicates a new revision that is different in scope and technology"](http://www.gedcomx.org/FAQ.html). It is maintained by FamilySearch, and welcomes pull requests from the community.
 
-"*In August 2012 FamilySearch employee and GEDCOM X project leader Ryan Heaton dropped the claim that GEDCOM X is the new industry standard, and repositioned GEDCOM X as another FamilySearch open source project.* - [Tamura Jones](https://www.tamurajones.net/GEDCOMXNoIndustryStandard.xhtml)
+"*In August 2012 FamilySearch employee and GEDCOM X project leader Ryan Heaton dropped the claim that GEDCOM X is the new industry standard, and repositioned GEDCOM X as another FamilySearch open source project.* - [Wikipedia](https://en.wikipedia.org/wiki/GEDCOM#GEDCOM_X)
 
 openGEDCOM is community focused, and seeks to be maintained and supported by the entire genealogical industry.
 
