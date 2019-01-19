@@ -1,6 +1,6 @@
 {
     "GEDCOM":{
-        "version":"7.0",
+        "version":"7.0 draft",
 		"header":{
             "FileCreation":{
                 "Date":"2 OCT 2000",
@@ -124,43 +124,25 @@
             },
             {
                 "Id":"IN002",
-                "IndivName":[
-                    {
-                        "Name":"Neta Eskelson Allen",
-                        "NamePart":[
-                            {
-                                "Type":"title",
-                                "text":"Duchess"
-                            },
-                            {
-                                "Type":"given name",
-                                "Level":"3",
-                                "text":"Neta"
-                            },
-                            {
-                                "Type":"maiden name",
-                                "Level":"2",
-                                "text":"Eskelson"
-                            },
-                            {
-                                "Type":"surname",
-                                "Level":"1",
-                                "text":"Allen"
-                            }
-                        ],
-                        "IndNameVariation":{
-                            "Method":"romanji",
+                "name": {
+                    "value": "Neta Eskelson Allen",
+                    "parts": [
+                        {
+                            "FN": [
+                                { "value": "Neta" }
+                            ],
+                            "MN": [
+                                { "value": "Eskelson" }
+                            ],
+                            "LN": [
+                                { "value": "Allen" }
+                            ],
+                            "SUF": [
+                                { "value": "Duchess", "type": "title" }
+                            ]
                         }
-                    },
-                    {
-                        "Type":"alias",
-                        "text":"…"
-                    },
-                    {
-                        "Type":"nickname",
-                        "text":"…"
-                    }
-                ],
+                    ]
+                },
                 "Sex":"Female",
                 "living":"false",
                 "PersInfo":[
