@@ -1,7 +1,11 @@
 Subject: GEDCOM and Formal Standards Organizations
+
 From: [Bill Harten](https://www.linkedin.com/in/billharten/)
+
 Reply-To: Genealogical Data Communications Specs
+
 Date: Wed, 24 Jan 1996 11:53:52 -0700
+
 
 This information will become part of the Frequently Asked
 Questions information available by anonymous ftp at gedcom.org.
@@ -38,6 +42,9 @@ At the last meeting, John and I agreed that the IETF would not be a proper place
 
 For the present, it has seemed best to finish the long-awaited 5.5 release under the current process, and continue looking for an improved process while waiting to begin on GEDCOM 6.
 
+
 Bill Harten
+
 GEDCOM Product Manager
+
 January 24, 1996
