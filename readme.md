@@ -6,11 +6,11 @@ GEDCOM 5.5 has become the de facto industry standard. All genealogical software 
 The GEDCOM 5.5 specification has not changed since Oct 2 1999. The past 20 years have brought many new advances in technology that the GEDCOM standard is lacking. This project aims to bring the standard up to date, and make the standard open to the community so it will continue to be maintained.
 
 ### [Full openGEDCOM specification](specification/index.md)
-[Legacy examples and documents](legacydocuments/index.md)
+[Legacy examples and documents](legacy/index.md)
 
 ### What changes are in openGEDCOM?
 - A naming standard developed by [Richard Dick, Ph.D.](http://www.cavanaughconsulting.org/richard-dick-ph-d/) called [C2D2](specification/names.md) that allows all names across all languages and cultures to be represented without ambiguity
-- Support for [digital media](Specification/sources.md#photo) (audio, images, video, etc)
+- Support for [digital media](specification/sources.md#photo) (audio, images, video, etc)
 - Use of the JSON industry standard file format
 - Native support for hyper-linking (ie sources, documents, media, etc.)
 - Improved [sourcing](specification/sources.md)
