@@ -77,5 +77,5 @@ FamilySearch released an open source project called GEDCOM X in 2011. GEDCOM X w
 openGEDCOM is community focused, and seeks to be maintained and supported by the entire genealogical industry.
 
 ### Community Endorsements
-If you like where this project is headed, please consider putting down your name or organization to show support, and help build a community.
+Please consider putting down your name or organization to show support, and help build a community.
 * ?

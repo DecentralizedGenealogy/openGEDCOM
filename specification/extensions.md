@@ -2,6 +2,7 @@
 Extensions to the openGEDCOM spec can easily be accomplished by creating a new tag or attribute beginning with an underscore.
 
 **Example**
+```
 {
 	"_LDS": [
 		"baptism": {
@@ -46,3 +47,4 @@ Extensions to the openGEDCOM spec can easily be accomplished by creating a new t
 		},
 	]
 }
+```
