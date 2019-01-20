@@ -1,11 +1,11 @@
 # Names
-Representing a person's name in a data structure seems like a simple task. When you introduce the need to represent the name taking into consideration language, culture, and context it becomes more difficult.
+Representing a person's name in a data structure seems like a simple task. When you introduce the need to represent the name taking into consideration the context of language, culture, and time it becomes more difficult.
 
 In addition it's imperative that each name be represented with uniqueness, having no ambiguity with similar yet different names. This is what the **Composite Clinical Data Dictionary** (C2D2) naming standard allows us to do. It is done by breaking down each name to its atomic level, and building a fully qualified name by putting its atomic parts together in an elegant and simple fashion.
 
 This specification currently allows all current names to be uniquely defined, and allows the specification to infinitely grow as new situations are encountered.
 
-The C2D2 specification was created by [Richard Dick, Ph.D.](http://www.cavanaughconsulting.org/richard-dick-ph-d/)
+The C<sup>2</sup>D<sup>2</sup> specification was created by [Richard Dick, Ph.D.](http://www.cavanaughconsulting.org/richard-dick-ph-d/)
 
 [Atomic Name Part Definitions](#Atomic-Name-Part-Definitions)
 
@@ -19,7 +19,7 @@ A more complicated example of representing a Hispanic name with the complexities
 
 ```
 "name": {
-	"value": "Rosa María Muñoz Gómez",
+	"NAM": "Rosa María Muñoz Gómez",
 	"D-NAM": [
 		{
 			"sequence": "FN[0],FN[1],LN[0],CP-MN[0]",

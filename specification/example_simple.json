@@ -17,7 +17,7 @@
             {
                 "id": "IN002",
                 "name": {
-                    "value": "Sarah Jane Williams",
+                    "NAM": "Sarah Jane Williams",
                     "parts": [
                         {
                             "FN": [ { "value": "Sarah" } ],
