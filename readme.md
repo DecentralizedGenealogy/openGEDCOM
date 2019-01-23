@@ -9,7 +9,7 @@ The GEDCOM 5.5 specification has not changed since Oct 2 1999. The past 20 years
 [Legacy examples and documents](legacy/index.md)
 
 ### What changes are in openGEDCOM?
-- A naming standard developed by [Richard Dick, Ph.D.](http://www.cavanaughconsulting.org/richard-dick-ph-d/) called [C<sup>2</sup>D<sup>2</sup>](specification/names.md) that allows all names across all languages and cultures to be represented without ambiguity
+- A [naming standard](specification/names.md) developed by [Richard Dick, Ph.D.](http://www.cavanaughconsulting.org/richard-dick-ph-d/) that allows all names across all languages, cultures, and time to be represented without ambiguity
 - Support for [digital media](specification/sources.md#photo) (audio, images, video, etc)
 - Use of the JSON industry standard file format
 - Native support for hyper-linking (ie sources, documents, media, etc.)
@@ -46,10 +46,12 @@ Here is a simplified example of an openGEDCOM file and should not be used as a r
             { "id": "IN001" },
             {
                 "id": "IN002",
-                "name": {
-                    "NAM": "Sarah Jane Williams",
-                },
-                "sex": "female",
+                "name": [
+                    { "NAM": "Sarah Jane Williams" }
+                ],
+                "sex": [
+                    { "value": "female" }
+                ],
                 "living": "false"
             },
             { "id": "IN003" }
