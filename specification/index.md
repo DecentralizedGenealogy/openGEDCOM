@@ -14,7 +14,7 @@ This specification is intentionally simple. There may be some ambiguity or assum
 * [Events](events.md)
 * [User extensions](extensions.md)
 * [DNA](sources.md#dna)
-* [Digital Media](source.md#photo)
+* [Digital Media](sources.md#photo)
 * [Dates](dates.md)
 
 ## Examples
