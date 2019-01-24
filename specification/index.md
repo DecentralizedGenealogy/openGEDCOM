@@ -8,7 +8,7 @@ This specification is intentionally simple. There may be some ambiguity or assum
 * [Header](header.md)
 * [Names](names.md)
 * [Individuals](individuals.md)
-* [sex](sex.md)
+* [Sex](sex.md)
 * [Families](families.md)
 * [Sources](sources.md)
 * [Events](events.md)

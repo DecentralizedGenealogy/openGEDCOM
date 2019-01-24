@@ -24,7 +24,8 @@ Photos and other digital media can contain relative filesystem links or web URIs
     {
         "id": "SR005",
         "type": "dna",
-        "dnaType": "autosomal"
+        "dnaType": "autosomal",
+        "haplo": "B5a1a",
         "testingCompany": "23andme",
         "date": "",
         "URI": "http://23andme.com/dna.csv",

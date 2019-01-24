@@ -1,11 +1,9 @@
 # Names
 Representing a person's name in a data structure seems like a simple task. When you introduce the need to represent the name taking into consideration the context of language, culture, and time it becomes more difficult.
 
-In addition it's imperative that each name be represented with uniqueness, having no ambiguity with similar yet different names. It is done by breaking down each name to its atomic level, and building a fully qualified name by putting its atomic parts together in an elegant and simple fashion. This naming strategy was derrived from the **Composite Clinical Data Dictionary** (C<sup>2</sup>D<sup>2</sup>) developed by [Richard Dick, Ph.D.](http://www.cavanaughconsulting.org/richard-dick-ph-d/).
+In addition it's imperative that each name be represented with uniqueness, having no ambiguity with similar yet different names. It is done by breaking down each element or component of a name to its atomic level, and building a fully qualified name by putting its atomic parts together in an elegant and simple fashion. This naming strategy was derrived from the **Composite Clinical Data Dictionary** (C<sup>2</sup>D<sup>2</sup>) developed by [Richard Dick, Ph.D.](http://www.cavanaughconsulting.org/richard-dick-ph-d/).
 
-This specification currently allows all current names to be uniquely defined, and allows the specification to infinitely grow as new situations are encountered.
-
-<sup>[TODO: Provide links to more C2D2 documentation]</sup>
+This specification currently allows all current names to be uniquely defined, and allows the specification to infinitely grow as new situations are encountered (see "\_AVATAR" below).
 
 [Atomic Name Part Definitions](#Atomic-Name-Part-Definitions)
 

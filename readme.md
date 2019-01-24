@@ -64,7 +64,15 @@ Here is a simplified example of an openGEDCOM file and should not be used as a r
                     { "ref": "IN001", "role": "husband" },
                     { "Ref": "IN002", "role": "wife" }
                 ],
-                "date": { "text": "7 NOV 1834" },
+                "date": [
+                    {
+                        "value": "1/6/1965 03:14:00",
+                        "date": "1/6/1965",
+                        "time": "03:14:00",
+                        "zone": "America MST",
+                        "calendar": "gregorian"
+                    }
+                ]
             }
         ]
     }
