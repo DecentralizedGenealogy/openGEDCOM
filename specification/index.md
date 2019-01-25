@@ -12,10 +12,10 @@ This specification is intentionally simple. There may be some ambiguity or assum
 * [Families](families.md)
 * [Sources](sources.md)
 * [Events](events.md)
-* [User extensions](extensions.md)
 * [DNA](sources.md#dna)
 * [Digital Media](sources.md#photo)
 * [Dates](dates.md)
+* [User extensions](extensions.md)
 
 ## Examples
 The following are examples of a full openGEDCOM. The Full example is more comprehensive, while the simplified one contains less meta data to provide a higher level view of the structure of the document. The intent is that these files become a type of ["acid"](https://en.wikipedia.org/wiki/Acid3) test for software products to use as a guide in their implementation.

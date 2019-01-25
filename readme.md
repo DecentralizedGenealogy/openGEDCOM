@@ -5,6 +5,8 @@ GEDCOM 5.5 has become the de facto industry standard. All genealogical software 
 
 The GEDCOM 5.5 specification has not changed since Oct 2 1999. The past 20 years have brought many new advances in technology that the GEDCOM standard is lacking. This project aims to bring the standard up to date, and make the standard open to the community so it will continue to be maintained.
 
+The liberation of genealogical data will revolutionize the way family history is done, and will free the user community from the shackles of proprietary formats allowing this industry to flourish.
+
 ### [Full openGEDCOM specification](specification/index.md)
 [Legacy examples and documents](legacy/index.md)
 
@@ -12,18 +14,13 @@ The GEDCOM 5.5 specification has not changed since Oct 2 1999. The past 20 years
 - A [naming standard](specification/names.md) developed by [Richard Dick, Ph.D.](http://www.cavanaughconsulting.org/richard-dick-ph-d/) that allows all names across all languages, cultures, and time to be represented without ambiguity
 - Support for [digital media](specification/sources.md#photo) (audio, images, video, etc)
 - Use of the JSON industry standard file format
-- Native support for hyper-linking (ie sources, documents, media, etc.)
+- Native support for hyper-linking (i.e. relationships, sources, documents, events, media, etc.)
 - Improved [sourcing](specification/sources.md)
 - Future [extensibility](specification/extensions.md)
 - Support for [DNA](specification/sources.md#dna)
 
-### Can I start using openGEDCOM now?
-Yes and no. Please start to experiment with openGEDCOM. It needs to mature a little bit more and get community feedback and support. That's why it's still in a "draft" state. We hope to release version 7.0 soon.
-
-### How can I get involved?
-- Watch and Star this project
-- Ask questions and make suggestions using the Issues feature
-- Fork the repo, and begin to make suggestions and improvements through pull requests
+### Distributed Tree Model
+openGEDCOM natively supports referencing objects (persons, sources, events, media, etc) in other trees or database. This makes all the data more accessible. You can see this in the example below. The child in family `FM001` is not actually located inside the openGEDCOM file, it is contained in another user's tree or database. This allows better collaboration with other users and less duplication. As we stop duplicating and copying the family tree data around the Internet, the data will begin to gather in the locations where the best steward of that data can manage it. This will result in higher quality data, not to mention less frustration.
 
 ### Example openGEDCOM file
 Here is a simplified example of an openGEDCOM file and should not be used as a reference for generating an openGEDCOM file ([see full specification](specification/index.md)).
@@ -39,7 +36,7 @@ Here is a simplified example of an openGEDCOM file and should not be used as a r
             ]
             },
             "children": [
-                { "ref": "IN003" }
+                { "ref": "http://williamsfamily.example.com/tree/IN003" }
             ]
         },
         "individuals": [
@@ -53,8 +50,7 @@ Here is a simplified example of an openGEDCOM file and should not be used as a r
                     { "value": "female" }
                 ],
                 "living": "false"
-            },
-            { "id": "IN003" }
+            }
         ],
         "events": [
             {
@@ -78,6 +74,14 @@ Here is a simplified example of an openGEDCOM file and should not be used as a r
     }
 }
 ```
+
+### Can I start using openGEDCOM now?
+Yes and no. Please start to experiment with openGEDCOM. It needs to mature a little bit more and get community feedback and support. That's why it's still in a "draft" state. We hope to release version 7.0 soon.
+
+### How can I get involved?
+- Watch and Star this project
+- Ask questions and make suggestions using the Issues feature
+- Fork the repo, and begin to make suggestions and improvements through pull requests
 
 ### What about [GEDCOM X](http://www.gedcomx.org/)?
 FamilySearch released an open source project called GEDCOM X in 2011. GEDCOM X was designed to be a ["clean break from legacy GEDCOM and clearly communicates a new revision that is different in scope and technology"](http://www.gedcomx.org/FAQ.html). It is maintained by FamilySearch, and welcomes pull requests from the community.

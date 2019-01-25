@@ -22,7 +22,7 @@ The preferred order of the children pointers within a `families` structure is ch
                 "id": "IN001"
             }
         },
-        { "ref": "IN003" }
+        { "ref": "http://williamsfamily.example.com/tree/IN003" }
     ],
     "basedOn":{
         "link":[
