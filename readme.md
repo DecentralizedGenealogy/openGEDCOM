@@ -8,7 +8,6 @@ The GEDCOM 5.5 specification has not changed since Oct 2 1999. The past 20 years
 The liberation of genealogical data will revolutionize the way family history is done, and will free the user community from the shackles of proprietary formats allowing this industry to flourish.
 
 ### [Full openGEDCOM specification](specification/index.md)
-[Legacy examples and documents](legacy/index.md)
 
 ### What changes are in openGEDCOM?
 - A [naming standard](specification/names.md) developed by [Richard Dick, Ph.D.](http://www.cavanaughconsulting.org/richard-dick-ph-d/) that allows all names across all languages, cultures, and time to be represented without ambiguity
@@ -20,7 +19,7 @@ The liberation of genealogical data will revolutionize the way family history is
 - Support for [DNA](specification/sources.md#dna)
 
 ### Distributed Tree Model
-openGEDCOM natively supports referencing objects (persons, sources, events, media, etc) in other trees or database. This makes all the data more accessible. You can see this in the example below. The child in family `FM001` is not actually located inside the openGEDCOM file, it is contained in another user's tree or database. This allows better collaboration with other users and less duplication. As we stop duplicating and copying the family tree data around the Internet, the data will begin to gather in the locations where the best steward of that data can manage it. This will result in higher quality data, not to mention less frustration.
+openGEDCOM natively supports referencing objects (persons, sources, events, media, etc) in other trees or database. This makes all the data more accessible. You can see this in the example below. The child in family `FM001` is not actually located inside the openGEDCOM file, it is contained in another user's tree or database. This allows better collaboration with other users and less duplication. As we stop duplicating and copying the family tree data around the Internet, the data will begin to gather in the locations where the best steward of that data can manage it. This will result in higher quality data, and less user frustration.
 
 ### Example openGEDCOM file
 Here is a simplified example of an openGEDCOM file and should not be used as a reference for generating an openGEDCOM file ([see full specification](specification/index.md)).
@@ -89,6 +88,11 @@ FamilySearch released an open source project called GEDCOM X in 2011. GEDCOM X w
 "*In August 2012 FamilySearch employee and GEDCOM X project leader Ryan Heaton dropped the claim that GEDCOM X is the new industry standard, and repositioned GEDCOM X as another FamilySearch open source project.* - [Wikipedia](https://en.wikipedia.org/wiki/GEDCOM#GEDCOM_X)
 
 openGEDCOM is community focused, and seeks to be maintained and supported by the entire genealogical industry.
+
+### Legacy GEDCOM
+GEDCOM was a big milestone in the history of genealogy. It's legacy and history needs to be preserved. For those interested in past information and docments, this section is for you.
+[Legacy examples and documents](legacy/index.md)
+
 
 ### Community Endorsements
 Please consider putting down your name or organization to show support, and help build a community.
