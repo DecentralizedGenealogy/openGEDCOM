@@ -13,14 +13,14 @@ The liberation of genealogical data will revolutionize the way family history is
 - A [naming standard](specification/names.md) developed by [Richard Dick, Ph.D.](http://www.cavanaughconsulting.org/richard-dick-ph-d/) that allows all names across all languages, cultures, and time to be represented without ambiguity
 - Support for [digital media](specification/sources.md#photo) (audio, images, video, etc)
 - Use of the JSON industry standard file format
-- Native support for hyper-linking (i.e. relationships, sources, documents, events, media, etc.)
+- Native support for [Linked Data](https://en.wikipedia.org/wiki/Linked_data) (i.e. relationships, sources, documents, events, media, etc.)
 - Improved [sourcing](specification/sources.md)
 - Future [extensibility](specification/extensions.md)
 - Support for [DNA](specification/sources.md#dna)
 - Ability to preserve more provenance data around people, events, and sources.
 
 ### Distributed Tree Model
-openGEDCOM natively supports referencing objects (persons, sources, events, media, etc) in other trees or database. This makes all the data more accessible. You can see this in the example below. The child in family `FM001` is not actually located inside the openGEDCOM file, it is contained in another user's tree or database. This allows better collaboration with other users and less duplication. As we stop duplicating and copying the family tree data around the Internet, the data will begin to gather in the locations where the best steward of that data can manage it. This will result in higher quality data, and less user frustration.
+openGEDCOM natively supports the [Linked Data](https://en.wikipedia.org/wiki/Linked_data) model for referencing objects (persons, sources, events, media, etc) in other trees or database. This makes all the data more accessible. You can see this in the example below. The child in family `FM001` is not actually located inside the openGEDCOM file, it is contained in another user's tree or database. This allows better collaboration with other users and less duplication. As we stop duplicating and copying the family tree data around the Internet, the data will begin to gather in the locations where the best steward of that data can manage it. This will result in higher quality data, and less user frustration.
 
 ### Example openGEDCOM file
 Here is a simplified example of an openGEDCOM file and should not be used as a reference for generating an openGEDCOM file ([see full specification](specification/index.md)).

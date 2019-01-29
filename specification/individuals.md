@@ -4,12 +4,12 @@ An array of people that exist in the genealogical data set. The individual recor
 The individuals may be linked to from the `families` section. IDs for individuals should be unique to that individual within the file.
 
 ```
-"individuals":[
+"individuals": [
     {
-        "id":"IN001"
+        "id": "IN001"
     },
     {
-        "id":"IN002",
+        "id": "IN002",
         "name": {
             "value": "Neta Eskelson Allen",
             "parts": [
@@ -29,53 +29,53 @@ The individuals may be linked to from the `families` section. IDs for individual
                 }
             ]
         },
-        "Sex":"Female",
-        "living":"false",
-        "PersInfo":[
+        "Sex": "Female",
+        "living": "false",
+        "PersInfo": [
             {
-                "Type":"occupation",
-                "Information":"seamstress",
-                "Date":"FROM 1835 TO 1875"
+                "Type": "occupation",
+                "Information": "seamstress",
+                "Date": "FROM 1835 TO 1875"
             },
             {
-                "Type":"residence",
-                "Date":"FROM 10 JUL 1845 TO 25 MAY 1880",
-                "Place":"…"
+                "Type": "residence",
+                "Date": "FROM 10 JUL 1845 TO 25 MAY 1880",
+                "Place": "…"
             },
             {
-                "Type":"attribute",
-                "Information":"5 ft. 4 in. tall, blond hair, blue eyes, well mannered"
+                "Type": "attribute",
+                "Information": "5 ft. 4 in. tall, blond hair, blue eyes, well mannered"
             }
         ],
-        "AssocIndiv":{
-            "Link":{
-                "Target":"IndividualRec",
-                "Ref":"…"
+        "AssocIndiv": {
+            "Link": {
+                "Target": "IndividualRec",
+                "Ref": "…"
             },
-            "Association":"first ancestor",
-            "Note":"…",
-            "Citation":"…"
+            "Association": "first ancestor",
+            "Note": "…",
+            "Citation": "…"
         },
-        "DupIndiv":{
-            "Link":{
-                "Target":"IndividualRec",
-                "Ref":"…"
+        "DupIndiv": {
+            "Link": {
+                "Target": "IndividualRec",
+                "Ref": "…"
             },
-            "Note":"…",
-            "Citation":"…"
+            "Note": "…",
+            "Citation": "…"
         },
-        "ExternalID":{
-            "Type":"…",
-            "Id":"…"
+        "ExternalID": {
+            "Type": "…",
+            "Id": "…"
         },
-        "Submitter":"…",
-        "Note":"…",
-        "Evidence":"…",
-        "Enrichment":"…",
-        "Changed":"…"
+        "Submitter": "…",
+        "Note": "…",
+        "Evidence": "…",
+        "Enrichment": "…",
+        "Changed": "…"
     },
     {
-        "id":"IN003"
+        "id": "IN003"
     }
 ],
 ```

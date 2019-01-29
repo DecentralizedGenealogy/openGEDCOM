@@ -5,9 +5,11 @@ The `families` record is used to record marriages, unions, adoptions or whatever
 
 The preferred order of the children pointers within a `families` structure is chronological by birth.
 
+Note that person IN003 in the example below is referenced in another repo in a [Linked Data](https://en.wikipedia.org/wiki/Linked_data) fashion.
+
 
 ```
-"families":{
+"families": {
     "id":"FM001",
     "parents": [
         { "ref": "IN001" },
@@ -24,8 +26,8 @@ The preferred order of the children pointers within a `families` structure is ch
         },
         { "ref": "http://williamsfamily.example.com/tree/IN003" }
     ],
-    "basedOn":{
-        "link":[
+    "basedOn": {
+        "link": [
             {
                 "target":"EventRec",
                 "ref":"EV001"
@@ -37,49 +39,49 @@ The preferred order of the children pointers within a `families` structure is ch
         ],
         "note":"…"
     },
-    "externalID":[
+    "externalID": [
         {
-            "type":"AFN",
-            "id":"4S3469Q"
+            "type": "AFN",
+            "id": "4S3469Q"
         },
         {
-            "type":"submitter",
-            "id":"F8945"
+            "type": "submitter",
+            "id": "F8945"
         }
     ],
-    "note":"…",
-    "evidence":{
-        "citation":{
+    "note": "…",
+    "evidence": {
+        "citation": {
 
         }
     },
-    "enrichment":{
-        "citation":{
-            "link":{
-                "target":"SourceRec",
-                "ref":"SR002"
+    "enrichment": {
+        "citation": {
+            "link": {
+                "target": "SourceRec",
+                "ref": "SR002"
             },
-            "caption":"We Attend the Kunzle Family Reunion",
-            "whereInSource":"5 min, 15 sec into the video, to 10 min, 30 sec.",
-            "note":"Our family is featured about 5 minutes into the video."
+            "caption": "We Attend the Kunzle Family Reunion",
+            "whereInSource": "5 min, 15 sec into the video, to 10 min, 30 sec.",
+            "note": "Our family is featured about 5 minutes into the video."
         }
     },
-    "changed":[
+    "changed": [
         {
-            "date":"23 APR 1976",
-            "time":"13:25:12",
-            "note":"Record created"
+            "date": "23 APR 1976",
+            "time": "13:25:12",
+            "note": "Record created"
         },
         {
-            "date":"…",
-            "time":"…",
-            "contact":{
-                "link":{
-                    "target":"ContactRec",
-                    "ref":"…"
+            "date": "…",
+            "time": "…",
+            "contact": {
+                "link": {
+                    "target": "ContactRec",
+                    "ref": "…"
                 }
             },
-            "note":"Adopted child added"
+            "note": "Adopted child added"
         }
     ]
 }
