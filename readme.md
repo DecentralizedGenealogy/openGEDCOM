@@ -17,6 +17,7 @@ The liberation of genealogical data will revolutionize the way family history is
 - Improved [sourcing](specification/sources.md)
 - Future [extensibility](specification/extensions.md)
 - Support for [DNA](specification/sources.md#dna)
+- Ability to preserve more provenance data around people, events, and sources.
 
 ### Distributed Tree Model
 openGEDCOM natively supports referencing objects (persons, sources, events, media, etc) in other trees or database. This makes all the data more accessible. You can see this in the example below. The child in family `FM001` is not actually located inside the openGEDCOM file, it is contained in another user's tree or database. This allows better collaboration with other users and less duplication. As we stop duplicating and copying the family tree data around the Internet, the data will begin to gather in the locations where the best steward of that data can manage it. This will result in higher quality data, and less user frustration.

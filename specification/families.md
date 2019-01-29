@@ -12,7 +12,7 @@ The preferred order of the children pointers within a `families` structure is ch
     "parents": [
         { "ref": "IN001" },
         { "ref": "IN002" }
-    ]
+    ],
     },
     "children": [
         {

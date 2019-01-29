@@ -24,5 +24,5 @@ Gregorian dates are notated as Day/Month/Year (1/12/2000). Time is notated as Ho
 		"value": "甲子",
 		"calendar": "rural"
 	}
-],
+]
 ```

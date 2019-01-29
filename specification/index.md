@@ -10,6 +10,7 @@ This specification is intentionally simple. There may be some ambiguity or assum
 * [Individuals](individuals.md)
 * [Sex](sex.md)
 * [Families](families.md)
+* [Groups](groups.md)
 * [Sources](sources.md)
 * [Events](events.md)
 * [DNA](sources.md#dna)
