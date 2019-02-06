@@ -82,7 +82,7 @@ Here is a simplified example of an openGEDCOM file and should not be used as a r
 - Brevity over verbosity
 - The way we store genealogical information should not dictate what software we use
 - The Author and Reader of the data understand each other
-- Use a Linked Data format (ie JSON-LD)
+- Use a Linked Data format (ie [JSON-LD](https://json-ld.org/))
 
 ### Can I start using openGEDCOM now?
 Yes and no. Please start to experiment with openGEDCOM. It needs to mature a little bit more and get community feedback and support. That's why it's still in a "draft" state. We hope to release version 7.0 soon.
