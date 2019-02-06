@@ -1,8 +1,6 @@
 # openGEDCOM
 The openGEDCOM file specification is a set of standards that allow the community to interchange genealogical information without loss of meta data. This standard is not owned by any one entity. It is open and maintained by the community.
 
-This specification is intentionally simple. There may be some ambiguity or assumptions that are left up to the developer. Let's work as a community to make this robust enough to be useful, but not overly burdened with details and bureaucracy that detract from progress. Brevity over verbosity.
-
 ## Table of Contents
 * [Version](version.md)
 * [Header](header.md)
