@@ -21,3 +21,6 @@ The following are examples of a full openGEDCOM. The Full example is more compre
 
 * [Full Example](example_full.json)
 * [Simplified Example](example_simple.json)
+
+### Alternate Approach
+Another approach to an openGEDCOM specification could be using [schema.org](https://schema.org). Here is an [example](../schema.org/index.md) of how that would look.

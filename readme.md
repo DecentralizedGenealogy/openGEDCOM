@@ -78,7 +78,7 @@ Here is a simplified example of an openGEDCOM file and should not be used as a r
 ### Guiding Principles
 - Keep it simple
 - Work together as a community
-- Make this robust enough to be useful, but not overly burdened with details and bureaucracy
+- Make this [robust](https://en.wikipedia.org/wiki/Robustness_principle) enough to be useful, but not overly burdened with details and bureaucracy
 - Brevity over verbosity
 - The way we store genealogical information should not dictate what software we use
 - The Author and Reader of the data understand each other

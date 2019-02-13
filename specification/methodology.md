@@ -15,7 +15,7 @@ W3C Is a great example of how a governing body works together with the community
 ### Schema.org
 Schema.org could be harnessed and would allow openGEDCOM to be compatible with an already established and prolific set of vocabularies and syntax to aid in compatibility as well as ease of adoption for developers.
 
-Any areas where schema.org is lacking, we could [extend](https://schema.org/docs/extension.html) the vocabulary or attributes to reach our needs. One example would be [Person](https://schema.org/Person). Schema.org's Person Name is not robust enough to eliminate all ambiguity in representing a person's name. Thus we'd need to augment it with C2D2.
+Any areas where schema.org is lacking, we could [extend](https://schema.org/docs/extension.html) the vocabulary or attributes to reach our needs. One example would be [Person](https://schema.org/Person). Schema.org's Person Name is not robust enough to eliminate all ambiguity in representing a person's name. Thus we'd need to augment it with [C<sup>2</sup>D<sup>2</sup>](names.md).
 
 "Schema.org is a collaborative, [community](https://www.w3.org/community/schemaorg/) activity with a mission to create, maintain, and promote schemas for structured data on the Internet, on web pages, in email messages, and beyond."
 
