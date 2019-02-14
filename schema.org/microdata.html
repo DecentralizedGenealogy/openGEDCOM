@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>openGEDCOM Microdata Example</title>
+</head>
+<body>
+<h1>openGEDCOM Microdata Example</h1>
+	<p>This page is an example representation of how the following JSON-LD genealogical data could be stored in HTML as Microdata.</p>
+
+
+	<h2>JSON-LD Genealogical Data</h2>
+	<pre>
+{
+	"@context": "http://schema.org",
+	"@type": "Person",
+	"@id": "ID001",
+	"name": "Bob Jones",
+	"birthDate": "1845-02-12",
+	"deathDate": "1913-06-08",
+	"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Bob_Jones%2C_Sr.jpg/220px-Bob_Jones%2C_Sr.jpg",
+	"url": "https://en.wikipedia.org/wiki/Bob_Jones_Sr.",
+	"spouse": {
+			"@type": "Person",
+			"@id": "ID002",
+			"name": "Suzy Robinson"
+	},
+	"children": [
+		{
+			"@type": "Person",
+			"@id": "ID003",
+			"name": "Joey Jones"
+		},
+		{
+			"@type": "Person",
+			"@id": "ID004",
+			"name": "Sally Jones"
+		}
+	]
+}		
+	</pre>
+
+	<h2>Below is the HTML representation of the above JSON-LD data</h2>
+	<div itemscope itemtype ="http://schema.org/Person">
+		<img itemprop="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Bob_Jones%2C_Sr.jpg/220px-Bob_Jones%2C_Sr.jpg">
+		<h3 itemprop="name">Bob Jones</h3>
+		<b>Born</b><div itemprop="birthDate">1845-02-12</div>
+		<b>Death</b><div itemprop="deathDate">1913-06-08</div>
+		<p>Website: <a itemprop="url" href="http://bob.example.com">https://en.wikipedia.org/wiki/Bob_Jones_Sr.</a></p>
+
+		<p>
+			<b>Spouse</b>: <div itemprop="spouse" itemscope itemtype="http://schema.org/Person">Suzy Robinson</div>
+		</p>
+
+		<b>Children</b>
+		<ul itemprop="children" itemscope itemtype="http://schema.org/Person">
+			<li itemprop="child" itemscope itemtype="http://schema.org/Person">Joey Jones</li>
+			<li itemprop="child" itemscope itemtype="http://schema.org/Person">Sally Jones</li>
+		</ul>
+
+	</div>
+</body>
+</html>
