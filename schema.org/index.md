@@ -1,7 +1,7 @@
 # Schema.org as a foundation
 Schema.org is an established organziation with well defined schema objects (types). It is a collaborative, community activity with a mission to create, maintain, and promote schemas for [structured data](https://schema.org/docs/datamodel.html) on the Internet, on web pages, in email messages, and beyond.
 
-Another approach to developing a GEDCOM standard could be to take the existing schema.org definitions and packaging them up in a form specific to the genealogical industry.
+Another approach to developing a GEDCOM standard could be to take the existing schema.org definitions and packaging them up in a form specific to the genealogical industry. Similar to [Historical-Data.org](http://historical-data.org/)
 
 An advantage to this would be that the it could also be used to view the genealogical data in HTML in [Microdata](https://en.wikipedia.org/wiki/Microdata_(HTML)) format. [Microdata](https://schema.org/docs/gs.html#microdata_how) nests metadata within existing content on web pages. Search engines, web crawlers, and browsers can extract and process Microdata from a web page and use it to provide a richer browsing experience for users. Search engines benefit greatly from direct access to this structured data because it allows them to understand the information on web pages and provide more relevant results to users. Here is an [example of openGEDCOM in Microformat](https://decentralizedgenealogy.github.io/openGEDCOM/schema.org/microdata.html).
 

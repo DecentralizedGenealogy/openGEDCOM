@@ -16,6 +16,10 @@ The openGEDCOM file specification is a set of standards that allow the community
 * [Dates](dates.md)
 * [User extensions](extensions.md)
 
+## Other Standards
+* [Cousin List](cousins.md)
+* [Family Archive](familyarchive.md)
+
 ## Examples
 The following are examples of a full openGEDCOM. The Full example is more comprehensive, while the simplified one contains less meta data to provide a higher level view of the structure of the document. The intent is that these files become a type of ["acid"](https://en.wikipedia.org/wiki/Acid3) test for software products to use as a guide in their implementation.
 

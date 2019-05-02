@@ -30,9 +30,7 @@ The FHD has not pressured developers to follow GEDCOM. The user community, on th
 
 In 1989 and again in 1991, at NGS conferences, I held meetings with developers to gather input, inform them of progress, and to review the agreement that held us together. Specifically, I asked if we should continue the de facto approach, or whether they were ready to join us in a more formal process. Both times, the responses were the same as at first, and we continued with the de facto approach.
 
-At the GENTECH conference in 1993, I expressed our continued desire to involve more participants and to follow a more formal
-
-process. After this discussion, some mistakenly thought the FHD wanted to give up this activity to others, but our desire is to include more participants in a proven process, through an established standards organization, that has the staying power and recognized discipline to ensure long-term success.
+At the GENTECH conference in 1993, I expressed our continued desire to involve more participants and to follow a more formal process. After this discussion, some mistakenly thought the FHD wanted to give up this activity to others, but our desire is to include more participants in a proven process, through an established standards organization, that has the staying power and recognized discipline to ensure long-term success.
 
 In recent years, Jeri Steele and I independently asked the GEDCOM-L group how we might organize to accomplish this. Only one person responded. His suggestion was "Do it the way the internet does it". 
 
