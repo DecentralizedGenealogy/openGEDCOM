@@ -5,11 +5,11 @@ All fully qualified URIs contained in a Family Archive must be long lived and th
 
 ```
 {
-	"archive": [
+    "archive": [
         "creator": {
-			"name": "Bob Jones",
+            "name": "Bob Jones",
             "email": "bob@example.com",
-			"url": "http://example.com/familyarchive"
+            "url": "http://example.com/familyarchive"
         },
         "contents": [
             "photos": [ {...} ],
